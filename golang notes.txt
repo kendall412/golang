@@ -1,0 +1,8 @@
+How to find types
+https://play.golang.org/p/VaAPodMY0Yf
+
+scope
+https://play.golang.org/p/cJD1oyOIp4P
+
+multivariate return
+https://play.golang.org/p/ejypDEJr7ud
