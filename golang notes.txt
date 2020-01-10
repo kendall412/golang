@@ -6,3 +6,48 @@ https://play.golang.org/p/cJD1oyOIp4P
 
 multivariate return
 https://play.golang.org/p/ejypDEJr7ud
+
+variadic functions (more than one parameters), lexical elements
+https://play.golang.org/p/SrGEoZMwxUw
+
+unfurling variadic parameters (makes into slices (slice like python's list))
+https://play.golang.org/p/jBBdAxUhJEG
+
+defer
+https://play.golang.org/p/d6VjndBRrnT
+
+panic (error handling)
+https://play.golang.org/p/k3aF1hesZBj
+
+
+numeric types
+byte is alias for uint8
+rune is alias for int32
+https://golang.org/ref/spec#Numeric_types
+
+
+** MODULE **
+
+runtime
+https://play.golang.org/p/nf9UQp9aov_f
+https://golang.org/pkg/runtime/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Caleb Doxsey's An Introduction to Programming in Go
+https://www.golang-book.com/books/intro
+https://www.doxsey.net/
