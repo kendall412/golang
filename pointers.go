@@ -26,3 +26,4 @@ func main() {
 	// fmt.Printf("%p %p\n", *x, *y)
 	// %p prints the value of the pointer
 }
+

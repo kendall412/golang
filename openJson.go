@@ -2,14 +2,32 @@ package main
 
 import (
 	"fmt"
-	"encoding/json"
+	"os"
+	// "log"
+	// "encoding/json"
 )
 
-
-jfile,err := os.Open("test.json")
-
-if err != nil {
-	fmt.Println(err)
+// need a struct in place to put the imported json into
+type Config struct{
+	Database struct {
+		Host string `json:"host"`
+		Port string `json:"port"`
+	} `json:"database"`
+	Host string `json:"host"`
+	Port string `json:"port"`
 }
 
-fmt.Println(jfile)
+func LoadConfiguration(filename string) (Config, error) {
+	var config Config
+	configFile, err := os.Open(filename)
+	defer configFile.Close()
+	if err != nil {
+		return config, err
+	}
+	jsonParser := json.NewDecoder(configFile)
+	jsonParser.Decode(&config)
+}
+
+func main() {
+
+}
