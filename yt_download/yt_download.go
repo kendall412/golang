@@ -1,49 +1,84 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"log"
-	"os"
 	"os/exec"
 	"path/filepath"
 	"runtime"
 	"strings"
+	"time"
 )
 
+var paths = `{
+    "shinoo":"https://youtube.com/playlist?list=PLhGL5JwvKzCUgBTqnB-AUB_TAU2RbFNIR&si=sYu3gEOMGRPpBcMA",
+    "naami":"https://youtube.com/playlist?list=PLhGL5JwvKzCWiKZLT-8Ydi46_riEe-KRm&si=0MgpvJFFLyBD6fhd",
+    "woojin":"https://youtube.com/playlist?list=PLhGL5JwvKzCV5-OSq5ANnrjtEBEcV22aI&si=b8iNNfL2DWPHz7qW",
+    "wonoo":"https://youtube.com/playlist?list=PLhGL5JwvKzCX7kzYOhAgVgyTJMrga224h&si=aUw4EyGbsY_2BUbf"
+}`
+
 func main() {
+	// determin host operating system
+	MAC := false
+	LIN := false
 	opsys := runtime.GOOS
 	if strings.Contains(opsys, "darwin") {
-		MAC := true
-		fmt.Printf("Mac OS: %t\n", MAC)
+		MAC = true
 	} else if strings.Contains(opsys, "linux") {
-		LIN := true
-		fmt.Printf("Linux OS: %t\n", LIN)
+		LIN = true
 	}
 
-	// checking to see if the mp3 files already exist
-	targetFile := "Jungkook (정국) '3D (Feat. Jack Harlow)' Lyrics [C8vcCplJb1c].mp3"
-	if _, err := os.Stat(targetFile); err == nil {
-		fmt.Printf("File %s exist, download will not run.\n", targetFile)
+	fmt.Printf("MAC: %t, LIN: %t\n", MAC, LIN)
 
-	} else {
-		fmt.Printf("File %s does not exist. File will now be downloaded.\n", targetFile)
-		dl()
+	npath := openJsonMap(paths)
+	// require type assert from interface{} to string
+	var url string = npath["shinoo"].(string)
+	fmt.Println(url)
+
+	dest := "/Volumes/SHINOO"
+	rmAllFiles(dest)
+	time.Sleep(2)
+	// dl(dest, url)
+}
+
+func openJsonMap(urlJson string) map[string]interface{} {
+	var path map[string]interface{}
+
+	err := json.Unmarshal([]byte(urlJson), &path)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return path
+}
+
+func rmAllFiles(dest string) {
+	opt := "rm"
+	opt2 := "*.mp3"
+	files := filepath.Join(dest, opt2)
+
+	fmt.Printf("%s %s\n", opt, files)
+
+	_, err := exec.Command(opt, files).Output()
+	if err != nil {
+		fmt.Println(err)
 	}
 }
 
-func dl() {
-	path := "/Users/kendall/repo/utils_personal"
-	ytScript := "yt"
+func dl(dest string, url string) {
+	path := "/opt/homebrew/bin/"
+	ytScript := "yt-dlp"
 	ytPath := filepath.Join(path, ytScript)
-	fmt.Printf("ytPath: %s\n", ytPath)
 
-	ytOpt1 := "-au"
-	ytOpt2 := "-x"
-	url := "https://www.youtube.com/watch?v=C8vcCplJb1c&pp=ygURanVuZ2tvb2sgM2QgYXVkaW8%3D"
+	optformat1 := "-x"
+	optFormat2 := "--audio-format"
+	optFormat3 := "mp3"
+	optPath := "--path"
 
-	_, err := exec.Command(ytPath, ytOpt1, ytOpt2, url).Output()
+	fmt.Printf("%s %s %s %s %s %s\n", ytPath, optformat1, optFormat2, optFormat3, optPath, dest, url)
+	_, err := exec.Command(ytPath, optformat1, optFormat2, optFormat3, optPath, dest, url).Output()
 
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 }
