@@ -3,7 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"os"
 	"os/exec"
+	"path"
 	"path/filepath"
 	"time"
 )
@@ -22,8 +24,10 @@ func main() {
 	// require type assert from interface{} to string
 	var url string = prefix + (npath["shinoo"].(string))
 
+	fmt.Println(url)
 	dest := "/Volumes/SHINOO"
-	// rmAllFiles(dest)
+
+	removeAllFiles(dest)
 	time.Sleep(2)
 	dl(dest, url)
 }
@@ -35,20 +39,18 @@ func openJsonMap(urlJson string) map[string]interface{} {
 	if err != nil {
 		fmt.Println(err)
 	}
-
 	return path
 }
 
-func rmAllFiles(dest string) {
-	opt := "rm"
-	opt2 := "*.mp3"
-	files := filepath.Join(dest, opt2)
-
-	fmt.Printf("%s %s\n", opt, files)
-
-	_, err := exec.Command(opt, files).Output()
+// removes all files in 'dest'
+func removeAllFiles(dest string) {
+	dir, err := os.ReadDir(dest)
+	// os.ReadDir(path) will create slice of all files in path
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("could not remove all files from %s", dest)
+	}
+	for _, d := range dir {
+		os.RemoveAll(path.Join([]string{dest, d.Name()}...))
 	}
 }
 
