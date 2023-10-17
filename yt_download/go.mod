@@ -1,3 +1,3 @@
-module yt_download.go
+module yt_download
 
 go 1.21.1
