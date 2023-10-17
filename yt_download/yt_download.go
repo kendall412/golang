@@ -23,13 +23,30 @@ func main() {
 	npath := openJsonMap(paths)
 	// require type assert from interface{} to string
 	var url string = prefix + (npath["shinoo"].(string))
-
-	fmt.Println(url)
+	fmt.Println(paths)
+	// fmt.Println(url)
 	dest := "/Volumes/SHINOO"
 
-	removeAllFiles(dest)
-	time.Sleep(2)
-	dl(dest, url)
+	if checkDir(dest) == true {
+		fmt.Printf("The provided directory named %s exists.\n", dest)
+		removeAllFiles(dest)
+		time.Sleep(2)
+		dl(dest, url)
+	} else {
+		fmt.Printf("%s does not exist.\n", dest)
+	}
+}
+
+/*
+checkDir
+DESC: will check to see if the ssd cards are in place.
+*/
+func checkDir(dir string) bool {
+	if _, err := os.Stat(dir); os.IsNotExist(err) {
+		return (false)
+	} else {
+		return (true)
+	}
 }
 
 func openJsonMap(urlJson string) map[string]interface{} {
@@ -42,7 +59,10 @@ func openJsonMap(urlJson string) map[string]interface{} {
 	return path
 }
 
-// removes all files in 'dest'
+/*
+removeAllFiles
+DESC: removes all files in 'dest'
+*/
 func removeAllFiles(dest string) {
 	dir, err := os.ReadDir(dest)
 	// os.ReadDir(path) will create slice of all files in path
@@ -54,6 +74,10 @@ func removeAllFiles(dest string) {
 	}
 }
 
+/*
+dl
+DESC: will spawn a process to invoke yt-dlp to begin downloading from playlist.
+*/
 func dl(dest string, url string) {
 	path := "/opt/homebrew/bin/"
 	ytScript := "yt-dlp"
