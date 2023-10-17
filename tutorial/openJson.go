@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
+	"encoding/json"
 	"os"
 	// "log"
 	// "encoding/json"
 )
 
 // need a struct in place to put the imported json into
-type Config struct{
+type Config struct {
 	Database struct {
 		Host string `json:"host"`
 		Port string `json:"port"`

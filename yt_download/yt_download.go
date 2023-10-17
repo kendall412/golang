@@ -17,9 +17,33 @@ var paths = `{
     "wonoo":"PLhGL5JwvKzCX7kzYOhAgVgyTJMrga224h&si=aUw4EyGbsY_2BUbf"
 }`
 
+var paths_long = `[
+	{
+	"name":"shinoo",
+	"playlist":"PLhGL5JwvKzCUgBTqnB-AUB_TAU2RbFNIR&si=sYu3gEOMGRPpBcMA"
+	},
+
+	{
+	"name":"naami",
+	"playlist":"PLhGL5JwvKzCWiKZLT-8Ydi46_riEe-KRm&si=0MgpvJFFLyBD6fhd"
+	},
+
+	{
+	"name":"woojin",
+	""playlist:"PLhGL5JwvKzCV5-OSq5ANnrjtEBEcV22aI&si=b8iNNfL2DWPHz7qW"
+	},
+
+	{
+	"name":"wonoo",
+	"playlist":"PLhGL5JwvKzCX7kzYOhAgVgyTJMrga224h&si=aUw4EyGbsY_2BUbf"
+	}
+]`
+
 var prefix string = "https://youtube.com/playlist?list="
+var VER string = "1.0.1"
 
 func main() {
+	fmt.Printf("VER: %s\n", VER)
 	npath := openJsonMap(paths)
 	// require type assert from interface{} to string
 	var url string = prefix + (npath["shinoo"].(string))
