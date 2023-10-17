@@ -1,10 +1,10 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"os/exec"
 	"path/filepath"
+	"time"
 )
 
 var paths = `{
@@ -14,40 +14,52 @@ var paths = `{
     "wonoo":"PLhGL5JwvKzCX7kzYOhAgVgyTJMrga224h&si=aUw4EyGbsY_2BUbf"
 }`
 
-var prefix string = "https://youtube.com/playlist?list="
-var VER string = "1.0.1"
+// var playlist_prefix string = "https://youtube.com/playlist?list="
+var VER string = "1.0.2"
+
+type Kid struct {
+	Name     string `json:"name"`
+	Location string `json:"location"`
+	Playlist string `json:"playlist"`
+}
 
 func main() {
 	fmt.Printf("VER: %s\n", VER)
 	checkPlatform()
 
-	npath := openJsonMap(paths)
-	/* require type assert from interface{} to string */
-	var url string = prefix + (npath["shinoo"].(string))
-	fmt.Println(paths)
-	fmt.Println(url)
+	// npath := openJsonMap(paths)
 
-	/* dest := "/Volumes/SHINOO" */
-	dest := "/Volumes/VID/SHINOO" // test path
+	var shinoo, naami, woojin, wonoo Kid // for testing
+	Shinoo := shinoo.openJsonStruct("./shinoo.json")
+	Naami := naami.openJsonStruct("./naami.json")
+	Woojin := woojin.openJsonStruct("./woojin.json")
+	Wonoo := wonoo.openJsonStruct("./wonoo.json") // for testing
 
-	if checkDir(dest) == true {
-		fmt.Printf("The provided directory named %s exists.\n", dest)
-		removeAllFiles(dest)
-		// time.Sleep(2)
-		// dl(dest, url)
+	fmt.Printf("Shinoo.Name: %s\n", Shinoo.Name)
+	fmt.Printf("Shinoo.Playlist: %s\n", Shinoo.Playlist)
+	fmt.Printf("Shinoo.Location: %s\n", Shinoo.Location)
+
+	fmt.Printf("Naami.Name: %s\n", Naami.Name)
+	fmt.Printf("Naami.Playlist: %s\n", Naami.Playlist)
+	fmt.Printf("Naami.Location: %s\n", Naami.Location)
+
+	fmt.Printf("Woojin.Name: %s\n", Woojin.Name)
+	fmt.Printf("Woojin.Playlist: %s\n", Woojin.Playlist)
+	fmt.Printf("Woojin.Location: %s\n", Woojin.Location)
+
+	fmt.Printf("Wonoo.Name: %s\n", Wonoo.Name)
+	fmt.Printf("Wonoo.Playlist: %s\n", Wonoo.Playlist)
+	fmt.Printf("Wonoo.Location: %s\n", Wonoo.Location)
+
+	if checkDir(Shinoo.Location) == true {
+		fmt.Printf("The provided directory named %s exists.\n", Shinoo.Location)
+		removeAllFiles(Shinoo.Location)
+		time.Sleep(2)
+		dl(Shinoo.Location, Shinoo.Playlist)
+
 	} else {
-		fmt.Printf("%s does not exist.\n", dest)
+		fmt.Printf("%s does not exist.\n", Shinoo.Location)
 	}
-}
-
-func openJsonMap(urlJson string) map[string]interface{} {
-	var path map[string]interface{}
-
-	err := json.Unmarshal([]byte(urlJson), &path)
-	if err != nil {
-		fmt.Println(err)
-	}
-	return path
 }
 
 /*
