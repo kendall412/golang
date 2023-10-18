@@ -32,3 +32,25 @@ func (k Kid) openJsonStruct(path string) Kid {
 	}
 	return (k)
 }
+
+/*
+openJsonStruc2
+DESC: opens more complex json data than openJsonStruct
+*/
+func (k Kids) openJsonStruct2(path string) Kids {
+	fmt.Println(path)
+	jsonData, err := os.ReadFile(path)
+	if err != nil {
+		fmt.Println("ERROR: ", err)
+	}
+
+	if jsonData == nil {
+		fmt.Println(jsonData)
+	}
+
+	err2 := json.Unmarshal(jsonData, &k)
+	if err2 != nil {
+		fmt.Println("ERROR: ", err2)
+	}
+	return k
+}
