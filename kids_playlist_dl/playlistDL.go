@@ -24,9 +24,8 @@ func main() {
 	checkPlatform()
 
 	var kids_ Kids
-	kids := kids_.openJsonStruct2(jsonConfigFile)
+	kids := kids_.openJsonStruct(jsonConfigFile)
 	for i := 0; i < len(kids.Kids); i++ {
-		// fmt.Println(kids.Kids[i])
 		initiateDL(kids.Kids[i].Location, kids.Kids[i].Playlist)
 	}
 }
@@ -37,13 +36,12 @@ DESC: checks to see the ssd card exist and if so will initial dl function.
 */
 func initiateDL(location, playlist string) {
 	if checkDir(location) == true {
-		fmt.Printf("The provided directory named %s exists.\n", location)
 		removeAllFiles(location)
 		time.Sleep(10)
 		dl(location, playlist)
 
 	} else {
-		fmt.Printf("%s does not exist.\n", location)
+		fmt.Printf("::: %s does NOT exist :::\n", location)
 	}
 }
 
@@ -53,7 +51,6 @@ DESC: will spawn a process to invoke yt-dlp to begin downloading from playlist.
 */
 func dl(dest string, url string) {
 	app := "yt-dlp"
-
 	optformat1 := "-x"
 	optFormat2 := "--audio-format"
 	optFormat3 := "mp3"
