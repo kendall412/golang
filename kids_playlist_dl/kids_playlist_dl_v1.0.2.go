@@ -6,7 +6,8 @@ import (
 	"time"
 )
 
-var VER string = "1.0.2"
+var VER string = "1.0.3"
+var jsonConfigFile string = "./kidsconfig.json"
 
 type Kid struct {
 	Name     string `json:"name"`
@@ -22,52 +23,12 @@ func main() {
 	fmt.Printf("VER: %s\n", VER)
 	checkPlatform()
 
-	// npath := openJsonMap(paths)
-
-	// openJsonStruct
-	// var shinoo, naami, woojin, wonoo Kid // for testing
-	// Shinoo := shinoo.openJsonStruct("./shinoo.json")
-	// Naami := naami.openJsonStruct("./naami.json")
-	// Woojin := woojin.openJsonStruct("./woojin.json")
-	// Wonoo := wonoo.openJsonStruct("./wonoo.json") // for testing
-
-	// fmt.Printf("Shinoo.Name: %s\n", Shinoo.Name)
-	// fmt.Printf("Shinoo.Playlist: %s\n", Shinoo.Playlist)
-	// fmt.Printf("Shinoo.Location: %s\n\n", Shinoo.Location)
-
-	// fmt.Printf("Naami.Name: %s\n", Naami.Name)
-	// fmt.Printf("Naami.Playlist: %s\n", Naami.Playlist)
-	// fmt.Printf("Naami.Location: %s\n\n", Naami.Location)
-
-	// fmt.Printf("Woojin.Name: %s\n", Woojin.Name)
-	// fmt.Printf("Woojin.Playlist: %s\n", Woojin.Playlist)
-	// fmt.Printf("Woojin.Location: %s\n\n", Woojin.Location)
-
-	// fmt.Printf("Wonoo.Name: %s\n", Wonoo.Name)
-	// fmt.Printf("Wonoo.Playlist: %s\n", Wonoo.Playlist)
-	// fmt.Printf("Wonoo.Location: %s\n\n", Wonoo.Location)
-
-	// initiateDL(Shinoo.Location, Shinoo.Playlist)
-	// initiateDL(Naami.Location, Naami.Playlist)
-	// initiateDL(Woojin.Location, Woojin.Playlist)
-	// initiateDL(Wonoo.Location, Wonoo.Playlist)
-
-	// openJsonStruct2
 	var kids_ Kids
-
-	kids := kids_.openJsonStruct2("./kidsconfig.json")
-	fmt.Println(kids.Kids[0])
-
-	// jsonData, err := os.ReadFile("./kidsconfig.json")
-	// if err != nil {
-	// 	fmt.Println("ERROR: ", err)
-	// }
-
-	// json.Unmarshal(jsonData, &kids)
-	// for i := 0; i < len(kids.Kids); i++ {
-	// 	fmt.Printf("%s: %s: %s\n", kids.Kids[i].Name, kids.Kids[i].Location, kids.Kids[i].Playlist)
-	// }
-
+	kids := kids_.openJsonStruct2(jsonConfigFile)
+	for i := 0; i < len(kids.Kids); i++ {
+		// fmt.Println(kids.Kids[i])
+		initiateDL(kids.Kids[i].Location, kids.Kids[i].Playlist)
+	}
 }
 
 /*
