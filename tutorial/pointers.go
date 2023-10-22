@@ -1,29 +1,25 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-// func main() {
-// 	var a int = 42
-// 	var b *int = &a
-// 	// pointer to an interger
-// 	fmt.Println(a, *b)
-// 	// *b is dereferencing meaning getting the value at the
-// 	// address it is pointing to
-// 	*b = 14
-// 	fmt.Println(a, *b)
-// }
-
-func main() {
-	
-	a := [...]int{1, 2, 3}
-	b := &a[0]
-	c := &a[1]
-	// var x *int = &a[0]
-	// var y *int = &a[1]
-	fmt.Printf("%v %p %p\n", a, b, c)
-	// fmt.Printf("%p %p\n", *x, *y)
-	// %p prints the value of the pointer
+func changeValue(str *string) {
+	// *string is pointer type
+	// *str is dereference
+	*str = "changed!"
 }
 
+func changeValue2(str string) {
+	str = "changed!"
+}
+
+func main() {
+	toChange := "hello"
+
+	fmt.Println(toChange)
+	changeValue(&toChange) // &toChange is the pointer
+	fmt.Println(toChange)
+
+	fmt.Println(toChange)
+	changeValue2(toChange)
+	fmt.Println(toChange)
+}
