@@ -1,0 +1,26 @@
+GOROUTINES: 
+Goroutines are how Golang achieves concurrency. Goroutines are often compared with threads.
+Threads - managed by the OS (fixed stack - 1 MB)
+Goroutines - managed by Go runtime (flexible stack - 2KB)
+
+
+
+
+
+
+when it comes to concurrency there are two options:
+1. concurrency primitive (waitgroups)
+2. channnels
+
+what is a waitGroup? have some wait point and tell Go that these actions are done. It is part of the sync package.
+
+1. create a waitgroup
+2. call method add to indicate how many ops or goroutines you want to wait for
+3. run goroutines and inside the goroutines call the method "done"
+4. call the method "wait"
+5. synchronize the "add" call with "wait" call
+(see "waitgroups_basic.go")
+
+
+
+https://www.youtube.com/watch?v=srb6fbioEY4&list=PLsc-VaxfZl4do3Etp_xQ0aQBoC-x5BIgJ&index=2
