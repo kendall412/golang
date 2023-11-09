@@ -8,7 +8,10 @@ import (
 
 var wg sync.WaitGroup
 var VER string = "1.0.4"
-var jsonConfigFile string = "./playlists.json"
+
+// var jsonConfigFile string = "./testplaylists.json"
+
+var jsonConfigFile string = "./kidsplaylists.json"
 
 type Kid struct {
 	Name     string `json:"name"`
