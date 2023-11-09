@@ -9,10 +9,6 @@ import (
 var wg sync.WaitGroup
 var VER string = "1.0.4"
 
-// var jsonConfigFile string = "./testplaylists.json"
-
-var jsonConfigFile string = "./kidsplaylists.json"
-
 type Kid struct {
 	Name     string `json:"name"`
 	Location string `json:"location"`
@@ -24,6 +20,17 @@ type Kids struct {
 }
 
 func main() {
+	// jsonConfigFile := "./kidsplaylists.json"
+	jsonConfigFile := "./testplaylists.json"
+
+	// flag returns pointer, therefore must de-reference
+	// debugMode := flag.Bool("d", true, "debug flag, when selected will used 'testplaylist.json'")
+	// flag.Parse()
+
+	// if *debugMode {
+	// 	jsonConfigFile := "./testplaylists.json"
+	// }
+
 	fmt.Printf("VER: %s\n", VER)
 	checkPlatform()
 
