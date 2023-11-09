@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 	"os/exec"
-	"time"
+	"sync"
 )
 
-var VER string = "1.0.3"
-var jsonConfigFile string = "./kidsconfig.json"
+var wg sync.WaitGroup
+var VER string = "1.0.4"
+var jsonConfigFile string = "./playlists.json"
 
 type Kid struct {
 	Name     string `json:"name"`
@@ -23,11 +24,14 @@ func main() {
 	fmt.Printf("VER: %s\n", VER)
 	checkPlatform()
 
+	wg.Add(3)
 	var kids_ Kids
 	kids := kids_.openJsonStruct(jsonConfigFile)
+
 	for i := 0; i < len(kids.Kids); i++ {
-		initiateDL(kids.Kids[i].Location, kids.Kids[i].Playlist)
+		go initiateDL(kids.Kids[i].Location, kids.Kids[i].Playlist)
 	}
+	wg.Wait()
 }
 
 /*
@@ -35,14 +39,15 @@ initiateDL
 DESC: checks to see the ssd card exist and if so will initial dl function.
 */
 func initiateDL(location, playlist string) {
-	if checkDir(location) == true {
+	if checkDir(location) {
 		removeAllFiles(location)
-		time.Sleep(10)
+		// time.Sleep(time.Millisecond * 10)
 		dl(location, playlist)
 
 	} else {
 		fmt.Printf("::: %s does NOT exist :::\n", location)
 	}
+	wg.Done()
 }
 
 /*
