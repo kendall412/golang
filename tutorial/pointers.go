@@ -2,10 +2,17 @@ package main
 
 import "fmt"
 
+type Engineer struct {
+	Name string
+	Age  int
+}
+
 func changeValue(str *string) {
-	// *string is pointer type
-	// *str is dereference
 	*str = "changed!"
+}
+
+func (e *Engineer) changeValueb() {
+	e.Name = "Shinoo"
 }
 
 func changeValue2(str string) {
@@ -15,11 +22,15 @@ func changeValue2(str string) {
 func main() {
 	toChange := "hello"
 
-	fmt.Println(toChange)
-	changeValue(&toChange) // &toChange is the pointer
+	changeValue(&toChange)
 	fmt.Println(toChange)
 
-	fmt.Println(toChange)
-	changeValue2(toChange)
-	fmt.Println(toChange)
+	eng := &Engineer{
+		Name: "March",
+		Age:  42,
+	}
+
+	eng.changeValueb()
+	fmt.Println(eng.Name)
+
 }
