@@ -11,6 +11,10 @@ func changeValue(str *string) {
 	*str = "changed!"
 }
 
+/*
+use below when Engineer is instantiated as pointer.
+e.g. eng := &Engineer{...} rather than eng := Engineer{...}
+*/
 func (e *Engineer) changeValueb() {
 	e.Name = "Shinoo"
 }
