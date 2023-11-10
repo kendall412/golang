@@ -21,7 +21,4 @@ func main() {
 	fmt.Println(x)
 	changeName(&x)
 	fmt.Println(x)
-
-	// fmt.Printf("%p\n", initPerson())
-	// fmt.Printf("%T\n", initPerson())
 }
