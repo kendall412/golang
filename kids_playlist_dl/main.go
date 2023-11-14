@@ -24,7 +24,7 @@ func main() {
 	jsonConfigFile := "./testplaylists.json"
 
 	// flag returns pointer, therefore must de-reference
-	// debugMode := flag.Bool("d", true, "debug flag, when selected will used 'testplaylist.json'")
+	// debugMode := flag.Bool("d", false, "debug flag, when selected will used 'testplaylist.json'")
 	// flag.Parse()
 
 	// if *debugMode {
@@ -34,9 +34,12 @@ func main() {
 	fmt.Printf("VER: %s\n", VER)
 	checkPlatform()
 
-	wg.Add(3)
 	var kids_ Kids
+
 	kids := kids_.openJsonStruct(jsonConfigFile)
+
+	fmt.Println("length of JSON: ", len(kids.Kids))
+	wg.Add(len(kids.Kids))
 
 	for i := 0; i < len(kids.Kids); i++ {
 		go initiateDL(kids.Kids[i].Location, kids.Kids[i].Playlist)
