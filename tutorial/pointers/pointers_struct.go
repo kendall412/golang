@@ -28,28 +28,24 @@ func (e *Engineer) changeValues(new_name string, new_age int) {
 	e.Age = new_age
 }
 
+func (e Engineer) changeValues2() (*string, *int) {
+	e.Name = "Wonoo"
+	e.Age = 4
+	return &e.Name, &e.Age
+}
+
 func main() {
-	/*
-		basic pointer
-	*/
+	// basic pointer
 	toChange := "hello"
 	fmt.Println("Original toChange: ", toChange)
-
 	changeValue(&toChange)
 	fmt.Println("after applying pointer func: ", toChange)
 
-	/*
-		pointers with struct
-	*/
+	// pointer in struct
 	eng := &Engineer{
 		Name: "March",
 		Age:  42,
 	}
-
-	// eng.changeName()
-	// eng.changeAge()
-	// fmt.Println(eng.Name)
-	// fmt.Println(eng.Age)
 
 	eng.changeValues("Woojin", 6)
 	fmt.Println(eng.Name, eng.Age)
