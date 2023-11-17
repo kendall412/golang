@@ -18,7 +18,7 @@ func changeName(name *string) {
 
 func changeName2(name string) *string {
 	name = "March"
-	fmt.Println("memory location of name: ", &name)
+	fmt.Println("memory location of : ", &name)
 	return &name
 }
 
