@@ -24,7 +24,7 @@ func main() {
 	jsonConfigFile := "./testplaylists.json"
 
 	// flag returns pointer, therefore must de-reference
-	// debugMode := flag.Bool("d", false, "debug flag, when selected will used 'testplaylist.json'")
+	// debugpl := flag.BoolVar("d", false, "debug flag, when selected will used 'testplaylist.json'")
 	// flag.Parse()
 
 	// if *debugMode {
