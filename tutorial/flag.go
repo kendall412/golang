@@ -5,14 +5,23 @@ import (
 	f "fmt"
 )
 
+func genFile(debug bool) string {
+	if debug {
+		return "../go.mod"
+	} else {
+		return "../defer.go"
+	}
+}
+
 func main() {
 	// var choice bool
 	// debugpl := flag.BoolVar(&choice, "c", false, "debug flag, when selected will used 'testplaylist.json'")
-	debugpl := flag.Bool("c", false, "debug flag, when selected will used 'testplaylist.json'")
+	debug := flag.Bool("c", false, "debug flag")
 	flag.Parse()
 
-	if debugpl {
-		f.Println("debugpl is true")
-	}
-	f.Println("debugpl is false")
+	var fileloc string
+	fileloc = genFile(*debug)
+
+	f.Println(*debug)
+	f.Println(fileloc)
 }

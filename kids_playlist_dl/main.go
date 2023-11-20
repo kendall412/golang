@@ -20,8 +20,8 @@ type Kids struct {
 }
 
 func main() {
-	// jsonConfigFile := "./kidsplaylists.json"
-	jsonConfigFile := "./testplaylists.json"
+	jsonConfigFile := "./kidsplaylists.json"
+	// jsonConfigFile := "./testplaylists.json"
 
 	// flag returns pointer, therefore must de-reference
 	// debugpl := flag.BoolVar("d", false, "debug flag, when selected will used 'testplaylist.json'")
