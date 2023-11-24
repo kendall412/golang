@@ -2,19 +2,19 @@
     "kids":[
         {
             "name":"testplaylist1",
-            "location":"/Volumes/DATA/repo_git/golang/kids_playlist_dl/testdir/test11",
+            "location":"/Users/dannyhur/repo/golang/kids_playlist_dl/testdir/test1",
             "playlist":"https://www.youtube.com/watch?v=Kl9qQpGIZVw"
         },
 
         {
             "name":"testplaylist2",
-            "location":"/Volumes/DATA/repo_git/golang/kids_playlist_dl/testdir/test22",
+            "location":"//Users/dannyhur/repo/golang/kids_playlist_dl/testdir/test2",
             "playlist":"https://www.youtube.com/watch?v=lXqNiVJJ2s8"
         },
 
         {
             "name":"testplaylist3",
-            "location":"/Volumes/DATA/repo_git/golang/kids_playlist_dl/testdir/test33",
+            "location":"/Users/dannyhur/repo/golang/kids_playlist_dl/testdir/test3",
             "playlist":"https://www.youtube.com/watch?v=Vs64cZbeY88"
         }
     ]

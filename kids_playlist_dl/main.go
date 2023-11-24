@@ -1,13 +1,14 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os/exec"
 	"sync"
 )
 
 var wg sync.WaitGroup
-var VER string = "1.0.4"
+var VER string = "1.0.4b"
 
 type Kid struct {
 	Name     string `json:"name"`
@@ -19,17 +20,20 @@ type Kids struct {
 	Kids []Kid `json:"kids"`
 }
 
+func genPlaylistPath(debug bool) string {
+	if debug {
+		return "./testplaylists.json"
+	} else {
+		return "./kidsplaylists.json"
+	}
+}
+
 func main() {
-	jsonConfigFile := "./kidsplaylists.json"
-	// jsonConfigFile := "./testplaylists.json"
-
 	// flag returns pointer, therefore must de-reference
-	// debugpl := flag.BoolVar("d", false, "debug flag, when selected will used 'testplaylist.json'")
-	// flag.Parse()
+	debug := flag.Bool("d", false, "debug flag, when selected will used 'testplaylist.json'")
+	flag.Parse()
 
-	// if *debugMode {
-	// 	jsonConfigFile := "./testplaylists.json"
-	// }
+	jsonConfigFile := genPlaylistPath(*debug)
 
 	fmt.Printf("VER: %s\n", VER)
 	checkPlatform()
@@ -63,19 +67,18 @@ func initiateDL(location, playlist string) {
 	wg.Done()
 }
 
-/*
-dl
-DESC: will spawn a process to invoke yt-dlp to begin downloading from playlist.
-*/
 func dl(dest string, url string) {
-	app := "yt-dlp"
-	optformat1 := "-x"
-	optFormat2 := "--audio-format"
-	optFormat3 := "mp3"
-	optPath := "--path"
+	cmd := "yt-dlp"
+	opt := []string{
+		"-x",
+		"--audio-format",
+		"mp3",
+		"--path",
+	}
 
-	fmt.Printf("%s %s %s %s %s %s %s\n", app, optformat1, optFormat2, optFormat3, optPath, dest, url)
-	_, err := exec.Command(app, optformat1, optFormat2, optFormat3, optPath, dest, url).Output()
+	opt = append(opt, dest, url)
+	fmt.Println(cmd, opt)
+	_, err := exec.Command(cmd, opt...).Output()
 
 	if err != nil {
 		fmt.Println(err)
