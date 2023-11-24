@@ -30,7 +30,7 @@ func genPlaylistPath(debug bool) string {
 
 func main() {
 	// flag returns pointer, therefore must de-reference
-	debug := flag.Bool("d", false, "debug flag, when selected will used 'testplaylist.json'")
+	debug := flag.Bool("d", false, "debug flag, defaut is FALSE. If TRUE, -d,  will use testplaylist.json for debug purposes.")
 	flag.Parse()
 
 	jsonConfigFile := genPlaylistPath(*debug)
