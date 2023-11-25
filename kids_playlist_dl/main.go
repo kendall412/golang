@@ -3,12 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"os/exec"
 	"sync"
 )
 
 var wg sync.WaitGroup
-var VER string = "1.0.4b"
+var VER string = "1.0.4c"
 
 type Kid struct {
 	Name     string `json:"name"`
@@ -40,6 +41,7 @@ func main() {
 	flag.Parse()
 
 	jsonConfigFile := genPlaylistPath(*debug)
+	fmt.Println("jsonConfigFile: " + jsonConfigFile)
 
 	var kids_ Kids
 	kids := kids_.openJsonStruct(jsonConfigFile)
@@ -50,8 +52,25 @@ func main() {
 	/*
 		goroutines are set to initiateDL()
 	*/
+	userhome, err := os.UserHomeDir()
+	if err != nil {
+		fmt.Println("There was a problem determining userhome variable")
+	}
+	testpldirloc := "/repo/golang/kids_playlist_dl/testdir/"
+	pldirloc := "/Volumes/"
+	youtubeplaylistprefix := "https://www.youtube.com/"
+	if *debug {
+		fmt.Println("HOME: " + userhome)
+		fmt.Println("pldirloc: " + testpldirloc)
+		fmt.Println("youtubeplaylistprefix: " + youtubeplaylistprefix)
+	}
 	for i := 0; i < len(kids.Kids); i++ {
-		go initiateDL(kids.Kids[i].Location, kids.Kids[i].Playlist)
+		if *debug {
+			fmt.Println(kids.Kids[i].Location)
+			go initiateDL(userhome+testpldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist)
+		} else {
+			go initiateDL(userhome+pldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist)
+		}
 	}
 	wg.Wait()
 }
@@ -65,7 +84,7 @@ func initiateDL(location, playlist string) {
 		removeAllFiles(location)
 		dl(location, playlist)
 	} else {
-		fmt.Printf("::: %s does NOT exist :::\n", location)
+		fmt.Printf("::: %s drive does NOT exist :::\n", location)
 	}
 	wg.Done()
 }

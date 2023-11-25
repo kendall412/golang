@@ -1,0 +1,21 @@
+{
+    "kids":[
+        {
+            "name":"testplaylist1",
+            "location":"testdir/test1",
+            "playlist":"v=Kl9qQpGIZVw"
+        },
+
+        {
+            "name":"testplaylist2",
+            "location":"testdir/test2",
+            "playlist":"v=lXqNiVJJ2s8"
+        },
+
+        {
+            "name":"testplaylist3",
+            "location":"testdir/test3",
+            "playlist":"v=Vs64cZbeY88"
+        }
+    ]
+}
