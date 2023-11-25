@@ -29,22 +29,27 @@ func genPlaylistPath(debug bool) string {
 }
 
 func main() {
-	// flag returns pointer, therefore must de-reference
-	debug := flag.Bool("d", false, "debug flag, defaut is FALSE. If TRUE, -d,  will use testplaylist.json for debug purposes.")
+	fmt.Printf("VER: %s\n", VER)
+	checkPlatform()
+
+	/*
+		Flags
+		DESC: creating bool flag for debug purpose. Flags returns pointers, therefore must be de-referenced.
+	*/
+	debug := flag.Bool("d", false, "debug flag, defaut is FALSE. If TRUE, -d,  will use testplaylist.json for debug purposes. Otherwise by default if FALSE will used kidsplaylists.json")
 	flag.Parse()
 
 	jsonConfigFile := genPlaylistPath(*debug)
 
-	fmt.Printf("VER: %s\n", VER)
-	checkPlatform()
-
 	var kids_ Kids
-
 	kids := kids_.openJsonStruct(jsonConfigFile)
 
 	fmt.Println("length of JSON: ", len(kids.Kids))
 	wg.Add(len(kids.Kids))
 
+	/*
+		goroutines are set to initiateDL()
+	*/
 	for i := 0; i < len(kids.Kids); i++ {
 		go initiateDL(kids.Kids[i].Location, kids.Kids[i].Playlist)
 	}
@@ -58,9 +63,7 @@ DESC: checks to see the ssd card exist and if so will initial dl function.
 func initiateDL(location, playlist string) {
 	if checkDir(location) {
 		removeAllFiles(location)
-		// time.Sleep(time.Millisecond * 10)
 		dl(location, playlist)
-
 	} else {
 		fmt.Printf("::: %s does NOT exist :::\n", location)
 	}
@@ -75,7 +78,6 @@ func dl(dest string, url string) {
 		"mp3",
 		"--path",
 	}
-
 	opt = append(opt, dest, url)
 	fmt.Println(cmd, opt)
 	_, err := exec.Command(cmd, opt...).Output()

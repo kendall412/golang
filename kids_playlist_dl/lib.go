@@ -22,7 +22,7 @@ func checkPlatform() {
 
 /*
 checkDir
-DESC: will check to see if the ssd cards are in place.
+DESC: will check to see if the dir exists.
 */
 func checkDir(dir string) bool {
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
@@ -38,6 +38,7 @@ DESC: removes all files in 'dest'
 */
 func removeAllFiles(dest string) {
 	dir, err := os.ReadDir(dest)
+	fmt.Println(dir)
 	// os.ReadDir(path) will create slice of all files in path
 	if err != nil {
 		fmt.Printf("could not remove all files from %s", dest)

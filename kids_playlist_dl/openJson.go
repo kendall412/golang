@@ -8,7 +8,6 @@ import (
 
 func openJsonMap(urlJson string) map[string]interface{} {
 	var path map[string]interface{}
-
 	err := json.Unmarshal([]byte(urlJson), &path)
 	if err != nil {
 		fmt.Println(err)

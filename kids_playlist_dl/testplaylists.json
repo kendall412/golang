@@ -8,7 +8,7 @@
 
         {
             "name":"testplaylist2",
-            "location":"//Users/dannyhur/repo/golang/kids_playlist_dl/testdir/test2",
+            "location":"/Users/dannyhur/repo/golang/kids_playlist_dl/testdir/test2",
             "playlist":"https://www.youtube.com/watch?v=lXqNiVJJ2s8"
         },
 
