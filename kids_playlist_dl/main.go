@@ -38,6 +38,7 @@ func main() {
 		DESC: creating bool flag for debug purpose. Flags returns pointers, therefore must be de-referenced.
 	*/
 	debug := flag.Bool("d", false, "debug flag, defaut is FALSE. If TRUE, -d,  will use testplaylist.json for debug purposes. Otherwise by default if FALSE will used kidsplaylists.json")
+	display := flag.Bool("di", false, "default is FALSE, if TRUE will displayed detailed information.")
 	flag.Parse()
 
 	jsonConfigFile := genPlaylistPath(*debug)
@@ -59,7 +60,7 @@ func main() {
 	testpldirloc := "/repo/golang/kids_playlist_dl/testdir/"
 	pldirloc := "/Volumes/"
 	youtubeplaylistprefix := "https://www.youtube.com/"
-	if *debug {
+	if *display {
 		fmt.Println("HOME: " + userhome)
 		fmt.Println("pldirloc: " + testpldirloc)
 		fmt.Println("youtubeplaylistprefix: " + youtubeplaylistprefix)
@@ -69,7 +70,7 @@ func main() {
 			fmt.Println(kids.Kids[i].Location)
 			go initiateDL(userhome+testpldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist)
 		} else {
-			go initiateDL(userhome+pldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist)
+			go initiateDL(pldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist)
 		}
 	}
 	wg.Wait()
