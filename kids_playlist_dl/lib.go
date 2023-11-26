@@ -38,7 +38,7 @@ DESC: removes all files in 'dest'
 */
 func removeAllFiles(dest string) {
 	dir, err := os.ReadDir(dest)
-	fmt.Println(dir)
+	// fmt.Println(dir)
 	// os.ReadDir(path) will create slice of all files in path
 	if err != nil {
 		fmt.Printf("could not remove all files from %s", dest)

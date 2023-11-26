@@ -32,7 +32,6 @@ func genPlaylistPath(debug bool) string {
 func main() {
 	fmt.Printf("VER: %s\n", VER)
 	checkPlatform()
-
 	/*
 		Flags
 		DESC: creating bool flag for debug purpose. Flags returns pointers, therefore must be de-referenced.
@@ -47,7 +46,9 @@ func main() {
 	var kids_ Kids
 	kids := kids_.openJsonStruct(jsonConfigFile)
 
-	fmt.Println("length of JSON: ", len(kids.Kids))
+	if *display {
+		fmt.Println("length of JSON: ", len(kids.Kids))
+	}
 	wg.Add(len(kids.Kids))
 
 	/*
@@ -67,10 +68,10 @@ func main() {
 	}
 	for i := 0; i < len(kids.Kids); i++ {
 		if *debug {
-			fmt.Println(kids.Kids[i].Location)
-			go initiateDL(userhome+testpldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist)
+			// fmt.Println(kids.Kids[i].Location)
+			go initiateDL(userhome+testpldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist, *display)
 		} else {
-			go initiateDL(pldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist)
+			go initiateDL(pldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist, *display)
 		}
 	}
 	wg.Wait()
@@ -78,19 +79,19 @@ func main() {
 
 /*
 initiateDL
-DESC: checks to see the ssd card exist and if so will initial dl function.
+DESC: checks to see the micro ssd exist and if so will initial dl function.
 */
-func initiateDL(location, playlist string) {
+func initiateDL(location, playlist string, display bool) {
 	if checkDir(location) {
 		removeAllFiles(location)
-		dl(location, playlist)
+		dl(location, playlist, display)
 	} else {
 		fmt.Printf("::: %s drive does NOT exist :::\n", location)
 	}
 	wg.Done()
 }
 
-func dl(dest string, url string) {
+func dl(dest string, url string, display bool) {
 	cmd := "yt-dlp"
 	opt := []string{
 		"-x",
@@ -99,7 +100,9 @@ func dl(dest string, url string) {
 		"--path",
 	}
 	opt = append(opt, dest, url)
-	fmt.Println(cmd, opt)
+	if display {
+		fmt.Println(cmd, opt)
+	}
 	_, err := exec.Command(cmd, opt...).Output()
 
 	if err != nil {
