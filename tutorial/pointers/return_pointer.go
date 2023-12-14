@@ -40,6 +40,8 @@ func main() {
 		Position: "son",
 	}
 
+	f.Println(*hur)
+
 	// // use the return value directly from method invocation
 	// f.Println("Directly calling method *hur.create()")
 	// f.Println(*hur.create())
@@ -58,4 +60,6 @@ func main() {
 	hur.changeVal("Naami", "Hur", "daughter", 8)
 	msg1 = hur.create()
 	f.Println(*msg1)
+
+	f.Println(*hur)
 }
