@@ -16,6 +16,7 @@ use below when Engineer is instantiated as pointer.
 e.g. eng := &Engineer{...} rather than eng := Engineer{...}
 */
 func (e *Engineer) changeName() {
+	// when using struct do not have to use pointer designation
 	e.Name = "Shinoo"
 }
 
@@ -41,7 +42,7 @@ func main() {
 	changeValue(&toChange)
 	fmt.Println("after applying pointer func: ", toChange)
 
-	// pointer in struct
+	// struct as pointer
 	eng := &Engineer{
 		Name: "March",
 		Age:  42,

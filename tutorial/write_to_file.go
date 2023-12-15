@@ -26,6 +26,10 @@ func createFile(f newfiles) {
 // creates a file (txt, log) and returns *os.File
 func createAndreturnFile(f newfiles) *os.File {
 	filename := f.name + f.ext
+	/*
+		os.Create()
+			Create creates or truncates the named file. If the file already exists, it is truncated. If the file does not exist, it is created with mode 0666 (before umask). If successful, methods on the returned File can be used for I/O; the associated file descriptor has mode O_RDWR. If there is an error, it will be of type *PathError.
+	*/
 	file, err := os.Create(filename)
 	if err != nil {
 		fmt.Printf("Could not create file %s\n", f)
