@@ -1,0 +1,1 @@
+Customary file extension for html files to be parsed is .gohtml. However, it really does not matter what the extension is.
