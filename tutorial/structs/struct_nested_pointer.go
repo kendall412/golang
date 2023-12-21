@@ -26,6 +26,7 @@ func (h *Hur) changeHur(lname, position string) {
 }
 
 func main() {
+	// struct pointer
 	person := &Person{
 		Fname: "Shinoo",
 		Age:   10,
