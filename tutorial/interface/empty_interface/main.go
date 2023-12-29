@@ -1,24 +1,45 @@
+/*
+Normally in functions, when we pass values to the function parameters, we need to specify the data type of parameters in a function definition.
+
+However, with an empty interface, we can pass parameters of any data type
+
+We can also use an empty interface to pass any number of arguments to the function definition.
+
+https://www.programiz.com/golang/empty-interface
+*/
+
 package main
 
-import "math"
+import "fmt"
 
-type nointer interface{}
+// 1. empty interface declared prior to the function
+type empty interface{}
 
-type rect struct{
-	width float64
-	height float64
+func say(a ...empty) {
+	for _, v := range a {
+		fmt.Println(v)
+	}
 }
 
-type circle struct{
-	radius float64
+// 2. function that receives variadic empty interface
+func say2(a ...interface{}) {
+	for _, v := range a {
+		fmt.Println(v)
+	}
 }
 
-func (r rect) area()float64{
-	return 2*r.width*r.height
-}
+func main() {
+	x := "danny"
+	y := 51
+	z := true
+	t := []string{"shinoo", "naami", "woojin", "wonoo"}
+	s := map[string]string{
+		"one":   "one1",
+		"two":   "two2",
+		"three": "three3",
+	}
+	say(x, y, z, s)
+	fmt.Println()
 
-func (c circle) area() float64{
-	return math.Pi*c.radius*c.radius
+	say2(x, t)
 }
-
-func (nointer interface) getArea()
