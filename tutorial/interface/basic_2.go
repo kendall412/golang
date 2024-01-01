@@ -37,36 +37,31 @@ func (p Person) workhard() {
 	fmt.Println(p.name, " works hard.")
 }
 func main() {
-	// var hur_family []Hur
+	mike := Person{"Mike",52}
 
-	mike := Person{
-		"Mike",
-		52,
+	noo := Hur{
+		Person: Person{
+			"Shinoo",
+			10,
+		},
+		family_position: "eldest",
 	}
 
-	// noo := Hur{
-	// 	Person: Person{
-	// 		"Shinoo",
-	// 		10,
-	// 	},
-	// 	family_position: "eldest",
-	// }
+	won := Hur{
+		Person: Person{
+			"Wonoo",
+			4,
+		},
+		family_position: "youngest",
+	}
 
-	// won := Hur{
-	// 	Person: Person{
-	// 		"Wonoo",
-	// 		4,
-	// 	},
-	// 	family_position: "youngest",
-	// }
-
-	// march := Hur{
-	// 	Person: Person{
-	// 		"March",
-	// 		42,
-	// 	},
-	// 	family_position: "mom",
-	// }
+	march := Hur{
+		Person: Person{
+			"March",
+			42,
+		},
+		family_position: "mom",
+	}
 
 	danny := Hur{
 		Person: Person{
@@ -75,9 +70,9 @@ func main() {
 		},
 		family_position: "father",
 	}
-
-	// hur_family = append(hur_family, noo, won, march, danny)
-	// fmt.Println(hur_family)
+	var hur_family []Hur
+	hur_family = append(hur_family, noo, won, march, danny)
+	fmt.Println(hur_family)
 
 	Emotional.cry(danny)
 	Emotional.cry(mike)

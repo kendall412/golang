@@ -4,25 +4,6 @@ import (
 	f "fmt"
 )
 
-// type Engineer struct {
-// 	Name   string
-// 	Salary float64
-// }
-
-// type Manager struct {
-// 	Name   string
-// 	Salary float64
-// }
-
-// type Technician struct {
-// 	Name   string
-// 	Salary float64
-// }
-
-// type Employee interface {
-// 	GetInfo() (string, float64)
-// }
-
 func (e *Engineer) GetInfo() (string, float64) {
 	return e.Name, e.Salary
 }
