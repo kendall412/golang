@@ -6,10 +6,11 @@ import (
 )
 
 func execProc(cmd string, opt []string, debug *bool) {
-
-	log.Println("execPro - cmd: ", cmd)
-	log.Print("execPro - opt: ")
-	log.Print(opt)
+	cmd_ := cmd + " "
+	for _, v := range opt {
+		cmd_ = cmd_ + " " + v
+	}
+	log.Println("cmd:\n" + cmd_)
 
 	if !*debug {
 		_, err := exec.Command(cmd, opt...).Output()
@@ -17,5 +18,4 @@ func execProc(cmd string, opt []string, debug *bool) {
 			log.Println(err)
 		}
 	}
-
 }
