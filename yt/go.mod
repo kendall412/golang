@@ -1,3 +1,3 @@
-module yt-go
+module yt
 
 go 1.21.5
