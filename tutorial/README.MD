@@ -56,7 +56,10 @@ https://golang.org/pkg/runtime/
 reflect
 https://play.golang.org/p/VaAPodMY0Yf
 
-
+buffer:
+  A buffer is a continuous region of memory. It's a term that's used a lot so it can be used kind of imprecisely, but a context I use it frequently is "allocate a buffer of 100 bytes" which requests the operating system/platform to provide you with a continuous region of 100 bytes.
+  Doing many small writes can hurt performance. Each write is ultimately a syscall and if doing frequently can put burden on the CPU. Devices like disks work better dealing with block-aligned data. To avoid the overhead of many small write operations Golang is shipped with bufio.Writer.
+  This might be most analogous to a list in python; as you get closer to the hardware you might care about how that list is stored in memory. One way is to allocate a buffer which has all its elements in memory sequentially, so you know you can go from one element to another in the array by incrementing through the actual memory address you have (memory address being an index into the buffer).
 
 
 
