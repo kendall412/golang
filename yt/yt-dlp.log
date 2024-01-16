@@ -162,3 +162,111 @@ yt-dlp  -x --audio-format mp3 --audio-quality 0 --path dl https://www.youtube.co
 
 2024/01/06 21:47:31 yt-dlp
 2024/01/06 21:47:31 VER: 0.1.1
+2024/01/15 16:14:34 yt-dlp
+2024/01/15 16:14:34 VER: 0.1.1
+2024/01/15 16:14:42 yt-dlp
+2024/01/15 16:14:42 VER: 0.1.1
+2024/01/15 16:14:42 Debug Mode: OFF
+2024/01/15 16:14:42 Audio Mode: ON
+2024/01/15 16:14:42 url: https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:14:42 cmd:
+yt-dlp  -x --audio-format mp3 --audio-quality 0 --path . https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:14:50 **************************************************
+
+2024/01/15 16:15:08 yt-dlp
+2024/01/15 16:15:08 VER: 0.1.1
+2024/01/15 16:15:08 Debug Mode: OFF
+2024/01/15 16:15:08 Audio Mode: ON
+2024/01/15 16:15:08 url: https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:15:08 cmd:
+yt-dlp  -x --audio-format mp3 --audio-quality 0 --path dl https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:15:15 **************************************************
+
+2024/01/15 16:15:54 yt-dlp
+2024/01/15 16:15:54 VER: 0.1.1
+2024/01/15 16:18:26 yt-dlp
+2024/01/15 16:18:26 VER: 0.1.1
+2024/01/15 16:18:26 Debug Mode: OFF
+2024/01/15 16:18:26 Audio Mode: ON
+2024/01/15 16:18:26 url: https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:18:26 cmd:
+yt-dlp  -x --audio-format mp3 --audio-quality 0 --path . https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:18:33 **************************************************
+
+2024/01/15 16:39:10 yt-dlp
+2024/01/15 16:39:10 VER: 0.1.1
+2024/01/15 16:39:10 Debug Mode: OFF
+2024/01/15 16:39:10 Video Mode: ON
+2024/01/15 16:39:10 url: https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%
+2024/01/15 16:39:10 cmd:
+yt-dlp  --path . https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%
+2024/01/15 16:40:34 yt-dlp
+2024/01/15 16:40:34 VER: 0.1.1
+2024/01/15 16:40:34 Debug Mode: OFF
+2024/01/15 16:40:34 Video Mode: ON
+2024/01/15 16:40:34 You must provide a URL for the video/audio stream.
+2024/01/15 16:41:44 yt-dlp
+2024/01/15 16:41:44 VER: 0.1.1
+2024/01/15 16:41:44 Debug Mode: OFF
+2024/01/15 16:41:44 Video Mode: ON
+2024/01/15 16:41:44 audiourl: https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:41:44 cmd:
+yt-dlp  --path . https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:41:59 **************************************************
+
+2024/01/15 16:42:13 yt-dlp
+2024/01/15 16:42:13 VER: 0.1.1
+2024/01/15 16:42:13 Debug Mode: OFF
+2024/01/15 16:42:13 Video Mode: ON
+2024/01/15 16:42:13 audiourl: https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:42:13 cmd:
+yt-dlp  --path . https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:42:29 **************************************************
+
+2024/01/15 16:43:13 yt-dlp
+2024/01/15 16:43:13 VER: 0.1.1
+2024/01/15 16:43:13 Debug Mode: OFF
+2024/01/15 16:43:13 Video Mode: ON
+2024/01/15 16:43:13 audiourl: https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:43:13 cmd:
+yt-dlp  --path . https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:43:22 **************************************************
+
+2024/01/15 16:44:27 yt-dlp
+2024/01/15 16:44:27 VER: 0.1.1
+2024/01/15 16:44:27 Debug Mode: OFF
+2024/01/15 16:44:27 Video Mode: ON
+2024/01/15 16:44:27 audiourl: https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:44:27 cmd:
+yt-dlp  -x --audio-format mp3 --audio-quality 0 --path . https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:44:34 **************************************************
+
+2024/01/15 16:44:42 yt-dlp
+2024/01/15 16:44:42 VER: 0.1.1
+2024/01/15 16:44:42 Debug Mode: OFF
+2024/01/15 16:44:42 Video Mode: ON
+2024/01/15 16:44:42 audiourl: https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:44:42 cmd:
+yt-dlp  -x --audio-format mp3 --audio-quality 0 --path dl https://www.youtube.com/watch?v=A67RYFTImTQ&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:44:44 **************************************************
+
+2024/01/15 16:45:51 yt-dlp
+2024/01/15 16:45:51 VER: 0.1.1
+2024/01/15 16:46:17 yt-dlp
+2024/01/15 16:46:17 VER: 0.1.1
+2024/01/15 16:46:17 Debug Mode: OFF
+2024/01/15 16:46:17 Video Mode: ON
+2024/01/15 16:46:17 url: https://www.youtube.com/watch?v=_ApV7Lm87cg&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:46:17 cmd:
+yt-dlp  --path . https://www.youtube.com/watch?v=_ApV7Lm87cg&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:56:58 **************************************************
+
+2024/01/15 16:57:22 yt-dlp
+2024/01/15 16:57:22 VER: 0.1.1
+2024/01/15 16:57:22 Debug Mode: OFF
+2024/01/15 16:57:22 Video Mode: ON
+2024/01/15 16:57:22 audiourl: https://www.youtube.com/watch?v=_ApV7Lm87cg&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:57:22 cmd:
+yt-dlp  -x --audio-format mp3 --audio-quality 0 --path . https://www.youtube.com/watch?v=_ApV7Lm87cg&pp=ygUZbGl2ZSBvZmYgdGhlIHJlY29yZCBhdWRpbw%3D%3D
+2024/01/15 16:57:30 **************************************************
+

@@ -7,7 +7,7 @@ import (
 )
 
 var APPNAME string = "yt-dlp"
-var VER string = "0.1.1"
+var VER string = "0.1.2"
 
 func main() {
 	/*
@@ -27,7 +27,7 @@ func main() {
 	log.Println(APPNAME)
 	log.Println("VER: " + VER)
 
-	debug, audio, url, dest := makeFlags()
+	debug, audio, url, dest, audiourl := makeFlags()
 
 	var opt []string
 	cmd := "yt-dlp"
@@ -47,18 +47,28 @@ func main() {
 		log.Println("Video Mode: ON")
 	}
 
-	if *url == "" {
-		log.Fatalln("You must provide a URL for the video/audio stream.")
-	} else {
+	// if *url == "" {
+	// 	log.Fatalln("You must provide a URL for the video/audio stream.")
+	// } else {
+	// 	log.Println("url: " + *url)
+	// 	opt = append(opt, "--path", *dest, *url)
+	// }
+
+	if *audiourl == "" && *url == "" {
+		log.Fatalln("User must either give URL or Audio URL link")
+	} else if *audiourl != "" && *url == "" {
+		log.Println("audiourl: " + *audiourl)
+		opt = append(opt, "-x", "--audio-format", "mp3", "--audio-quality", "0")
+		opt = append(opt, "--path", *dest, *audiourl)
+	} else if *audiourl == "" && *url != "" {
 		log.Println("url: " + *url)
+		opt = append(opt, "--path", *dest, *url)
 	}
 
-	opt = append(opt, "--path", *dest, *url)
+	// opt = append(opt, "--path", *dest, *url)
 
 	execProc(cmd, opt, debug)
 
-	// border := strings.Repeat("*", 40)
-	// log.Println(border + "\n")
 	log.Println(border("*", 50))
 	log_file.Close()
 }
