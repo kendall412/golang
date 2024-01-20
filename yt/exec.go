@@ -10,7 +10,7 @@ func execProc(cmd string, opt []string, debug *bool) {
 	for _, v := range opt {
 		cmd_ = cmd_ + " " + v
 	}
-	log.Println("cmd:\n" + cmd_)
+	log.Println("cmd:\n\t" + cmd_)
 
 	if !*debug {
 		_, err := exec.Command(cmd, opt...).Output()
