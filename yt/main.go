@@ -7,7 +7,7 @@ import (
 )
 
 var APPNAME string = "yt-dlp"
-var VER string = "0.1.3"
+var VER string = "0.1.4"
 
 func main() {
 	/*
@@ -58,8 +58,6 @@ func main() {
 		log.Println("url:\n\t" + *url)
 		opt = append(opt, "--path", *dest, *url)
 	}
-
-	// opt = append(opt, "--path", *dest, *url)
 
 	execProc(cmd, opt, debug)
 
