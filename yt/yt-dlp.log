@@ -519,3 +519,5 @@ yt-dlp  --path . https://www.youtube.com/watch?v=V0A5Pbbu2Fc
 	yt-dlp  -x --audio-format mp3 --audio-quality 0 --path /Volumes/MOBILE_FILE/dl https://www.youtube.com/watch?v=DqIPZLmPWzI
 2024/01/27 12:47:44 **************************************************
 
+2024/01/30 08:32:51 yt-dlp
+2024/01/30 08:32:51 VER: 0.1.4
