@@ -9,7 +9,7 @@ import (
 )
 
 var wg sync.WaitGroup
-var VER string = "1.0.4c"
+var VER string = "1.0.4e"
 
 type Kid struct {
 	Name     string `json:"name"`
@@ -25,7 +25,7 @@ func genPlaylistPath(debug bool) string {
 	if debug {
 		return "./testplaylists.json"
 	} else {
-		return "./kidsplaylists.json"
+		return "./playlists.json"
 	}
 }
 

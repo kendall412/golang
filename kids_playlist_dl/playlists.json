@@ -22,6 +22,12 @@
             "name":"woojin",
             "location":"WOOJIN",
             "playlist":"playlist?list=PLhGL5JwvKzCV5-OSq5ANnrjtEBEcV22aI&si=b8iNNfL2DWPHz7qW"
+        },
+
+        {
+            "name":"korean_modern_mix",
+            "location":"AUDIO/korean_modern_mix",
+            "playlist":"playlist?list=PLirXWlrEJp3ez9QWUbdobj7bGze8WirNF&si=TLOgJoFscEr2eRuN"
         }
     ]
 }
