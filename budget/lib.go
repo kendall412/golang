@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/csv"
-	"fmt"
 	"log"
 	"math"
 	"os"
@@ -48,10 +47,14 @@ func retrieveTarget(target *string, records [][]string, header map[string]int, d
 	log.Printf("%s: $%.2f", *target, sum)
 }
 
-func deleteSlice(target *string, records [][]string, header map[string]int) {
+func getIndex(target *string, records [][]string, header map[string]int) []int {
+	index_slice := []int{}
 	for index, record := range records {
-		if strings.Contains(record[0], *target) {
-			fmt.Println(index, record)
+		if strings.Contains(strings.ToLower(record[header["DESC"]]), *target) {
+			index_slice = append(index_slice, index)
 		}
 	}
+	log.Printf("'%s' index:\n", *target)
+	log.Println(index_slice)
+	return index_slice
 }
