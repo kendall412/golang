@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func openCsv(file string, debug *bool) [][]string {
+func openCsv(file string, debug *bool, display_all *bool) [][]string {
 	csv_file, err := os.Open(file)
 	if err != nil {
 		log.Fatalln("error reading csv file", err)
@@ -23,7 +23,7 @@ func openCsv(file string, debug *bool) [][]string {
 		log.Fatalln("Error occured in opening csv_reader")
 	}
 
-	if *debug {
+	if *display_all {
 		log.Println(records)
 	}
 	return records
