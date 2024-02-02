@@ -29,25 +29,6 @@ func openCsv(file string, debug *bool, display_all *bool) [][]string {
 	return records
 }
 
-func retrieveTarget(target *string, records [][]string, header map[string]int, debug *bool) {
-
-	var sum float64
-	sum = 0
-	for _, record := range records {
-		if strings.Contains(strings.ToLower(record[header["DESC"]]), strings.ToLower(*target)) {
-			if *debug {
-				log.Println(record[header["DESC"]])
-			}
-			// converts string to float64
-			amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
-			sum += math.Abs(amnt)
-			log.Printf("%s $%.2f", record[header["DATE"]], math.Abs(amnt))
-		}
-	}
-	log.Printf("%s: $%.2f", *target, sum)
-	// return sum
-}
-
 func retrieveTargets(target string, records [][]string, header map[string]int, debug *bool) float64 {
 
 	var sum float64

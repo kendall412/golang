@@ -4,7 +4,11 @@ import (
 	"log"
 )
 
+var VER string = "0.1a"
+
 func main() {
+	log.Println("VER: " + VER)
+	// flags
 	debug, target, alltarget, display_all := makeFlags()
 
 	// file := "checkings_short.csv"
@@ -13,9 +17,11 @@ func main() {
 	// open csv file. record is type of [][]string
 	records := openCsv(file, debug, display_all)
 	header := map[string]int{"DATE": 0, "AMNT": 1, "CHK_NO": 3, "DESC": 4}
-	generateTargets(debug, display_all)
+	generateAll(debug, display_all)
+	generateEssential(debug, display_all)
 
 	sum := 0.0
+	// all spending
 	if *alltarget {
 		for _, targets := range all {
 			amnt := retrieveTargets(targets, records, header, debug)
@@ -25,9 +31,10 @@ func main() {
 		log.Printf("total: %.2f", sum)
 	}
 
+	// user selected target
 	if *target != "" {
-		log.Printf("target: %s\n", *target)
-		retrieveTarget(target, records, header, debug)
-		// targetsSlice := getIndex(target, records, header)
+		item := *target
+		log.Printf("target: %s\n", item)
+		retrieveTargets(item, records, header, debug)
 	}
 }

@@ -4,7 +4,11 @@ import (
 	"log"
 )
 
+// cat
 var all = []string{}
+var essential = []string{}
+
+// targets
 var housing = []string{"cheung"}
 var clothing = []string{"marshalls", "macy's", "abercrombie", "arden fair"}
 var utils = []string{"pg&e", "smud", "comcast"}
@@ -14,9 +18,13 @@ var health = []string{"kaiser"}
 var food_out = []string{"in-n-out", "chipotle", "seoulzip"}
 var misc = []string{"amzn"}
 var coffee = []string{"starbucks", "peet's"}
+var insurance = []string{"nationwide"}
 var motorcycle = []string{"cycle gear", "a&s"}
 
-func generateTargets(debug, display_all *bool) {
+func generateAll(debug, display_all *bool) {
+	/*
+		only 2 slices can be merged at a time.
+	*/
 	all = append(utils, gas...)
 	all = append(all, housing...)
 	all = append(all, clothing...)
@@ -25,8 +33,29 @@ func generateTargets(debug, display_all *bool) {
 	all = append(all, misc...)
 	all = append(all, food_out...)
 	all = append(all, coffee...)
+	all = append(all, insurance...)
 	all = append(all, motorcycle...)
+
 	if *display_all {
 		log.Println(all)
+	}
+}
+
+func generateEssential(debug, display_all *bool) {
+	/*
+		only 2 slices can be merged at a time.
+	*/
+	essential = append(utils, gas...)
+	essential = append(essential, housing...)
+	essential = append(essential, clothing...)
+	essential = append(essential, health...)
+	essential = append(essential, grocery...)
+	essential = append(essential, misc...)
+	essential = append(essential, food_out...)
+	essential = append(essential, insurance...)
+	essential = append(essential, coffee...)
+
+	if *display_all {
+		log.Println(essential)
 	}
 }
