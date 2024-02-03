@@ -13,7 +13,7 @@ import (
 func openCsv(file string, debug *bool, display_all *bool) [][]string {
 	csv_file, err := os.Open(file)
 	if err != nil {
-		redln("Error openinging csv file", err)
+		red.Println("Error openinging csv file", err)
 		os.Exit(EXIT_CODE_ERROR)
 	}
 	defer csv_file.Close()
@@ -22,7 +22,7 @@ func openCsv(file string, debug *bool, display_all *bool) [][]string {
 	records, err := csv_reader.ReadAll()
 
 	if err != nil {
-		redln("Error occured in opening csv_reader")
+		red.Println("Error occured in opening csv_reader")
 	}
 
 	if *display_all {
@@ -46,9 +46,8 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 			fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
 		}
 	}
-	// greenf("%s: $%.2f", target, sum)
-	bluef("%s:", strings.ToUpper(target))
-	greenf(" $%.2f\n", sum)
+	blue.Printf("%s:", strings.ToUpper(target))
+	green.Printf(" $%.2f\n", sum)
 	fmt.Println()
 	return sum
 }

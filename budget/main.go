@@ -6,7 +6,7 @@ var EXIT_CODE_SUCCESS = 0
 var EXIT_CODE_ERROR = 1
 
 func main() {
-	italicf("VER: %s\n\n", VER)
+	italic.Printf("VER: %s\n\n", VER)
 
 	// flags
 	debug, target, alltarget, display_all := makeFlags()
@@ -28,8 +28,8 @@ func main() {
 			// log.Println()
 			sum += amnt
 		}
-		bluef("TOTAL: ")
-		greenf("$%.2f\n", sum)
+		blue.Printf("TOTAL: ")
+		green.Printf("$%.2f\n", sum)
 	}
 
 	// user selected target
