@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"log"
-)
-
 var VER string = "0.1a"
 
 var EXIT_CODE_SUCCESS = 0
@@ -30,11 +25,11 @@ func main() {
 	if *alltarget {
 		for _, targets := range all {
 			amnt := retrieveTargets(targets, records, header, debug)
-			log.Println()
+			// log.Println()
 			sum += amnt
 		}
-		fmt.Printf("total: ")
-		greenf("%.2f\n", sum)
+		bluef("TOTAL: ")
+		greenf("$%.2f\n", sum)
 	}
 
 	// user selected target

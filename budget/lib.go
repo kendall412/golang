@@ -47,8 +47,9 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 		}
 	}
 	// greenf("%s: $%.2f", target, sum)
-	fmt.Printf("%s:", target)
+	bluef("%s:", strings.ToUpper(target))
 	greenf(" $%.2f\n", sum)
+	fmt.Println()
 	return sum
 }
 
