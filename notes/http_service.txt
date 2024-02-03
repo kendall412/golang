@@ -1,0 +1,36 @@
+net/http package:
+the package uses handlers to handle HTTP requests which are sent to specific path. There is the Handler interface. The Handler interface is an interface with a single method ServeHTTP which takes http.Response and http.Request as inputs.
+
+Handler is an object which satisfies the http.Handler interface:
+
+type Handler interface{
+	ServeHTTP(ResponseWriter, *Request)
+}
+
+This basically means that to be a handler an object must have a ServeHTTP() method with the exact signature:
+
+ServeHTTP(http.ResponseWrite, *http.Request)
+
+So a simple handler might look something like:
+
+type home struct{}
+func (h *home) ServeHTTP(w http.ResponseWrite, r *http.Request){
+	w.Write([]byte("This is my home page"))
+}
+
+Here we have an object (in this case it's an empty "home" struct, but it could equally be a string or function or anything else), and we've implemented a method with the signature ServeHTTP(http.ResponseWrite, *http.Request) on it. That's all we need to make a handler.
+
+You can then register this with a servemux using the Handle method such as:
+
+mux := http.NewServeMux()
+mux.Handle("/", &honme{})
+
+When this servemux receives a HTTP requests for "/", it will then call the ServeHTTP() method of the home struct, which in turn writes the HTTP response.
+
+
+
+
+https://medium.com/geekculture/demystifying-http-handlers-in-golang-a363e4222756
+https://lets-go.alexedwards.net/sample/02.09-the-http-handler-interface.html
+
+

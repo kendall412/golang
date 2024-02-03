@@ -1,0 +1,4 @@
+adding git repo:
+go get "github.com/fatih/color"
+
+convenience function: is a short procedure that wraps a bit of functionality into a more readable form.

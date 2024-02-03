@@ -1,0 +1,13 @@
+https://pkg.go.dev/os/exec#Command
+
+
+
+adding slice to exec.Command()
+
+cmd := exec.Command("tr","a-z","A-Z")
+
+-- is equivalent to -- 
+
+args := []string{"a-z","A-Z"}
+app := "tr"
+cmd := exec.Command(app, args...)

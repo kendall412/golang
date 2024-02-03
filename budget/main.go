@@ -1,13 +1,18 @@
 package main
 
 import (
+	"fmt"
 	"log"
 )
 
 var VER string = "0.1a"
 
+var EXIT_CODE_SUCCESS = 0
+var EXIT_CODE_ERROR = 1
+
 func main() {
-	log.Println("VER: " + VER)
+	italicf("VER: %s\n\n", VER)
+
 	// flags
 	debug, target, alltarget, display_all := makeFlags()
 
@@ -28,13 +33,13 @@ func main() {
 			log.Println()
 			sum += amnt
 		}
-		log.Printf("total: %.2f", sum)
+		fmt.Printf("total: ")
+		greenf("%.2f\n", sum)
 	}
 
 	// user selected target
 	if *target != "" {
 		item := *target
-		log.Printf("target: %s\n", item)
 		retrieveTargets(item, records, header, debug)
 	}
 }
