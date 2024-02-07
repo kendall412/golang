@@ -2,3 +2,10 @@ adding git repo:
 go get "github.com/fatih/color"
 
 convenience function: is a short procedure that wraps a bit of functionality into a more readable form.
+
+2D map initialization:
+a = [3][4]int{  
+   {0, 1, 2, 3} ,   /*  initializers for row indexed by 0 */
+   {4, 5, 6, 7} ,   /*  initializers for row indexed by 1 */
+   {8, 9, 10, 11}   /*  initializers for row indexed by 2 */
+}
