@@ -8,8 +8,8 @@ var EXIT_CODE_ERROR = 1
 func main() {
 	italic.Printf("VER: %s\n\n", VER)
 
-	// flags
-	debug, target, alltarget, display_all, csvfile, essentialtarget, cattarget := makeFlags()
+	// flags (pointers)
+	target, csvfile, cattarget, debug, alltarget, display_all, essentialtarget := generateFlags()
 
 	// open csv file. record is type of [][]string
 	if *csvfile == "" {
@@ -34,8 +34,7 @@ func main() {
 				amnt := retrieveTargets(targets, records, header, debug)
 				sum += amnt
 			}
-			blue.Printf("TOTAL: ")
-			green.Printf("$%.2f\n", sum)
+			printSum(sum)
 		}
 
 		// all spending
@@ -44,8 +43,7 @@ func main() {
 				amnt := retrieveTargets(targets, records, header, debug)
 				sum += amnt
 			}
-			blue.Printf("TOTAL: ")
-			green.Printf("$%.2f\n", sum)
+			printSum(sum)
 		}
 
 		// essential spending is all - motorcycles
@@ -54,15 +52,13 @@ func main() {
 				amnt := retrieveTargets(targets, records, header, debug)
 				sum += amnt
 			}
-			blue.Printf("TOTAL: ")
-			green.Printf("$%.2f\n", sum)
+			printSum(sum)
 		}
 
-		// individual targets
+		// individual spending targets
 		if *target != "" {
-			item := *target
-			retrieveTargets(item, records, header, debug)
+			sum := retrieveTargets(*target, records, header, debug)
+			printSum(sum)
 		}
-
 	}
 }

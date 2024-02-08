@@ -15,6 +15,12 @@ func printError(msg string) {
 	red.Println(strings.Repeat("*", repeatno))
 	red.Println("ERROR: " + msg)
 	red.Println(strings.Repeat("*", repeatno))
+	os.Exit(EXIT_CODE_ERROR)
+}
+
+func printSum(sum float64) {
+	blue.Printf("TOTAL: ")
+	green.Printf("$%.2f\n", sum)
 }
 
 func openCsv(file string, debug *bool, display_all *bool) [][]string {
@@ -59,7 +65,7 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 	return sum
 }
 
-func getIndex(target *string, records [][]string, header map[string]int) []int {
+func getIndexSlice(target *string, records [][]string, header map[string]int) []int {
 	index_slice := []int{}
 	for index, record := range records {
 		if strings.Contains(strings.ToLower(record[header["DESC"]]), *target) {
@@ -70,3 +76,13 @@ func getIndex(target *string, records [][]string, header map[string]int) []int {
 	log.Println(index_slice)
 	return index_slice
 }
+
+// func getIndex(target *string, records [][]string, header map[string]int) int {
+// 	for index, record := range records {
+// 		if strings.Contains(strings.ToLower(record[header["DESC"]]), *target) {
+// 			green.Printf("Index: ")
+// 			green.Printf("$d\n", index)
+// 			return index
+// 		}
+// 	}
+// }

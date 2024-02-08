@@ -84,7 +84,6 @@ func generateEssential(debug, display_all *bool) {
 	/*
 		only 2 slices can be merged at a time.
 	*/
-
 	essential = append(utils, gas...)
 	essential = append(essential, housing...)
 	essential = append(essential, clothing...)
