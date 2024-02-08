@@ -10,6 +10,13 @@ import (
 	"strings"
 )
 
+func printError(msg string) {
+	repeatno := 40
+	red.Println(strings.Repeat("*", repeatno))
+	red.Println("ERROR: " + msg)
+	red.Println(strings.Repeat("*", repeatno))
+}
+
 func openCsv(file string, debug *bool, display_all *bool) [][]string {
 	csv_file, err := os.Open(file)
 	if err != nil {
