@@ -5,6 +5,11 @@ import (
 )
 
 func convert_string_date(date_str []string) []time.Time {
+	/*
+	DESC: will convert 1/2/2004 format string to time.Time type.
+ 	PARAM: date_str []string
+  	RETURN: time_date []time.Time
+ 	*/
 	time_date := []time.Time{}
 	for _, date_el := range date_str {
 		date, _ := time.Parse("1/2/2006", date_el)
