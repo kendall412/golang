@@ -6,6 +6,7 @@ import (
 	"log"
 	"math"
 	"os"
+	"slices"
 	"strconv"
 	"strings"
 )
@@ -69,24 +70,9 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 	return sum
 }
 
-func getIndexSlice(target *string, records [][]string, header map[string]int) []int {
-	index_slice := []int{}
-	for index, record := range records {
-		if strings.Contains(strings.ToLower(record[header["DESC"]]), *target) {
-			index_slice = append(index_slice, index)
-		}
-	}
-	log.Printf("'%s' index:\n", *target)
-	log.Println(index_slice)
-	return index_slice
+func delElement(index int, records *[][]string) {
+	/*
+		using pointer slices
+	*/
+	*records = slices.Delete(*records, index, index+1)
 }
-
-// func getIndex(target *string, records [][]string, header map[string]int) int {
-// 	for index, record := range records {
-// 		if strings.Contains(strings.ToLower(record[header["DESC"]]), *target) {
-// 			green.Printf("Index: ")
-// 			green.Printf("$d\n", index)
-// 			return index
-// 		}
-// 	}
-// }

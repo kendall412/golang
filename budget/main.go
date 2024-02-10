@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"strings"
+)
+
 var VER string = "0.1d"
 
 var EXIT_CODE_SUCCESS = 0
@@ -9,7 +14,7 @@ func main() {
 	italic.Printf("VER: %s\n\n", VER)
 
 	// flags (pointers)
-	target, csvfile, cattarget, debug, alltarget, display_all, essentialtarget := generateFlags()
+	target, csvfile, cattarget, debug, alltarget, display_all, essentialtarget, view_remaining_spending := generateFlags()
 
 	// open csv file. record is type of [][]string
 	if *csvfile == "" {
@@ -60,5 +65,27 @@ func main() {
 			sum := retrieveTargets(*target, records, header, debug)
 			printSum(sum)
 		}
+
+		// check unknown spending
+		if *view_remaining_spending {
+
+			fmt.Println(records, len(records))
+			fmt.Println(grocery)
+			fmt.Println()
+
+			for _, tar := range grocery {
+				// fmt.Println(tar)
+				for i, record := range records {
+					// strings.Contains(str, input)
+					if strings.Contains(strings.ToLower(record[header["DESC"]]), tar) {
+						// fmt.Println(i, tar, record)
+						delElement(i, &records)
+					}
+				}
+			}
+			fmt.Println()
+			fmt.Println(records, len(records))
+		}
+
 	}
 }
