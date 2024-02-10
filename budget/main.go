@@ -24,9 +24,7 @@ func main() {
 
 		generateAll(debug, display_all)
 		generateEssential(debug, display_all)
-
 		target_map := generateMap(debug, display_all)
-		// fmt.Println(target_map)
 
 		sum := 0.0
 

@@ -45,7 +45,6 @@ func openCsv(file string, debug *bool, display_all *bool) [][]string {
 }
 
 func retrieveTargets(target string, records [][]string, header map[string]int, debug *bool) float64 {
-
 	var sum float64
 	sum = 0.0
 	for _, record := range records {
@@ -68,7 +67,6 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 		fmt.Println()
 	}
 	return sum
-
 }
 
 func getIndexSlice(target *string, records [][]string, header map[string]int) []int {
