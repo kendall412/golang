@@ -1,6 +1,6 @@
 package main
 
-var VER string = "0.1c"
+var VER string = "0.1d"
 
 var EXIT_CODE_SUCCESS = 0
 var EXIT_CODE_ERROR = 1
@@ -26,6 +26,7 @@ func main() {
 		generateEssential(debug, display_all)
 
 		target_map := generateMap(debug, display_all)
+		// fmt.Println(target_map)
 
 		sum := 0.0
 
@@ -35,6 +36,7 @@ func main() {
 				sum += amnt
 			}
 			printSum(sum)
+
 		}
 
 		// all spending

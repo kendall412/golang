@@ -9,6 +9,9 @@ var all = []string{}
 var essential = []string{}
 
 // target slices
+// var income2 = map[string][]string{}
+// income2["cat"] = []string{income}
+
 var income = []string{"hyve"}
 var housing = []string{"cheung"}
 var monthly = []string{
@@ -24,13 +27,15 @@ var monthly = []string{
 }
 var clothing = []string{
 	"marshalls",
+	"ross",
 	"macy's",
 	"abercrombie",
 	"arden fair"}
 var utils = []string{
 	"pg&e",
 	"smud",
-	"comcast"}
+	"comcast",
+	"verizon"}
 var gas = []string{
 	"arco",
 	"shell"}
@@ -41,13 +46,17 @@ var grocery = []string{
 	"wal-mart",
 	"raley",
 	"target",
-	"groc outlet"}
+	"groc outlet",
+	"lucky",
+	"hankook"}
 var health = []string{"kaiser"}
 var food_out = []string{
 	"in-n-out",
 	"chipotle",
 	"seoulzip",
-	"tasty pot"}
+	"tasty pot",
+	"mcdonald's",
+	"vons chicken"}
 var misc = []string{"amzn", "amazon", "hobbylobb"}
 var coffee = []string{
 	"starbucks",
@@ -56,7 +65,8 @@ var insurance = []string{"nationwide", "geico"}
 var auto = []string{"palisade"}
 var motorcycle = []string{
 	"cycle gear",
-	"a&s"}
+	"a&s",
+	"freedomroad"}
 
 func generateAll(debug, display_all *bool) {
 	/*
@@ -99,4 +109,28 @@ func generateEssential(debug, display_all *bool) {
 	if *display_all {
 		log.Println(essential)
 	}
+}
+
+func generateMap(debug, display_all *bool) map[string][]string {
+	target_map := map[string][]string{}
+
+	target_map["housing"] = housing
+	target_map["clothing"] = clothing
+	target_map["utils"] = utils
+	target_map["gas"] = gas
+	target_map["grocery"] = grocery
+	target_map["health"] = health
+	target_map["food_out"] = food_out
+	target_map["misc"] = misc
+	target_map["coffee"] = coffee
+	target_map["insurance"] = insurance
+	target_map["auto"] = auto
+	target_map["motorcycle"] = motorcycle
+	target_map["income"] = income
+	target_map["monthly"] = monthly
+
+	if *display_all {
+		log.Println(target_map)
+	}
+	return target_map
 }

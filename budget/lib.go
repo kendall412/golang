@@ -47,7 +47,7 @@ func openCsv(file string, debug *bool, display_all *bool) [][]string {
 func retrieveTargets(target string, records [][]string, header map[string]int, debug *bool) float64 {
 
 	var sum float64
-	sum = 0
+	sum = 0.0
 	for _, record := range records {
 		if strings.Contains(strings.ToLower(record[header["DESC"]]), strings.ToLower(target)) {
 			if *debug {
@@ -59,10 +59,16 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 			fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
 		}
 	}
-	blue.Printf("%s:", strings.ToUpper(target))
-	green.Printf(" $%.2f\n", sum)
-	fmt.Println()
+	/*
+	   only print out to terminal if the cateory/individual target was spent. otherwise will return sum of 0 but will not print out.
+	*/
+	if sum > 0.0 {
+		blue.Printf("%s:", strings.ToUpper(target))
+		green.Printf(" $%.2f\n", sum)
+		fmt.Println()
+	}
 	return sum
+
 }
 
 func getIndexSlice(target *string, records [][]string, header map[string]int) []int {
