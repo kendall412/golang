@@ -62,7 +62,12 @@ var food_out = []string{
 	"mcdonald's",
 	"vons chicken",
 	"paris baguett"}
-var misc = []string{"amzn", "amazon", "hobbylobb"}
+var misc = []string{
+	"amzn",
+	"amazon",
+	"hobbylobb",
+	"dollar tr",
+	"ebay"}
 var coffee = []string{
 	"starbucks",
 	"peet's"}

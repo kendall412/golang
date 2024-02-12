@@ -25,7 +25,8 @@ func main() {
 			"DATE":   0,
 			"AMNT":   1,
 			"CHK_NO": 3,
-			"DESC":   4}
+			"DESC":   4,
+			"MISC":   2}
 
 		generateAll(debug, display_all)
 		generateEssential(debug, display_all)
@@ -77,6 +78,7 @@ func main() {
 						record[header["DESC"]] = " "
 						record[header["AMNT"]] = " "
 						record[header["CHK_NO"]] = " "
+						record[header["MISC"]] = " "
 					}
 				}
 			}
