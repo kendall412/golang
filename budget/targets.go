@@ -4,14 +4,11 @@ import (
 	"log"
 )
 
-// cat
+// category
 var all = []string{}
 var essential = []string{}
 
-// target slices
-// var income2 = map[string][]string{}
-// income2["cat"] = []string{income}
-
+// targets
 var income = []string{"hyve"}
 var check = []string{"check"}
 var loan = []string{"dept education student ln"}
@@ -25,8 +22,7 @@ var monthly = []string{
 	"audible",
 	"apple",
 	"github",
-	"microsoft",
-}
+	"microsoft"}
 var clothing = []string{
 	"marshalls",
 	"ross",
@@ -71,7 +67,9 @@ var misc = []string{
 var coffee = []string{
 	"starbucks",
 	"peet's"}
-var insurance = []string{"nationwide", "geico"}
+var insurance = []string{
+	"nationwide",
+	"geico"}
 var auto = []string{"palisade"}
 var motorcycle = []string{
 	"cycle gear",
