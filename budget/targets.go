@@ -13,6 +13,8 @@ var essential = []string{}
 // income2["cat"] = []string{income}
 
 var income = []string{"hyve"}
+var check = []string{"check"}
+var loan = []string{"dept education student ln"}
 var housing = []string{"cheung"}
 var monthly = []string{
 	"lees korean ma",
@@ -35,7 +37,9 @@ var utils = []string{
 	"pg&e",
 	"smud",
 	"comcast",
-	"verizon"}
+	"verizon",
+	"google",
+	"quickquack"}
 var gas = []string{
 	"arco",
 	"shell"}
@@ -56,7 +60,8 @@ var food_out = []string{
 	"seoulzip",
 	"tasty pot",
 	"mcdonald's",
-	"vons chicken"}
+	"vons chicken",
+	"paris baguett"}
 var misc = []string{"amzn", "amazon", "hobbylobb"}
 var coffee = []string{
 	"starbucks",
@@ -67,6 +72,9 @@ var motorcycle = []string{
 	"cycle gear",
 	"a&s",
 	"freedomroad"}
+var pipe = []string{
+	"cigars",
+	"mission pipe shop"}
 
 func generateAll(debug, display_all *bool) {
 	/*
@@ -74,6 +82,9 @@ func generateAll(debug, display_all *bool) {
 	*/
 	all = append(utils, gas...)
 	all = append(all, housing...)
+	all = append(all, loan...)
+	all = append(all, check...)
+	all = append(all, pipe...)
 	all = append(all, monthly...)
 	all = append(all, clothing...)
 	all = append(all, health...)
@@ -96,7 +107,10 @@ func generateEssential(debug, display_all *bool) {
 	*/
 	essential = append(utils, gas...)
 	essential = append(essential, housing...)
+	essential = append(essential, loan...)
+	essential = append(essential, check...)
 	essential = append(essential, clothing...)
+	essential = append(essential, pipe...)
 	essential = append(essential, monthly...)
 	essential = append(essential, health...)
 	essential = append(essential, grocery...)
@@ -128,6 +142,9 @@ func generateMap(debug, display_all *bool) map[string][]string {
 	target_map["motorcycle"] = motorcycle
 	target_map["income"] = income
 	target_map["monthly"] = monthly
+	target_map["loan"] = loan
+	target_map["pipe"] = pipe
+	target_map["check"] = check
 
 	if *display_all {
 		log.Println(target_map)

@@ -74,5 +74,5 @@ func delElement(index int, records *[][]string) {
 	/*
 		using pointer slices
 	*/
-	*records = slices.Delete(*records, index, index+1)
+	*records = slices.Delete(*records, index-1, index)
 }

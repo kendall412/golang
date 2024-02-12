@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-var VER string = "0.1d"
+var VER string = "0.1e"
 
 var EXIT_CODE_SUCCESS = 0
 var EXIT_CODE_ERROR = 1
@@ -68,24 +68,22 @@ func main() {
 
 		// check unknown spending
 		if *view_remaining_spending {
-
-			fmt.Println(records, len(records))
-			fmt.Println(grocery)
-			fmt.Println()
-
-			for _, tar := range grocery {
-				// fmt.Println(tar)
-				for i, record := range records {
+			for _, tar := range all {
+				for _, record := range records {
 					// strings.Contains(str, input)
 					if strings.Contains(strings.ToLower(record[header["DESC"]]), tar) {
 						// fmt.Println(i, tar, record)
-						delElement(i, &records)
+						record[header["DATE"]] = " "
+						record[header["DESC"]] = " "
+						record[header["AMNT"]] = " "
+						record[header["CHK_NO"]] = " "
 					}
 				}
 			}
 			fmt.Println()
-			fmt.Println(records, len(records))
+			for _, record := range records {
+				fmt.Println(record)
+			}
 		}
-
 	}
 }
