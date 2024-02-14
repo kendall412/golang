@@ -55,8 +55,11 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 			}
 			// converts string to float64
 			amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
-			sum += math.Abs(amnt)
-			fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
+
+			if amnt < 0.0 {
+				sum += math.Abs(amnt)
+				fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
+			}
 		}
 	}
 	/*
