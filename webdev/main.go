@@ -6,13 +6,16 @@ import (
 )
 
 var tpl *template.Template
+var name = "Danny"
 
 func main() {
 
-	// tpl, _ = template.ParseGlob("templates/*.html")
-	tpl, _ = template.ParseFiles("templates/index")
+	tpl, _ = template.ParseGlob("templates/*")
+	// tpl, _ = template.ParseFiles("templates/index")
 
 	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/about", aboutHandler)
+	http.HandleFunc("/welcome", welcomeHandler)
 
 	/* http.ListenAndServe:
 
@@ -26,5 +29,15 @@ func main() {
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	// f.Fprint(w, "Hello, Danny!")
-	tpl.Execute(w, nil)
+	tpl.ExecuteTemplate(w, "index", nil)
+}
+
+func aboutHandler(w http.ResponseWriter, r *http.Request) {
+	// f.Fprint(w, "Hello, Danny!")
+	tpl.ExecuteTemplate(w, "about", nil)
+}
+
+func welcomeHandler(w http.ResponseWriter, r *http.Request) {
+	// f.Fprint(w, "Hello, Danny!")
+	tpl.ExecuteTemplate(w, "welcome", name)
 }

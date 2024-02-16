@@ -1,0 +1,3 @@
+<!-- html comments -->
+{{/* Go template comments */}}
+<h1>Welcome {{.}}</h1>
