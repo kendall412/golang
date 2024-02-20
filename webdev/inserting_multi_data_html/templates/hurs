@@ -7,6 +7,8 @@
 </head>
 <body>
     <h1>{{.}}</h1>
-    <h1>{{.name}}</h1>
+    <h1>Name: {{.Name}}</h1>
+    <h1>Age: {{.Age}}</h1>
+    <h1>Occu: {{.Occupation}}</h1>
 </body>
 </html>

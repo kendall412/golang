@@ -8,17 +8,21 @@ import (
 var tpl *template.Template
 var shinoo hurs
 
+/*
+Data must be exportable (meaning must be capitalized) in order to using in template. Alternative is to use accessor (https://stackoverflow.com/questions/21863760/accessing-struct-variable-in-slice-of-many-structs-in-html-template-golang).
+*/
+
 type hurs struct {
-	name       string
-	age        int
-	occupation string
+	Name       string
+	Age        int
+	Occupation string
 }
 
 func main() {
 	shinoo = hurs{
-		name:       "Shinoo",
-		age:        11,
-		occupation: "kid"}
+		Name:       "Shinoo",
+		Age:        11,
+		Occupation: "kid"}
 
 	tpl, _ = template.ParseGlob("templates/*")
 	http.HandleFunc("/hurs", hursHandler)
