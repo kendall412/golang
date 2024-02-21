@@ -18,16 +18,15 @@ type Emotional interface {
 }
 
 func (h Hur) cry() {
-	fmt.Println(h.name, " is a cry baby.")
+	fmt.Println(h.name, "is a cry baby.")
 }
 
 func (h Hur) tantrum() {
-	fmt.Println(h.name, " is having a tantrum.")
+	fmt.Println(h.name, "is having a tantrum.")
 }
 
 func (p Person) cry() {
-	fmt.Println(p.name, " also cries too.")
-
+	fmt.Println(p.name, "also cries too.")
 }
 
 func (h Hur) workhard() {
@@ -35,7 +34,7 @@ func (h Hur) workhard() {
 }
 
 func (p Person) workhard() {
-	fmt.Println(p.name, " works hard.")
+	fmt.Println(p.name, "works hard.")
 }
 
 func describe(e Emotional) {
@@ -86,13 +85,13 @@ func main() {
 	fmt.Println(hur_family)
 	fmt.Println()
 
-	// Emotional.cry(danny)
-	// Emotional.cry(mike)
+	Emotional.cry(danny)
+	Emotional.workhard(mike)
 
-	describe(danny)
-	describe(mike)
+	// describe(danny)
+	// describe(mike)
 
-	// var emo Emotional
-	// emo = mike
-	// emo.workhard()
+	// for _, hur := range hur_family {
+	// 	describe(hur)
+	// }
 }
