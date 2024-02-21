@@ -27,6 +27,7 @@ func (h Hur) tantrum() {
 
 func (p Person) cry() {
 	fmt.Println(p.name, " also cries too.")
+
 }
 
 func (h Hur) workhard() {
@@ -36,8 +37,17 @@ func (h Hur) workhard() {
 func (p Person) workhard() {
 	fmt.Println(p.name, " works hard.")
 }
+
+func describe(e Emotional) {
+	fmt.Println(e)
+	fmt.Printf("%T\n", e)
+	e.cry()
+	e.workhard()
+	fmt.Println()
+}
+
 func main() {
-	mike := Person{"Mike",52}
+	mike := Person{"Mike", 52}
 
 	noo := Hur{
 		Person: Person{
@@ -70,14 +80,19 @@ func main() {
 		},
 		family_position: "father",
 	}
+
 	var hur_family []Hur
 	hur_family = append(hur_family, noo, won, march, danny)
 	fmt.Println(hur_family)
+	fmt.Println()
 
-	Emotional.cry(danny)
-	Emotional.cry(mike)
+	// Emotional.cry(danny)
+	// Emotional.cry(mike)
 
-	var emo Emotional
-	emo = mike
-	emo.workhard()
+	describe(danny)
+	describe(mike)
+
+	// var emo Emotional
+	// emo = mike
+	// emo.workhard()
 }
