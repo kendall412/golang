@@ -1,8 +1,7 @@
 /*
-Normally in functions, when we pass values to the function parameters, we need to specify the data type of parameters in a function definition.
+Empty Interface:
 
-However, with an empty interface, we can pass parameters of any data type
-
+Normally in functions, when we pass values to the function parameters, we need to specify the data type of parameters in a function definition. However, with an empty interface, we can pass parameters of any data type.
 We can also use an empty interface to pass any number of arguments to the function definition.
 
 https://www.programiz.com/golang/empty-interface
