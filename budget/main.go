@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-var VER string = "0.1f"
+var VER string = "0.1g"
 
 var EXIT_CODE_SUCCESS = 0
 var EXIT_CODE_ERROR = 1
@@ -14,7 +14,16 @@ func main() {
 	italic.Printf("VER: %s\n\n", VER)
 
 	// flags (pointers)
-	target, csvfile, cattarget, debug, alltarget, display_all, essentialtarget, view_remaining_spending := generateFlags()
+	target, csvfile, cattarget, month, debug, alltarget, display_all, essentialtarget, view_remaining_spending := generateFlags()
+
+	month_map := map[string]int{
+		"jan": 1, "feb": 2, "mar": 3,
+		"apr": 4, "may": 5, "jun": 6,
+		"jul": 7, "aug": 8, "sep": 9,
+		"oct": 10, "nov": 11, "dec": 12}
+
+	fmt.Println(*month)
+	fmt.Println(month_map)
 
 	// open csv file. record is type of [][]string
 	if *csvfile == "" {

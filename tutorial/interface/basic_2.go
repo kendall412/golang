@@ -25,12 +25,12 @@ func (h Hur) tantrum() {
 	fmt.Println(h.name, "is having a tantrum.")
 }
 
-func (p Person) cry() {
-	fmt.Println(p.name, "also cries too.")
-}
-
 func (h Hur) workhard() {
 	fmt.Println("Hur family works hard")
+}
+
+func (p Person) cry() {
+	fmt.Println(p.name, "also cries too.")
 }
 
 func (p Person) workhard() {
@@ -41,7 +41,7 @@ func describe(e Emotional) {
 	fmt.Println(e)
 	fmt.Printf("%T\n", e)
 	e.cry()
-	e.workhard()
+	// e.workhard()
 	fmt.Println()
 }
 
@@ -88,8 +88,10 @@ func main() {
 	Emotional.cry(danny)
 	Emotional.workhard(mike)
 
-	// describe(danny)
-	// describe(mike)
+	describe(danny)
+	describe(mike)
+
+	fmt.Printf("%T\n", mike)
 
 	// for _, hur := range hur_family {
 	// 	describe(hur)
