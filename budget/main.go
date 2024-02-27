@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"strings"
 )
 
@@ -12,7 +11,7 @@ var EXIT_CODE_SUCCESS = 0
 var EXIT_CODE_ERROR = 1
 
 func main() {
-	italic.Printf("VER: %s\n\n", VER)
+	italic.Printf("BUDGET VER: %s\n\n", VER)
 
 	// flags (pointers)
 	target, csvfile, cattarget, month, debug, alltarget, display_all, essentialtarget, view_remaining_spending := generateFlags()
@@ -23,8 +22,11 @@ func main() {
 		"jul": 7, "aug": 8, "sep": 9,
 		"oct": 10, "nov": 11, "dec": 12}
 
-	log.Println(*month)
-	log.Println(month_map)
+	if *debug {
+		magenta.Println(*month)
+		magenta.Println(month_map)
+		fmt.Println()
+	}
 
 	// open csv file. record is type of [][]string
 	if *csvfile == "" {
