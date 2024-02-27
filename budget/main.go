@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strings"
 )
 
@@ -22,8 +23,8 @@ func main() {
 		"jul": 7, "aug": 8, "sep": 9,
 		"oct": 10, "nov": 11, "dec": 12}
 
-	fmt.Println(*month)
-	fmt.Println(month_map)
+	log.Println(*month)
+	log.Println(month_map)
 
 	// open csv file. record is type of [][]string
 	if *csvfile == "" {
@@ -37,9 +38,13 @@ func main() {
 			"DESC":   4,
 			"MISC":   2}
 
-		generateAll(debug, display_all)
-		generateEssential(debug, display_all)
-		target_map := generateMap(debug, display_all)
+		var target_map = make(map[string][]string)
+		generateMap(display_all, target_map)
+
+		var all []string
+		generateAll(display_all, &all)
+		var essential []string
+		generateEssential(display_all, &essential)
 
 		sum := 0.0
 

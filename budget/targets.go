@@ -4,10 +4,6 @@ import (
 	"log"
 )
 
-// category
-var all = []string{}
-var essential = []string{}
-
 // targets
 var income = []string{"hyve"}
 var check = []string{"check"}
@@ -79,58 +75,54 @@ var pipe = []string{
 	"cigars",
 	"mission pipe shop"}
 
-func generateAll(debug, display_all *bool) {
+func generateEssential(display_all *bool, essential *[]string) {
 	/*
 		only 2 slices can be merged at a time.
+		slice pointer
 	*/
-	all = append(utils, gas...)
-	all = append(all, housing...)
-	all = append(all, loan...)
-	all = append(all, check...)
-	all = append(all, pipe...)
-	all = append(all, monthly...)
-	all = append(all, clothing...)
-	all = append(all, health...)
-	all = append(all, grocery...)
-	all = append(all, auto...)
-	all = append(all, misc...)
-	all = append(all, food_out...)
-	all = append(all, coffee...)
-	all = append(all, insurance...)
-	all = append(all, motorcycle...)
-
-	if *display_all {
-		log.Println(all)
-	}
-}
-
-func generateEssential(debug, display_all *bool) {
-	/*
-		only 2 slices can be merged at a time.
-	*/
-	essential = append(utils, gas...)
-	essential = append(essential, housing...)
-	essential = append(essential, loan...)
-	essential = append(essential, check...)
-	essential = append(essential, clothing...)
-	essential = append(essential, pipe...)
-	essential = append(essential, monthly...)
-	essential = append(essential, health...)
-	essential = append(essential, grocery...)
-	essential = append(essential, auto...)
-	essential = append(essential, misc...)
-	essential = append(essential, food_out...)
-	essential = append(essential, insurance...)
-	essential = append(essential, coffee...)
+	*essential = append(utils, gas...)
+	*essential = append(*essential, housing...)
+	*essential = append(*essential, loan...)
+	*essential = append(*essential, check...)
+	*essential = append(*essential, clothing...)
+	*essential = append(*essential, pipe...)
+	*essential = append(*essential, monthly...)
+	*essential = append(*essential, health...)
+	*essential = append(*essential, grocery...)
+	*essential = append(*essential, auto...)
+	*essential = append(*essential, misc...)
+	*essential = append(*essential, food_out...)
+	*essential = append(*essential, insurance...)
+	*essential = append(*essential, coffee...)
 
 	if *display_all {
 		log.Println(essential)
 	}
 }
 
-func generateMap(debug, display_all *bool) map[string][]string {
-	target_map := map[string][]string{}
+func generateAll(display_all *bool, all *[]string) {
+	*all = append(utils, gas...)
+	*all = append(*all, housing...)
+	*all = append(*all, loan...)
+	*all = append(*all, check...)
+	*all = append(*all, pipe...)
+	*all = append(*all, monthly...)
+	*all = append(*all, clothing...)
+	*all = append(*all, health...)
+	*all = append(*all, grocery...)
+	*all = append(*all, auto...)
+	*all = append(*all, misc...)
+	*all = append(*all, food_out...)
+	*all = append(*all, coffee...)
+	*all = append(*all, insurance...)
+	*all = append(*all, motorcycle...)
 
+	if *display_all {
+		log.Println(all)
+	}
+}
+
+func generateMap(display_all *bool, target_map map[string][]string) {
 	target_map["housing"] = housing
 	target_map["clothing"] = clothing
 	target_map["utils"] = utils
@@ -152,5 +144,4 @@ func generateMap(debug, display_all *bool) map[string][]string {
 	if *display_all {
 		log.Println(target_map)
 	}
-	return target_map
 }
