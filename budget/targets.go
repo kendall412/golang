@@ -140,6 +140,7 @@ func generateMap(display_all *bool, target_map map[string][]string) {
 	if *display_all {
 		printDisplayAll("Target", target_map)
 	}
+
 }
 
 func generateHeader(display_all *bool, header map[string]int) {

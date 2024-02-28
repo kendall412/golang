@@ -47,7 +47,7 @@ func openCsv(file string, debug *bool, display_all *bool) [][]string {
 	}
 
 	if *display_all {
-		log.Println(records)
+		printDisplayAll("Records: ", records)
 	}
 	return records
 }
