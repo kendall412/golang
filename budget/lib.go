@@ -19,6 +19,13 @@ func printError(msg string) {
 	os.Exit(EXIT_CODE_ERROR)
 }
 
+func printDisplayAll(name string, data interface{}) {
+	fmt.Println()
+	magenta.Printf("%s: ", name)
+	magenta.Println(data)
+	fmt.Println()
+}
+
 func printSum(sum float64) {
 	blue.Printf("TOTAL: ")
 	green.Printf("$%.2f\n", sum)

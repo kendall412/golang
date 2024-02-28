@@ -1,9 +1,5 @@
 package main
 
-import (
-	"log"
-)
-
 // targets
 var income = []string{"hyve"}
 var check = []string{"check"}
@@ -96,7 +92,7 @@ func generateEssential(display_all *bool, essential *[]string) {
 	*essential = append(*essential, coffee...)
 
 	if *display_all {
-		log.Println(essential)
+		printDisplayAll("Essential", essential)
 	}
 }
 
@@ -118,7 +114,7 @@ func generateAll(display_all *bool, all *[]string) {
 	*all = append(*all, motorcycle...)
 
 	if *display_all {
-		log.Println(all)
+		printDisplayAll("All", all)
 	}
 }
 
@@ -142,6 +138,37 @@ func generateMap(display_all *bool, target_map map[string][]string) {
 	target_map["check"] = check
 
 	if *display_all {
-		log.Println(target_map)
+		printDisplayAll("Target", target_map)
+	}
+}
+
+func generateHeader(display_all *bool, header map[string]int) {
+	header["DATE"] = 0
+	header["AMNT"] = 1
+	header["CHK_NO"] = 3
+	header["DESC"] = 4
+	header["MISC"] = 2
+
+	if *display_all {
+		printDisplayAll("Header", header)
+	}
+}
+
+func generateMonth(display_all *bool, month_map map[string]int) {
+	month_map["jan"] = 1
+	month_map["feb"] = 2
+	month_map["mar"] = 3
+	month_map["apr"] = 4
+	month_map["may"] = 5
+	month_map["jun"] = 6
+	month_map["jul"] = 7
+	month_map["aug"] = 8
+	month_map["sep"] = 9
+	month_map["oct"] = 10
+	month_map["nov"] = 11
+	month_map["dec"] = 12
+
+	if *display_all {
+		printDisplayAll("Month", month_map)
 	}
 }
