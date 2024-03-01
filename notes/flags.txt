@@ -1,0 +1,7 @@
+flags
+subcommands
+flag error handling
+
+https://www.kelche.co/blog/go/flag/#:~:text=Flags%20are%20a%20standard%20method,building%2C%20running%2C%20and%20others.
+
+
