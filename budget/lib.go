@@ -31,7 +31,8 @@ func printSum(sum float64) {
 	green.Printf("$%.2f\n", sum)
 }
 
-func openCsv(file string, debug *bool, display_all *bool) [][]string {
+func openCsv(file string, debug *bool, display_all *bool, month *int, header map[string]int) [][]string {
+
 	csv_file, err := os.Open(file)
 	if err != nil {
 		red.Println("Error openinging csv file", err)
@@ -40,16 +41,36 @@ func openCsv(file string, debug *bool, display_all *bool) [][]string {
 	defer csv_file.Close()
 
 	csv_reader := csv.NewReader(csv_file)
-	records, err := csv_reader.ReadAll()
+	rec, err := csv_reader.ReadAll()
 
 	if err != nil {
 		red.Println("Error occured in opening csv_reader")
 	}
 
-	if *display_all {
-		printDisplayAll("Records: ", records)
+	if *month == 0 {
+		if *display_all {
+			printDisplayAll("Records", rec)
+		}
+		return rec
+	} else {
+
+		records := [][]string{}
+		month_str := strconv.Itoa(*month)
+		if len(month_str) == 1 {
+			month_str = "0" + month_str
+		}
+
+		for _, v := range rec {
+			if strings.HasPrefix(v[header["DATE"]], month_str) {
+				records = append(records, v)
+			}
+		}
+		if *display_all {
+			printDisplayAll("Records", records)
+		}
+		return records
 	}
-	return records
+
 }
 
 func retrieveTargets(target string, records [][]string, header map[string]int, debug *bool) float64 {
