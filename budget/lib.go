@@ -6,7 +6,6 @@ import (
 	"log"
 	"math"
 	"os"
-	"slices"
 	"strconv"
 	"strings"
 )
@@ -32,7 +31,6 @@ func printSum(sum float64) {
 }
 
 func openCsv(file string, debug *bool, display_all *bool, month *int, header map[string]int) [][]string {
-
 	csv_file, err := os.Open(file)
 	if err != nil {
 		red.Println("Error openinging csv file", err)
@@ -47,13 +45,13 @@ func openCsv(file string, debug *bool, display_all *bool, month *int, header map
 		red.Println("Error occured in opening csv_reader")
 	}
 
+	// *month is default to zero if no month is given by user
 	if *month == 0 {
 		if *display_all {
 			printDisplayAll("Records", rec)
 		}
 		return rec
 	} else {
-
 		records := [][]string{}
 		month_str := strconv.Itoa(*month)
 		if len(month_str) == 1 {
@@ -61,10 +59,11 @@ func openCsv(file string, debug *bool, display_all *bool, month *int, header map
 		}
 
 		for _, v := range rec {
-			if strings.HasPrefix(v[header["DATE"]], month_str) {
+			if strings.HasPrefix(v[header["DATE"]]+"/", month_str) {
 				records = append(records, v)
 			}
 		}
+
 		if *display_all {
 			printDisplayAll("Records", records)
 		}
@@ -99,11 +98,4 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 		fmt.Println()
 	}
 	return sum
-}
-
-func delElement(index int, records *[][]string) {
-	/*
-		using pointer slices
-	*/
-	*records = slices.Delete(*records, index-1, index)
 }

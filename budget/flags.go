@@ -10,6 +10,7 @@ func generateFlags() (target *string, csvfile *string, cattarget *string, month 
 
 	cattarget = flag.String("ct", "", "cattarget <str>: categorical target (e.g. 'insurance' vs 'geico').")
 
+	// integer flags
 	month = flag.Int("m", 0, "month <int>: month in integer format: jan:1, feb:2, mar:3, apr:4, may:5, jun:6, jul:7, aug:8, sep:9, oct:10, nov:11, dec:12")
 
 	// bool flags

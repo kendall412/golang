@@ -16,6 +16,7 @@ var monthly = []string{
 	"github",
 	"microsoft"}
 var clothing = []string{
+	"shein",
 	"marshalls",
 	"ross",
 	"macy's",
@@ -32,7 +33,10 @@ var gas = []string{
 	"arco",
 	"shell"}
 var grocery = []string{
-	"sprouts",
+	"butcherbox",
+	"smile",
+	"safeway",
+	"sprout",
 	"costco",
 	"kp international",
 	"wal-mart",
@@ -43,26 +47,37 @@ var grocery = []string{
 	"hankook"}
 var health = []string{"kaiser"}
 var food_out = []string{
+	"ryujin ramen",
+	"subway",
+	"brookfields",
+	"pho bac",
 	"in-n-out",
+	"in n out",
 	"chipotle",
 	"seoulzip",
 	"tasty pot",
 	"mcdonald's",
 	"vons chicken",
-	"paris baguett"}
+	"paris baguett",
+	"pushkin"}
 var misc = []string{
+	"rc country hobbies",
+	"halfpricebooks",
 	"amzn",
 	"amazon",
 	"hobbylobb",
 	"dollar tr",
 	"ebay"}
 var coffee = []string{
+	"temple coffee",
 	"starbucks",
 	"peet's"}
 var insurance = []string{
 	"nationwide",
 	"geico"}
-var auto = []string{"palisade"}
+var auto = []string{
+	"palisade",
+	"black rock auto"}
 var motorcycle = []string{
 	"cycle gear",
 	"a&s",
