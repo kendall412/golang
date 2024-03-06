@@ -1,5 +1,9 @@
 package main
 
+/*
+see https://go.dev/play/p/SjMWHTrIHNy for creating map of targets
+*/
+
 // targets
 var income = []string{"hyve"}
 var check = []string{"check"}

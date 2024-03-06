@@ -69,7 +69,6 @@ func openCsv(file string, debug *bool, display_all *bool, month *int, header map
 		}
 		return records
 	}
-
 }
 
 func retrieveTargets(target string, records [][]string, header map[string]int, debug *bool) float64 {
