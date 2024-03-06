@@ -25,7 +25,7 @@ func main() {
 	// prints out categories of purchase and then exits
 	if *print_cat {
 		cnt := 1
-		magenta.Println("CATEGORIES:\n")
+		magenta.Printf("CATEGORIES:\n")
 		for cat, _ := range target_map {
 			magenta.Printf("%d. %s\n", cnt, cat)
 			cnt += 1
