@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"slices"
 	"strings"
 )
 
@@ -15,6 +16,20 @@ func main() {
 
 	// flags (pointers)
 	target, csvfile, cattarget, month, debug, alltarget, display_all, essentialtarget, view_remaining_spending, print_cat := generateFlags()
+
+	targets_slice := generateEatOut()
+	fmt.Println(targets_slice)
+	// fmt.Println(targets_slice[0].Name)
+	fmt.Println()
+	for _, tar := range targets_slice {
+		// fmt.Println(tar)
+		// fmt.Printf("%T\n", tar)
+		if slices.Contains(tar.Cat, "misc") {
+			fmt.Println(tar)
+		}
+	}
+
+	os.Exit(1)
 
 	header := make(map[string]int)
 	generateHeader(display_all, header)
