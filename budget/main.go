@@ -29,7 +29,7 @@ func main() {
 		}
 	}
 
-	os.Exit(1)
+	// os.Exit(1)
 
 	header := make(map[string]int)
 	generateHeader(display_all, header)
