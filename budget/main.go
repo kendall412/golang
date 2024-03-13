@@ -17,20 +17,6 @@ func main() {
 	// flags (pointers)
 	target, csvfile, cattarget, month, debug, alltarget, display_all, essentialtarget, view_remaining_spending, print_cat := generateFlags()
 
-	targets_slice := generateEatOut()
-	fmt.Println(targets_slice)
-	// fmt.Println(targets_slice[0].Name)
-	fmt.Println()
-	for _, tar := range targets_slice {
-		// fmt.Println(tar)
-		// fmt.Printf("%T\n", tar)
-		if slices.Contains(tar.Cat, "misc") {
-			fmt.Println(tar)
-		}
-	}
-
-	// os.Exit(1)
-
 	header := make(map[string]int)
 	generateHeader(display_all, header)
 
@@ -57,6 +43,42 @@ func main() {
 
 	// open csv
 	records := openCsv(*csvfile, debug, display_all, month, header)
+
+	//========== Target Struct
+	//========================================================================
+	targets_slice := generateTargetStruct()
+	fmt.Println()
+
+	if *target != "" {
+		total_sum := 0.0
+		for _, tar := range targets_slice {
+			if strings.Contains(tar.Name, *target) {
+				for _, variant := range tar.Variant {
+					// fmt.Println(variant)
+					sum := retrieveTargets(variant, records, header, debug)
+					total_sum += sum
+				}
+			}
+		}
+		printSum(total_sum)
+	}
+
+	if *cattarget != "" {
+		total_sum := 0.0
+		for _, tar := range targets_slice {
+			if slices.Contains(tar.Cat, *cattarget) {
+				for _, variant := range tar.Variant {
+					sum := retrieveTargets(variant, records, header, debug)
+					total_sum += sum
+				}
+			}
+		}
+		printSum(total_sum)
+	}
+
+	os.Exit(1)
+	//========================================================================
+	//========================================================================
 
 	// open csv file. record is type of [][]string
 	if *csvfile == "" {

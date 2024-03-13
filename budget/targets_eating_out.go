@@ -29,29 +29,30 @@ type Targets struct {
 	Variant []string // {"in-n-out","in n out"}
 }
 
-func generateEatOut() []Targets {
+func generateTargetStruct() []Targets {
 	var targets_slice []Targets
 
 	var innout Targets
-	innout.Name = "in-n-Oout"
-	innout.Cat = []string{"all", "essential"}
+	innout.Name = "in-n-out"
+	innout.Cat = []string{"all", "essential", "variable", "eatout"}
 	innout.Variant = []string{"in-n-out", "in n out"}
 
 	var mcdonalds Targets
-	mcdonalds.Name = "mcDonalds"
-	mcdonalds.Cat = []string{"all"}
+	mcdonalds.Name = "mcdonalds"
+	mcdonalds.Cat = []string{"all", "variable", "eatout"}
 	mcdonalds.Variant = []string{"mcdonald", "mcdonalds"}
 
-	var motorcycle Targets
-	motorcycle.Name = "motorcycle"
-	motorcycle.Cat = []string{"misc", "all"}
-	motorcycle.Variant = []string{"cycle gear", "a&s", "freedomroad"}
+	var cyclegear Targets
+	cyclegear.Name = "cycle gear"
+	cyclegear.Cat = []string{"motorcycle", "variable"}
+	cyclegear.Variant = []string{"cycle gear"}
 
-	targets_slice = append(targets_slice, innout, mcdonalds, motorcycle)
+	var a_and_s Targets
+	a_and_s.Name = "a_and_s"
+	a_and_s.Cat = []string{"motorcycle", "variable"}
+	a_and_s.Variant = []string{"a&s"}
 
-	// if *display_all {
-	// 	printDisplayAll(targets_slice)
-	// }
+	targets_slice = append(targets_slice, innout, mcdonalds, cyclegear, a_and_s)
 
 	return targets_slice
 }
