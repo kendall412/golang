@@ -67,13 +67,21 @@ func main() {
 		total_sum := 0.0
 		for _, tar := range targets_slice {
 			if slices.Contains(tar.Cat, *cattarget) {
-				for _, variant := range tar.Variant {
-					sum := retrieveTargets(variant, records, header, debug)
-					total_sum += sum
-				}
+				returnSpending(tar.Variant, &total_sum)
+				// for _, variant := range tar.Variant {
+				// 	sum := retrieveTargets(variant, records, header, debug)
+				// 	total_sum += sum
+				// }
 			}
 		}
 		printSum(total_sum)
+	}
+
+	func returnSpending(variants []string, total_sum *float64) {
+		for _, variant := range variants {
+			sum := retrieveTargets(variant, records, header, debug)
+			*total_sum += sum
+		}
 	}
 
 	os.Exit(1)
