@@ -98,3 +98,29 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 	}
 	return sum
 }
+
+/*
+DESC: return sum of all spending. It takes into account variant names of a target. e.g. In-N-Out with variant names such as "in-n-out" and "in n out"
+
+PARAM:
+
+	variants *[]string  this is type Targets struct
+	type Targets struct {
+		Name    string
+		Cat     []string // eating_out, grocery, etc
+		Variant []string // {"in-n-out","in n out"}
+		}
+
+	total_sum *float64	this is set to 0.0
+	header *map[string]int
+	debug *bool
+	records *[][]string
+
+RETURN: None
+*/
+func returnSpending(variants *[]string, total_sum *float64, header *map[string]int, debug *bool, records *[][]string) {
+	for _, variant := range *variants {
+		sum := retrieveTargets(variant, *records, *header, debug)
+		*total_sum += sum
+	}
+}

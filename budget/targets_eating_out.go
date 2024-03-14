@@ -29,17 +29,19 @@ type Targets struct {
 	Variant []string // {"in-n-out","in n out"}
 }
 
+var targets_slice []Targets
+
 func generateTargetStruct() []Targets {
-	var targets_slice []Targets
+	// var targets_slice []Targets
 
 	var innout Targets
 	innout.Name = "in-n-out"
-	innout.Cat = []string{"all", "essential", "variable", "eatout"}
+	innout.Cat = []string{"essential", "variable", "eatout"}
 	innout.Variant = []string{"in-n-out", "in n out"}
 
 	var mcdonalds Targets
 	mcdonalds.Name = "mcdonalds"
-	mcdonalds.Cat = []string{"all", "variable", "eatout"}
+	mcdonalds.Cat = []string{"variable", "eatout"}
 	mcdonalds.Variant = []string{"mcdonald", "mcdonalds"}
 
 	var cyclegear Targets
@@ -52,7 +54,37 @@ func generateTargetStruct() []Targets {
 	a_and_s.Cat = []string{"motorcycle", "variable"}
 	a_and_s.Variant = []string{"a&s"}
 
-	targets_slice = append(targets_slice, innout, mcdonalds, cyclegear, a_and_s)
+	var housing Targets
+	housing.Name = "housing"
+	housing.Cat = []string{"constant", "housing"}
+	housing.Variant = []string{"cheung"}
+
+	var clothing Targets
+	clothing.Name = "clothes"
+	clothing.Cat = []string{"constant", "clothes"}
+	clothing.Variant = []string{
+		"shein",
+		"marshalls",
+		"ross",
+		"macy's",
+		"abercrombie",
+		"arden fair"}
+
+	var monthly Targets
+	monthly.Name = "monthly"
+	monthly.Cat = []string{"variable", "monthly"}
+	monthly.Variant = []string{
+		"lees korean ma",
+		"epicentre church",
+		"24 hour fitness",
+		"technique gymn",
+		"netflix",
+		"audible",
+		"apple",
+		"github",
+		"microsoft"}
+
+	var targets_slice = append(targets_slice, innout, mcdonalds, cyclegear, a_and_s)
 
 	return targets_slice
 }

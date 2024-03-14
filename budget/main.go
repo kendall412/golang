@@ -15,7 +15,7 @@ func main() {
 	italic.Printf("BUDGET VER: %s\n\n", VER)
 
 	// flags (pointers)
-	target, csvfile, cattarget, month, debug, alltarget, display_all, essentialtarget, view_remaining_spending, print_cat := generateFlags()
+	target, csvfile, cattarget, month, debug, alltarget, display_all, essential_target, variable_target, constant_target, view_remaining_spending, print_cat := generateFlags()
 
 	header := make(map[string]int)
 	generateHeader(display_all, header)
@@ -49,41 +49,53 @@ func main() {
 	targets_slice := generateTargetStruct()
 	fmt.Println()
 
+	total_sum := 0.0
+
 	if *target != "" {
-		total_sum := 0.0
+		// total_sum := 0.0
 		for _, tar := range targets_slice {
 			if strings.Contains(tar.Name, *target) {
-				for _, variant := range tar.Variant {
-					// fmt.Println(variant)
-					sum := retrieveTargets(variant, records, header, debug)
-					total_sum += sum
-				}
+				returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
 			}
 		}
 		printSum(total_sum)
 	}
 
 	if *cattarget != "" {
-		total_sum := 0.0
+		// total_sum := 0.0
 		for _, tar := range targets_slice {
 			if slices.Contains(tar.Cat, *cattarget) {
-				returnSpending(tar.Variant, &total_sum)
-				// for _, variant := range tar.Variant {
-				// 	sum := retrieveTargets(variant, records, header, debug)
-				// 	total_sum += sum
-				// }
+				returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
 			}
 		}
 		printSum(total_sum)
 	}
 
-	func returnSpending(variants []string, total_sum *float64) {
-		for _, variant := range variants {
-			sum := retrieveTargets(variant, records, header, debug)
-			*total_sum += sum
+	if *alltarget {
+		// total_sum := 0.0
+		for _, tar := range targets_slice {
+			returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
 		}
+		printSum(total_sum)
 	}
 
+	if *variable_target {
+		for _, tar := range targets_slice {
+			if slices.Contains(tar.Cat, "variable") {
+				returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
+			}
+		}
+		printSum(total_sum)
+	}
+
+	if *constant_target {
+		for _, tar := range targets_slice {
+			if slices.Contains(tar.Cat, "constant") {
+				returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
+			}
+		}
+		printSum(total_sum)
+	}
 	os.Exit(1)
 	//========================================================================
 	//========================================================================
@@ -112,7 +124,7 @@ func main() {
 		}
 
 		// essential spending is all - motorcycles
-		if *essentialtarget {
+		if *essential_target {
 			for _, targets := range essential {
 				amnt := retrieveTargets(targets, records, header, debug)
 				sum += amnt
