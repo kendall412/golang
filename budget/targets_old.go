@@ -19,13 +19,14 @@ var monthly = []string{
 	"apple",
 	"github",
 	"microsoft"}
-var clothing = []string{
-	"shein",
-	"marshalls",
-	"ross",
-	"macy's",
-	"abercrombie",
-	"arden fair"}
+
+//	var clothing = []string{
+//		"shein",
+//		"marshalls",
+//		"ross",
+//		"macy's",
+//		"abercrombie",
+//		"arden fair"}
 var utils = []string{
 	"pg&e",
 	"smud",
@@ -36,34 +37,36 @@ var utils = []string{
 var gas = []string{
 	"arco",
 	"shell"}
-var grocery = []string{
-	"butcherbox",
-	"smile",
-	"safeway",
-	"sprout",
-	"costco",
-	"kp international",
-	"wal-mart",
-	"raley",
-	"target",
-	"groc outlet",
-	"lucky",
-	"hankook"}
+
+//	var grocery = []string{
+//		"butcherbox",
+//		"smile",
+//		"safeway",
+//		"sprout",
+//		"costco",
+//		"kp international",
+//		"wal-mart",
+//		"raley",
+//		"target",
+//		"groc outlet",
+//		"lucky",
+//		"hankook"}
 var health = []string{"kaiser"}
-var food_out = []string{
-	// "ryujin ramen",
-	// "subway",
-	// "brookfields",
-	// "pho bac",
-	// "in-n-out",
-	// "in n out",
-	"chipotle",
-	"seoulzip",
-	"tasty pot",
-	"mcdonald's",
-	"vons chicken",
-	"paris baguett",
-	"pushkin"}
+
+// var food_out = []string{
+// "ryujin ramen",
+// "subway",
+// "brookfields",
+// "pho bac",
+// "in-n-out",
+// "in n out",
+// "chipotle",
+// "seoulzip",
+// "tasty pot",
+// "mcdonald's",
+// "vons chicken",
+// "paris baguett",
+// "pushkin"}
 
 var misc = []string{
 	"rc country hobbies",
@@ -100,14 +103,14 @@ func generateEssential(display_all *bool, essential *[]string) {
 	*essential = append(*essential, housing...)
 	*essential = append(*essential, loan...)
 	*essential = append(*essential, check...)
-	*essential = append(*essential, clothing...)
+	// *essential = append(*essential, clothing...)
 	*essential = append(*essential, pipe...)
 	*essential = append(*essential, monthly...)
 	*essential = append(*essential, health...)
-	*essential = append(*essential, grocery...)
+	// *essential = append(*essential, grocery...)
 	*essential = append(*essential, auto...)
 	*essential = append(*essential, misc...)
-	*essential = append(*essential, food_out...)
+	// *essential = append(*essential, food_out...)
 	*essential = append(*essential, insurance...)
 	*essential = append(*essential, coffee...)
 
@@ -123,12 +126,12 @@ func generateAll(display_all *bool, all *[]string) {
 	*all = append(*all, check...)
 	*all = append(*all, pipe...)
 	*all = append(*all, monthly...)
-	*all = append(*all, clothing...)
+	// *all = append(*all, clothing...)
 	*all = append(*all, health...)
-	*all = append(*all, grocery...)
+	// *all = append(*all, grocery...)
 	*all = append(*all, auto...)
 	*all = append(*all, misc...)
-	*all = append(*all, food_out...)
+	// *all = append(*all, food_out...)
 	*all = append(*all, coffee...)
 	*all = append(*all, insurance...)
 	*all = append(*all, motorcycle...)
@@ -140,12 +143,12 @@ func generateAll(display_all *bool, all *[]string) {
 
 func generateMap(display_all *bool, target_map map[string][]string) {
 	target_map["housing"] = housing
-	target_map["clothing"] = clothing
+	// target_map["clothing"] = clothing
 	target_map["utils"] = utils
 	target_map["gas"] = gas
-	target_map["grocery"] = grocery
+	// target_map["grocery"] = grocery
 	target_map["health"] = health
-	target_map["food_out"] = food_out
+	// target_map["food_out"] = food_out
 	target_map["misc"] = misc
 	target_map["coffee"] = coffee
 	target_map["insurance"] = insurance

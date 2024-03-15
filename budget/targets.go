@@ -6,6 +6,10 @@ type Targets struct {
 	Variant []string // {"in-n-out","in n out"}
 }
 
+// spending categories
+var food = "food"
+var mis = "misc"
+var heal = "health"
 var clo = "clothes"
 var es = "essential"
 var vari = "variable"
@@ -16,43 +20,6 @@ var home = "housing"
 var min = "ministry"
 var ext = "extracurricular"
 var enter = "entertainment"
-
-func eatOutTargets() []Targets {
-	var innout Targets
-	innout.Name = "in-n-out"
-	innout.Cat = []string{vari, eat}
-	innout.Variant = []string{"in-n-out", "in n out"}
-
-	var mcdonalds Targets
-	mcdonalds.Name = "mcdonalds"
-	mcdonalds.Cat = []string{vari, eat}
-	mcdonalds.Variant = []string{"mcdonald", "mcdonalds"}
-
-	var ramen Targets
-	ramen.Name = "ramen"
-	ramen.Cat = []string{vari, eat}
-	ramen.Variant = []string{"ryujin ramen"}
-
-	var subway Targets
-	subway.Name = "subway"
-	subway.Cat = []string{vari, eat}
-	subway.Variant = []string{"subway"}
-
-	var brookfields Targets
-	brookfields.Name = "brookfields"
-	brookfields.Cat = []string{vari, eat}
-	brookfields.Variant = []string{"brookfield"}
-
-	var pho Targets
-	pho.Name = "pho"
-	pho.Cat = []string{vari, eat}
-	pho.Variant = []string{"pho"}
-
-	var eatout = []Targets{}
-	eatout = append(eatout, innout, mcdonalds, ramen, subway, brookfields, pho)
-
-	return eatout
-}
 
 func motoTargets() []Targets {
 	var cyclegear Targets
@@ -182,4 +149,5 @@ func generateTargetStruct(targets_slice *[]Targets) {
 	*targets_slice = append(*targets_slice, clothesTarget()...)
 	*targets_slice = append(*targets_slice, motoTargets()...)
 	*targets_slice = append(*targets_slice, eatOutTargets()...)
+	*targets_slice = append(*targets_slice, groceryTargets()...)
 }
