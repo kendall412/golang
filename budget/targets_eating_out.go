@@ -155,3 +155,12 @@ func housingTargets() []Targets {
 	home = append(home, housing)
 	return home
 }
+
+func concatSlices(sl []Targets) []Targets {
+
+	var tmp []Targets
+	for _, s := range sl {
+		tmp = append(tmp, s...)
+	}
+	return tmp
+}
