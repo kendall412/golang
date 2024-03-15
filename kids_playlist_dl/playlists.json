@@ -28,6 +28,12 @@
             "name":"korean_modern_mix",
             "location":"AUDIO/korean_modern_mix",
             "playlist":"playlist?list=PLirXWlrEJp3ez9QWUbdobj7bGze8WirNF&si=TLOgJoFscEr2eRuN"
+        },
+
+        {
+            "name":"rock_mix",
+            "location":"AUDIO/rock_mix",
+            "playlist":"playlist?list=PLirXWlrEJp3cmDNNIGgUZqXM-l4yu8N9u&si=uTVtnnbpx5E0y-oZ"
         }
     ]
 }

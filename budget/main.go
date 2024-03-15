@@ -47,6 +47,7 @@ func main() {
 	//========== Target Struct
 	//========================================================================
 	targets_slice := generateTargetStruct()
+	fmt.Println(targets_slice)
 	fmt.Println()
 
 	total_sum := 0.0
@@ -74,14 +75,15 @@ func main() {
 	if *alltarget {
 		// total_sum := 0.0
 		for _, tar := range targets_slice {
-			returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
+			fmt.Println(tar)
+			// returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
 		}
-		printSum(total_sum)
+		// printSum(total_sum)
 	}
 
 	if *variable_target {
 		for _, tar := range targets_slice {
-			if slices.Contains(tar.Cat, "variable") {
+			if slices.Contains(tar.Cat, vari) {
 				returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
 			}
 		}
@@ -90,7 +92,7 @@ func main() {
 
 	if *constant_target {
 		for _, tar := range targets_slice {
-			if slices.Contains(tar.Cat, "constant") {
+			if slices.Contains(tar.Cat, con) {
 				returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
 			}
 		}

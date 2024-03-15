@@ -1,28 +1,5 @@
 package main
 
-// func generateEatOutMap(display_all *bool) map[string][]string {
-// 	var eating_out = make(map[string][]string)
-
-// 	eating_out["innout"] = []string{"in-n-out", "in n out"}
-// 	eating_out["ramen"] = []string{"ryujin ramen"}
-// 	eating_out["subway"] = []string{"subway"}
-// 	eating_out["brookfields"] = []string{"brookfield", "brookfieds"}
-// 	eating_out["pho"] = []string{"pho bac"}
-// 	eating_out["chipotle"] = []string{"chipotle"}
-// 	eating_out["seoulzip"] = []string{"seoulzip"}
-// 	eating_out["tasty_pot"] = []string{"tasty pot"}
-// 	eating_out["mcdonalds"] = []string{"mcdonald", "mcdonalds"}
-// 	eating_out["vons_chicken"] = []string{"vons chicken"}
-// 	eating_out["paris_baguett"] = []string{"paris baguett"}
-// 	eating_out["pushkin"] = []string{"pushkin"}
-
-// 	if *display_all {
-// 		printDisplayAll("eatout", eating_out)
-// 	}
-
-// 	return eating_out
-// }
-
 type Targets struct {
 	Name    string
 	Cat     []string // eating_out, grocery, etc
@@ -30,61 +7,151 @@ type Targets struct {
 }
 
 var targets_slice []Targets
+var clo = "clothes"
+var es = "essential"
+var vari = "variable"
+var con = "constant"
+var eat = "eatout"
+var moto = "motorcycle"
+var home = "housing"
+var min = "ministry"
+var ext = "extracurricular"
+var enter = "entertainment"
 
-func generateTargetStruct() []Targets {
-	// var targets_slice []Targets
-
+func eatOutTargets() []Targets {
 	var innout Targets
 	innout.Name = "in-n-out"
-	innout.Cat = []string{"essential", "variable", "eatout"}
+	innout.Cat = []string{vari, eat}
 	innout.Variant = []string{"in-n-out", "in n out"}
 
 	var mcdonalds Targets
 	mcdonalds.Name = "mcdonalds"
-	mcdonalds.Cat = []string{"variable", "eatout"}
+	mcdonalds.Cat = []string{vari, eat}
 	mcdonalds.Variant = []string{"mcdonald", "mcdonalds"}
 
+	var eatout = []Targets{}
+	eatout = append(eatout, innout, mcdonalds)
+
+	return eatout
+}
+
+func motoTargets() []Targets {
 	var cyclegear Targets
 	cyclegear.Name = "cycle gear"
-	cyclegear.Cat = []string{"motorcycle", "variable"}
+	cyclegear.Cat = []string{moto, vari}
 	cyclegear.Variant = []string{"cycle gear"}
 
 	var a_and_s Targets
 	a_and_s.Name = "a_and_s"
-	a_and_s.Cat = []string{"motorcycle", "variable"}
+	a_and_s.Cat = []string{moto, vari}
 	a_and_s.Variant = []string{"a&s"}
 
+	var moto = []Targets{}
+	moto = append(moto, cyclegear, a_and_s)
+
+	return moto
+}
+
+func clothesTarget() []Targets {
+	var shein Targets
+	shein.Name = "shein"
+	shein.Cat = []string{vari, clo}
+	shein.Variant = []string{"shein"}
+
+	var marshall Targets
+	marshall.Name = "marshall"
+	marshall.Cat = []string{"clothes", "variable"}
+	marshall.Variant = []string{"marshall"}
+
+	var ross Targets
+	ross.Name = "ross"
+	ross.Cat = []string{clo, vari}
+	ross.Variant = []string{"ross"}
+
+	var macys Targets
+	macys.Name = "macys"
+	macys.Cat = []string{clo, vari}
+	macys.Variant = []string{"macy", "macy's"}
+
+	var abercrombie Targets
+	abercrombie.Name = "abercrombie"
+	abercrombie.Cat = []string{clo, vari}
+	abercrombie.Variant = []string{"abercrombie"}
+
+	var arden Targets
+	arden.Name = "arden"
+	arden.Cat = []string{clo, vari}
+	arden.Variant = []string{"arden fair"}
+
+	var clothes = []Targets{}
+	clothes = append(clothes, shein, marshall, ross, macys, abercrombie, arden)
+	return clothes
+}
+
+func subscriptionTarget() []Targets {
+	var netflix Targets
+	netflix.Name = "netflix"
+	netflix.Cat = []string{con, enter}
+	netflix.Variant = []string{"netflix"}
+
+	var audible Targets
+	audible.Name = "audible"
+	audible.Cat = []string{con, enter}
+	audible.Variant = []string{"audible"}
+
+	var apple Targets
+	apple.Name = "apple"
+	apple.Cat = []string{con, enter}
+	apple.Variant = []string{"apple"}
+
+	var github Targets
+	github.Name = "github"
+	github.Cat = []string{con}
+	github.Variant = []string{"github"}
+
+	var microsoft Targets
+	microsoft.Name = "microsoft"
+	microsoft.Cat = []string{con}
+	microsoft.Variant = []string{"microsoft"}
+
+	var sub = []Targets{}
+	sub = append(sub, netflix, audible, apple, github, microsoft)
+	return sub
+}
+
+func extracurricularTargets() []Targets {
+	var lees_martial_arts Targets
+	lees_martial_arts.Name = "lee's martial arts"
+	lees_martial_arts.Cat = []string{con}
+	lees_martial_arts.Variant = []string{"lees korean ma"}
+
+	var epicentre Targets
+	epicentre.Name = "epicentre"
+	epicentre.Cat = []string{con, min}
+	epicentre.Variant = []string{"epicentre church"}
+
+	var technique Targets
+	technique.Name = "technique gymnastics"
+	technique.Cat = []string{con, ext}
+	technique.Variant = []string{"technique gymn"}
+
+	var twentyfour_fitness Targets
+	twentyfour_fitness.Name = "24 hr fitness"
+	twentyfour_fitness.Cat = []string{con}
+	twentyfour_fitness.Variant = []string{"24 hour fitness"}
+
+	var extra = []Targets{}
+	extra = append(extra, lees_martial_arts, epicentre, technique, twentyfour_fitness)
+	return extra
+}
+
+func housingTargets() []Targets {
 	var housing Targets
 	housing.Name = "housing"
-	housing.Cat = []string{"constant", "housing"}
+	housing.Cat = []string{con, home}
 	housing.Variant = []string{"cheung"}
 
-	var clothing Targets
-	clothing.Name = "clothes"
-	clothing.Cat = []string{"constant", "clothes"}
-	clothing.Variant = []string{
-		"shein",
-		"marshalls",
-		"ross",
-		"macy's",
-		"abercrombie",
-		"arden fair"}
-
-	var monthly Targets
-	monthly.Name = "monthly"
-	monthly.Cat = []string{"variable", "monthly"}
-	monthly.Variant = []string{
-		"lees korean ma",
-		"epicentre church",
-		"24 hour fitness",
-		"technique gymn",
-		"netflix",
-		"audible",
-		"apple",
-		"github",
-		"microsoft"}
-
-	var targets_slice = append(targets_slice, innout, mcdonalds, cyclegear, a_and_s)
-
-	return targets_slice
+	var home = []Targets{}
+	home = append(home, housing)
+	return home
 }

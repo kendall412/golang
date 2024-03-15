@@ -38,6 +38,8 @@ func main() {
 	*/
 	debug := flag.Bool("d", false, "debug flag, defaut is FALSE. If TRUE, -d,  will use testplaylist.json for debug purposes. Otherwise by default if FALSE will used kidsplaylists.json")
 	display := flag.Bool("di", false, "default is FALSE, if TRUE will displayed detailed information.")
+	erase := flag.Bool("e", false, "default is FALSE, if TRUE will erase the content of the directory prior to download.")
+
 	flag.Parse()
 
 	jsonConfigFile := genPlaylistPath(*debug)
@@ -69,9 +71,9 @@ func main() {
 	for i := 0; i < len(kids.Kids); i++ {
 		if *debug {
 			// fmt.Println(kids.Kids[i].Location)
-			go initiateDL(userhome+testpldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist, *display)
+			go initiateDL(userhome+testpldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist, *display, *erase)
 		} else {
-			go initiateDL(pldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist, *display)
+			go initiateDL(pldirloc+kids.Kids[i].Location, youtubeplaylistprefix+kids.Kids[i].Playlist, *display, *erase)
 		}
 	}
 	wg.Wait()
@@ -81,9 +83,11 @@ func main() {
 initiateDL
 DESC: checks to see the micro ssd exist and if so will initial dl function.
 */
-func initiateDL(location, playlist string, display bool) {
+func initiateDL(location, playlist string, display bool, erase bool) {
 	if checkDir(location) {
-		removeAllFiles(location)
+		if erase {
+			removeAllFiles(location)
+		}
 		dl(location, playlist, display)
 	} else {
 		fmt.Printf("::: %s drive does NOT exist :::\n", location)
