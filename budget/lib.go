@@ -99,6 +99,34 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 	return sum
 }
 
+func retrieveTargetSlice(target *Targets, total_sum *float64, header map[string]int, records *[][]string) {
+	sum := 0.0
+	for _, tar_variant := range target.Variant {
+		// fmt.Println(tar_variant)
+		for _, record := range *records {
+			if strings.Contains(strings.ToLower(record[header["DESC"]]), strings.ToLower(tar_variant)) {
+				// converts string to float64
+				amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
+
+				if amnt < 0.0 {
+					sum += math.Abs(amnt)
+					fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
+				}
+			}
+		}
+		/*
+			only print out to terminal if the cateory/individual target was spent. otherwise will return sum of 0 but will not print out.
+		*/
+		if sum > 0.0 {
+			blue.Printf("%s:", strings.ToUpper(tar_variant))
+			green.Printf(" $%.2f\n", sum)
+			fmt.Println()
+		}
+	}
+	// fmt.Printf("%s $%.2f\n", minirecord[header["DATE"]],math.Abs(amnt))
+	*total_sum = sum
+}
+
 /*
 DESC: return sum of all spending. It takes into account variant names of a target. e.g. In-N-Out with variant names such as "in-n-out" and "in n out"
 

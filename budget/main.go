@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-var VER string = "0.1h"
+var VER string = "0.1i"
 var EXIT_CODE_SUCCESS = 0
 var EXIT_CODE_ERROR = 1
 
@@ -55,14 +55,23 @@ func main() {
 	total_sum := 0.0
 
 	if *target != "" {
-		// total_sum := 0.0
 		for _, tar := range targets_slice {
 			if strings.Contains(tar.Name, *target) {
-				returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
+				retrieveTargetSlice(&tar, &total_sum, header, &records)
 			}
 		}
 		printSum(total_sum)
 	}
+
+	// if *target != "" {
+	// 	// total_sum := 0.0
+	// 	for _, tar := range targets_slice {
+	// 		if strings.Contains(tar.Name, *target) {
+	// 			returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
+	// 		}
+	// 	}
+	// 	printSum(total_sum)
+	// }
 
 	if *cattarget != "" {
 		// total_sum := 0.0
