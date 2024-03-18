@@ -34,7 +34,14 @@
             "name":"rock_mix",
             "location":"AUDIO/rock_mix",
             "playlist":"playlist?list=PLirXWlrEJp3cmDNNIGgUZqXM-l4yu8N9u&si=uTVtnnbpx5E0y-oZ"
+        },
+
+        {
+            "name":"kpop_mix",
+            "location":"AUDIO/kpop_mix",
+            "playlist":"playlist?list=PLirXWlrEJp3cUaCRg6y72cVytMtg04tmR&si=k6t3fcpot1PX9law"
         }
+
     ]
 }
 
