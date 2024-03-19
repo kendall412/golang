@@ -6,11 +6,6 @@ func extracurricularTargets() []Targets {
 	lees_martial_arts.Cat = []string{con}
 	lees_martial_arts.Variant = []string{"lees korean ma"}
 
-	var epicentre Targets
-	epicentre.Name = "epicentre"
-	epicentre.Cat = []string{con, min}
-	epicentre.Variant = []string{"epicentre church"}
-
 	var technique Targets
 	technique.Name = "technique gymnastics"
 	technique.Cat = []string{con, ext}
@@ -22,6 +17,6 @@ func extracurricularTargets() []Targets {
 	twentyfour_fitness.Variant = []string{"24 hour fitness"}
 
 	var extra = []Targets{}
-	extra = append(extra, lees_martial_arts, epicentre, technique, twentyfour_fitness)
+	extra = append(extra, lees_martial_arts, technique, twentyfour_fitness)
 	return extra
 }

@@ -104,7 +104,6 @@ func generateTargetStruct(targets_slice *[]Targets) {
 	*targets_slice = append(*targets_slice, eatOutTargets()...)
 	*targets_slice = append(*targets_slice, groceryTargets()...)
 	*targets_slice = append(*targets_slice, utilsTargets()...)
-	*targets_slice = append(*targets_slice, subscriptionTarget()...)
 	*targets_slice = append(*targets_slice, ministryTargets()...)
 	*targets_slice = append(*targets_slice, loansTarget()...)
 	*targets_slice = append(*targets_slice, coffeeTargets()...)

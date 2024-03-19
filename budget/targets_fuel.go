@@ -12,7 +12,12 @@ func fuelTargets() []Targets {
 	shell.Cat = []string{fu, vari}
 	shell.Variant = []string{"shell"}
 
+	var chevron Targets
+	chevron.Name = "chevron"
+	chevron.Cat = []string{fu, vari}
+	chevron.Variant = []string{"chevron"}
+
 	var fuel = []Targets{}
-	fuel = append(fuel, arco, shell)
+	fuel = append(fuel, arco, shell, chevron)
 	return fuel
 }

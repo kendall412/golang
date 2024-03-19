@@ -41,7 +41,12 @@ func nonessTargets() []Targets {
 	quickquack.Cat = []string{con, nes}
 	quickquack.Variant = []string{"quickquack"}
 
+	var autozone Targets
+	autozone.Name = "autozone"
+	autozone.Cat = []string{con, nes}
+	autozone.Variant = []string{"autozone"}
+
 	var noness = []Targets{}
-	noness = append(noness, cyclegear, a_and_s, blackrock, pipes_n_cigars, mission_pipe_shop, amazon, ebay, quickquack)
+	noness = append(noness, cyclegear, a_and_s, blackrock, pipes_n_cigars, mission_pipe_shop, amazon, ebay, quickquack, autozone)
 	return noness
 }

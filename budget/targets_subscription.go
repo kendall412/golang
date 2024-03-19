@@ -42,6 +42,6 @@ func subscriptionTarget() []Targets {
 	youtube.Variant = []string{"youtubepre"}
 
 	var sub = []Targets{}
-	sub = append(sub, netflix, audible, apple, github, scmp, wsj, youtube)
+	sub = append(sub, netflix, audible, apple, github, microsoft, scmp, wsj, youtube)
 	return sub
 }

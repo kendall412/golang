@@ -10,17 +10,18 @@ var check = []string{"check"}
 
 // var loan = []string{"dept education student ln"}
 var housing = []string{"cheung"}
-var monthly = []string{
-	// "lees korean ma",
-	// "epicentre church",
-	// "24 hour fitness",
-	// "technique gymn",
-	// "netflix",
-	// "audible",
-	// "apple",
-	// "github",
-	// "microsoft",
-}
+
+// var monthly = []string{
+// "lees korean ma",
+// "epicentre church",
+// "24 hour fitness",
+// "technique gymn",
+// "netflix",
+// "audible",
+// "apple",
+// "github",
+// "microsoft",
+// }
 
 //	var clothing = []string{
 //		"shein",

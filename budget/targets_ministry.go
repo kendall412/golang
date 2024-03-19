@@ -2,7 +2,7 @@ package main
 
 func ministryTargets() []Targets {
 	var epicentre Targets
-	epicentre.Name = "epicentre church"
+	epicentre.Name = "epicentre"
 	epicentre.Cat = []string{con, min}
 	epicentre.Variant = []string{"epicentre church"}
 
