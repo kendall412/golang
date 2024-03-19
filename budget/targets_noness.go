@@ -29,12 +29,12 @@ func nonessTargets() []Targets {
 	var amazon Targets
 	amazon.Name = "amazon"
 	amazon.Cat = []string{nes, vari}
-	amazon.Cat = []string{"amzn", "amazon"}
+	amazon.Variant = []string{"amzn", "amazon"}
 
 	var ebay Targets
 	ebay.Name = "ebay"
 	ebay.Cat = []string{nes, vari}
-	ebay.Cat = []string{"ebay"}
+	ebay.Variant = []string{"ebay"}
 
 	var quickquack Targets
 	quickquack.Name = "quickquack"
@@ -42,7 +42,6 @@ func nonessTargets() []Targets {
 	quickquack.Variant = []string{"quickquack"}
 
 	var noness = []Targets{}
-	noness = append(noness, cyclegear, a_and_s, blackrock, pipes_n_cigars, mission_pipe_shop, amazon, ebay)
-
+	noness = append(noness, cyclegear, a_and_s, blackrock, pipes_n_cigars, mission_pipe_shop, amazon, ebay, quickquack)
 	return noness
 }

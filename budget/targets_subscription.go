@@ -26,7 +26,22 @@ func subscriptionTarget() []Targets {
 	microsoft.Cat = []string{con, sub}
 	microsoft.Variant = []string{"microsoft"}
 
+	var scmp Targets
+	scmp.Name = "scmp"
+	scmp.Cat = []string{sub, con}
+	scmp.Variant = []string{"scmp hong kong"}
+
+	var wsj Targets
+	wsj.Name = "wsj"
+	wsj.Cat = []string{sub, con}
+	wsj.Variant = []string{"wall-st-journa"}
+
+	var youtube Targets
+	youtube.Name = "youtube"
+	youtube.Cat = []string{sub, con}
+	youtube.Variant = []string{"youtubepre"}
+
 	var sub = []Targets{}
-	sub = append(sub, netflix, audible, apple, github, microsoft)
+	sub = append(sub, netflix, audible, apple, github, scmp, wsj, youtube)
 	return sub
 }

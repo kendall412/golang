@@ -19,6 +19,7 @@ func utilsTargets() []Targets {
 	var verizon Targets
 	verizon.Name = "verizon"
 	verizon.Cat = []string{util, con}
+	verizon.Variant = []string{"verizon"}
 
 	var utils = []Targets{}
 	utils = append(utils, pg_e, smud, comcast, verizon)

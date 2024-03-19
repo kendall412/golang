@@ -111,6 +111,30 @@ func main() {
 		}
 		printSum(total_sum)
 	}
+
+	// check unknown spending
+	if *view_remaining_spending {
+		for _, tar := range targets_slice {
+			for _, record := range records {
+				// strings.Contains(str, input)
+				for _, variant := range tar.Variant {
+					if strings.Contains(strings.ToLower(record[header["DESC"]]), variant) {
+
+						// fmt.Println(i, tar, record)
+						record[header["DATE"]] = " "
+						record[header["DESC"]] = " "
+						record[header["AMNT"]] = " "
+						record[header["CHK_NO"]] = " "
+						record[header["MISC"]] = " "
+					}
+				}
+			}
+		}
+		fmt.Println()
+		for _, record := range records {
+			fmt.Println(record)
+		}
+	}
 	os.Exit(1)
 	//========================================================================
 	//========================================================================

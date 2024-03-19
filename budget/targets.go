@@ -4,6 +4,7 @@ type Targets struct {
 	Name    string
 	Cat     []string // eating_out, grocery, etc
 	Variant []string // {"in-n-out","in n out"}
+	DESC    string
 }
 
 // spending categories

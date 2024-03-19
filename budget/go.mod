@@ -1,6 +1,6 @@
 module budget
 
-go 1.21.5
+go 1.21.2
 
 require (
 	github.com/fatih/color v1.16.0 // indirect

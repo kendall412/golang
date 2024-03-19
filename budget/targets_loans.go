@@ -13,10 +13,10 @@ func loansTarget() []Targets {
 
 	var freedomroad Targets
 	freedomroad.Name = "freedom road financial"
-	freedomroad.Cat = []string{moto, nes}
+	freedomroad.Cat = []string{moto, con, lo}
 	freedomroad.Variant = []string{"freedomroad"}
 
-	var auto = []Targets{}
-	auto = append(auto, palisade, freedomroad)
-	return auto
+	var loan = []Targets{}
+	loan = append(loan, nelnet, palisade, freedomroad)
+	return loan
 }
