@@ -9,7 +9,7 @@ var income = []string{"hyve"}
 var check = []string{"check"}
 
 // var loan = []string{"dept education student ln"}
-var housing = []string{"cheung"}
+// var housing = []string{"cheung"}
 
 // var monthly = []string{
 // "lees korean ma",

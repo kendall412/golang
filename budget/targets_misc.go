@@ -41,7 +41,22 @@ func miscTargets() []Targets {
 	daiso.Cat = []string{mis, nes}
 	daiso.Variant = []string{"daiso"}
 
+	var udemy Targets
+	udemy.Name = "dudemy"
+	udemy.Cat = []string{mis, nes}
+	udemy.Variant = []string{"udemy"}
+
+	var countess_alteration Targets
+	countess_alteration.Name = "countess alteration"
+	countess_alteration.Cat = []string{mis, nes}
+	countess_alteration.Variant = []string{"COUNTESS ALTERATIO ROSEVILLE"}
+
+	var humble_bundle Targets
+	humble_bundle.Name = "humble bundle"
+	humble_bundle.Cat = []string{mis, nes}
+	humble_bundle.Variant = []string{"humblebundle.com"}
+
 	var misc = []Targets{}
-	misc = append(misc, rc_country, halfpricebooks, hobby_lobby, dollartree, cvs, jetpens, tactileturn, daiso)
+	misc = append(misc, rc_country, halfpricebooks, hobby_lobby, dollartree, cvs, jetpens, tactileturn, daiso, udemy, countess_alteration, humble_bundle)
 	return misc
 }

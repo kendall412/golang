@@ -2,7 +2,7 @@ package main
 
 import "flag"
 
-func generateFlags() (target *string, csvfile *string, cattarget *string, month *int, debug *bool, alltarget *bool, display_all *bool, essential_target *bool, variable_target *bool, constant_target *bool, view_remaining_spending *bool, print_cat *bool) {
+func generateFlags() (target *string, csvfile *string, cattarget *string, month *int, debug *bool, alltarget *bool, display_all *bool, variable_target *bool, constant_target *bool, view_remaining_spending *bool, print_cat *bool) {
 	// string flags
 	target = flag.String("t", "", "target <str>: extract individual spending target (e.g. 'in-n-out')")
 
@@ -19,8 +19,6 @@ func generateFlags() (target *string, csvfile *string, cattarget *string, month 
 	alltarget = flag.Bool("at", false, "targets <bool>: default FALSE, if TRUE will output all spending.")
 
 	display_all = flag.Bool("da", false, "display_all <bool>: default FALSE, if TRUE will display all details for debug purpose.")
-
-	essential_target = flag.Bool("es", false, "essential <bool>: default FALSE, if TRUE will display essential (all - motorcycle spending) spending.")
 
 	variable_target = flag.Bool("var", false, "variasble <bool>: defualt false, if true will display purchases that vary.")
 
