@@ -13,27 +13,27 @@ func clothesTarget() []Targets {
 
 	var ross Targets
 	ross.Name = "ross"
-	ross.Cat = []string{clo, vari}
+	ross.Cat = []string{cats["clo"], cats["vari"]}
 	ross.Variant = []string{"ross"}
 
 	var macys Targets
 	macys.Name = "macys"
-	macys.Cat = []string{clo, vari}
+	macys.Cat = []string{cats["clo"], cats["vari"]}
 	macys.Variant = []string{"macy"}
 
 	var abercrombie Targets
 	abercrombie.Name = "abercrombie"
-	abercrombie.Cat = []string{clo, vari}
+	abercrombie.Cat = []string{cats["clo"], cats["vari"]}
 	abercrombie.Variant = []string{"abercrombie"}
 
 	var arden Targets
 	arden.Name = "arden"
-	arden.Cat = []string{clo, vari}
+	arden.Cat = []string{cats["clo"], cats["vari"]}
 	arden.Variant = []string{"arden fair"}
 
 	var nordstrom Targets
 	nordstrom.Name = "nordstrom"
-	nordstrom.Cat = []string{clo, vari}
+	nordstrom.Cat = []string{cats["clo"], cats["vari"]}
 	nordstrom.Variant = []string{"nordstrom"}
 
 	var clothes = []Targets{}

@@ -20,6 +20,7 @@ func main() {
 	header := make(map[string]int)
 	generateHeader(display_all, header)
 
+	// prints categories
 	if *print_cat {
 		i := 1
 		printInfo("CATEGORIES:")
