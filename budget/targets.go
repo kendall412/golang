@@ -4,7 +4,31 @@ type Targets struct {
 	Name    string
 	Cat     []string // eating_out, grocery, etc
 	Variant []string // {"in-n-out","in n out"}
-	DESC    string
+	Desc    string
+}
+
+var cats = map[string]string{
+	"inc":   "income",
+	"fu":    "fuel",
+	"ins":   "insurance",
+	"coff":  "coffee",
+	"auto":  "automobile",
+	"lo":    "loan",
+	"sub":   "subscription",
+	"util":  "utility",
+	"food":  "food",
+	"mis":   "misc",
+	"heal":  "health",
+	"clo":   "clothes",
+	"nes":   "none-essential",
+	"vari":  "variable",
+	"con":   "constant",
+	"eat":   "eatout",
+	"moto":  "motorcycle",
+	"home":  "housing",
+	"min":   "ministry",
+	"ext":   "extracurricular",
+	"enter": "entertainment",
 }
 
 // spending categories

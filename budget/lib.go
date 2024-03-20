@@ -10,12 +10,16 @@ import (
 	"strings"
 )
 
-func printError(msg string) {
-	repeatno := 40
-	red.Println(strings.Repeat("*", repeatno))
-	red.Println("ERROR: " + msg)
-	red.Println(strings.Repeat("*", repeatno))
-	os.Exit(EXIT_CODE_ERROR)
+func generateHeader(display_all *bool, header map[string]int) {
+	header["DATE"] = 0
+	header["AMNT"] = 1
+	header["CHK_NO"] = 3
+	header["DESC"] = 4
+	header["MISC"] = 2
+
+	if *display_all {
+		printDisplayAll("Header", header)
+	}
 }
 
 func printDisplayAll(name string, data interface{}) {
@@ -23,11 +27,6 @@ func printDisplayAll(name string, data interface{}) {
 	magenta.Printf("%s: ", name)
 	magenta.Println(data)
 	fmt.Println()
-}
-
-func printSum(sum float64) {
-	blue.Printf("TOTAL: ")
-	green.Printf("$%.2f\n", sum)
 }
 
 func openCsv(file string, debug *bool, display_all *bool, month *int, header map[string]int) [][]string {

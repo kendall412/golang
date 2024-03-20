@@ -3,12 +3,12 @@ package main
 func clothesTarget() []Targets {
 	var shein Targets
 	shein.Name = "shein"
-	shein.Cat = []string{vari, clo}
+	shein.Cat = []string{cats["vari"], cats["clo"]}
 	shein.Variant = []string{"shein"}
 
 	var marshall Targets
 	marshall.Name = "marshall"
-	marshall.Cat = []string{"clothes", "variable"}
+	marshall.Cat = []string{cats["clo"], cats["vari"]}
 	marshall.Variant = []string{"marshall"}
 
 	var ross Targets

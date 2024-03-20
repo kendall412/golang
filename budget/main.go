@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"slices"
+	"strconv"
 	"strings"
 )
 
-var VER string = "0.1i"
+var VER string = "0.1j"
 var EXIT_CODE_SUCCESS = 0
 var EXIT_CODE_ERROR = 1
 
@@ -14,12 +15,21 @@ func main() {
 	italic.Printf("BUDGET VER: %s\n\n", VER)
 
 	// flags (pointers)
-	target, csvfile, cattarget, month, debug, alltarget, display_all, variable_target, constant_target, view_remaining_spending, print_cat := generateFlags()
+	target, csvfile, cattarget, month, debug, alltarget, display_all, view_remaining_spending, print_cat := generateFlags()
 
 	header := make(map[string]int)
 	generateHeader(display_all, header)
 
-	fmt.Println(*print_cat)
+	if *print_cat {
+		i := 1
+		printInfo("CATEGORIES:")
+		for _, cat := range cats {
+			// convert integer to string
+			printInfo(strconv.Itoa(i) + ". " + cat)
+			i++
+		}
+		fmt.Println()
+	}
 
 	records := openCsv(*csvfile, debug, display_all, month, header)
 
@@ -55,7 +65,6 @@ func main() {
 	// }
 
 	if *cattarget != "" {
-		// total_sum := 0.0
 		for _, tar := range targets_slice {
 			if slices.Contains(tar.Cat, *cattarget) {
 				returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
@@ -65,28 +74,8 @@ func main() {
 	}
 
 	if *alltarget {
-		// total_sum := 0.0
 		for _, tar := range targets_slice {
-			// fmt.Println(tar)
 			returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
-		}
-		printSum(total_sum)
-	}
-
-	if *variable_target {
-		for _, tar := range targets_slice {
-			if slices.Contains(tar.Cat, vari) {
-				returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
-			}
-		}
-		printSum(total_sum)
-	}
-
-	if *constant_target {
-		for _, tar := range targets_slice {
-			if slices.Contains(tar.Cat, con) {
-				returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
-			}
 		}
 		printSum(total_sum)
 	}
@@ -98,7 +87,6 @@ func main() {
 				// strings.Contains(str, input)
 				for _, variant := range tar.Variant {
 					if strings.Contains(strings.ToLower(record[header["DESC"]]), variant) {
-
 						// fmt.Println(i, tar, record)
 						record[header["DATE"]] = " "
 						record[header["DESC"]] = " "
