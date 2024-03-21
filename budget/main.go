@@ -32,6 +32,7 @@ func main() {
 		fmt.Println()
 	}
 
+	// if mnonth value is none zero it will return month corresponding with the integer
 	records := openCsv(*csvfile, debug, display_all, month, header)
 
 	//========== Target Struct
@@ -52,7 +53,7 @@ func main() {
 				retrieveTargetSlice(&tar, &total_sum, header, &records)
 			}
 		}
-		printSum(total_sum)
+		// printSum(total_sum)
 	}
 
 	// if *target != "" {

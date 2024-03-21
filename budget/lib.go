@@ -98,7 +98,37 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 	return sum
 }
 
+// func retrieveTargetSlice(target *Targets, total_sum *float64, header map[string]int, records *[][]string) {
+// 	sum := 0.0
+// 	for _, tar_variant := range target.Variant {
+// 		// fmt.Println(tar_variant)
+// 		for _, record := range *records {
+// 			if strings.Contains(strings.ToLower(record[header["DESC"]]), strings.ToLower(tar_variant)) {
+// 				// converts string to float64
+// 				amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
+
+// 				if amnt < 0.0 {
+// 					sum += math.Abs(amnt)
+// 					fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
+// 				}
+// 			}
+// 		}
+// 		/*
+// 			only print out to terminal if the cateory/individual target was spent. otherwise will return sum of 0 but will not print out.
+// 		*/
+// 		if sum > 0.0 {
+// 			blue.Printf("%s:", strings.ToUpper(tar_variant))
+// 			green.Printf(" $%.2f\n", sum)
+// 			fmt.Println()
+// 		}
+// 	}
+// 	// fmt.Printf("%s $%.2f\n", minirecord[header["DATE"]],math.Abs(amnt))
+// 	*total_sum = sum
+// }
+
 func retrieveTargetSlice(target *Targets, total_sum *float64, header map[string]int, records *[][]string) {
+	var tmp = map[string]float64{}
+
 	sum := 0.0
 	for _, tar_variant := range target.Variant {
 		// fmt.Println(tar_variant)
@@ -110,6 +140,7 @@ func retrieveTargetSlice(target *Targets, total_sum *float64, header map[string]
 				if amnt < 0.0 {
 					sum += math.Abs(amnt)
 					fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
+					tmp[record[header["DATE"]]] = math.Abs(amnt)
 				}
 			}
 		}
@@ -124,6 +155,13 @@ func retrieveTargetSlice(target *Targets, total_sum *float64, header map[string]
 	}
 	// fmt.Printf("%s $%.2f\n", minirecord[header["DATE"]],math.Abs(amnt))
 	*total_sum = sum
+	fmt.Println(tmp)
+	tcost := 0.0
+	for item, cost := range tmp {
+		fmt.Println(item, cost)
+		tcost += cost
+	}
+	fmt.Printf("TOTAL COST: %.2f\n", tcost)
 }
 
 /*
