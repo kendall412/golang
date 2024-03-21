@@ -31,28 +31,6 @@ var cats = map[string]string{
 	"enter": "entertainment",
 }
 
-// spending categories
-var inc = "income"
-var fu = "fuel"
-var ins = "insurance"
-var coff = "coffee"
-var auto = "automobile"
-var lo = "loan"
-var sub = "subscription"
-var util = "utility"
-var food = "food"
-var mis = "misc"
-var heal = "health"
-var nes = "none-essential"
-var vari = "variable"
-var con = "constant"
-var eat = "eatout"
-var moto = "motorcycle"
-var home = "housing"
-var min = "ministry"
-var ext = "extracurricular"
-var enter = "entertainment"
-
 func generateTargetStruct(targets_slice *[]Targets) {
 	*targets_slice = append(*targets_slice, extracurricularTargets()...)
 	*targets_slice = append(*targets_slice, housingTargets()...)

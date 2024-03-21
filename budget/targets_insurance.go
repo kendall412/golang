@@ -3,13 +3,15 @@ package main
 func insuranceTargets() []Targets {
 	var nationwide Targets
 	nationwide.Name = "nationwide"
-	nationwide.Cat = []string{ins, con, auto}
+	nationwide.Cat = []string{cats["con"], cats["ins"], cats["auto"]}
 	nationwide.Variant = []string{"nationwide"}
+	nationwide.Desc = "auto insurance for Palisade and Elantra"
 
 	var geico Targets
 	geico.Name = "geico"
-	geico.Cat = []string{ins, moto, con}
+	geico.Cat = []string{cats["con"], cats["ins"], cats["moto"]}
 	geico.Variant = []string{"geico"}
+	geico.Desc = "motorcycle insurance for Street Triple, ZX6R & T120"
 
 	var insurance = []Targets{}
 	insurance = append(insurance, nationwide, geico)

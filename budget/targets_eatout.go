@@ -53,32 +53,32 @@ func eatOutTargets() []Targets {
 
 	var paris_baguett Targets
 	paris_baguett.Name = "paris baguett"
-	paris_baguett.Cat = []string{vari, eat}
+	paris_baguett.Cat = []string{cats["vari"], cats["eat"]}
 	paris_baguett.Variant = []string{"paris baguett"}
 
 	var pushkin Targets
 	pushkin.Name = "pushkin"
-	pushkin.Cat = []string{vari, eat}
+	pushkin.Cat = []string{cats["vari"], cats["eat"]}
 	pushkin.Variant = []string{"pushkin"}
 
 	var osakaya Targets
 	osakaya.Name = "osaka-ya"
-	osakaya.Cat = []string{vari, eat}
+	osakaya.Cat = []string{cats["vari"], cats["eat"]}
 	osakaya.Variant = []string{"osaka- ya"}
 
 	var asianpearl Targets
 	asianpearl.Name = "asianpearl"
-	asianpearl.Cat = []string{vari, eat}
+	asianpearl.Cat = []string{cats["vari"], cats["eat"]}
 	asianpearl.Variant = []string{"new asian pearl"}
 
 	var leatherbys Targets
 	leatherbys.Name = "leatherby's"
-	leatherbys.Cat = []string{vari, eat}
+	leatherbys.Cat = []string{cats["vari"], cats["eat"]}
 	leatherbys.Variant = []string{"leatherby's"}
 
 	var mikuni Targets
 	mikuni.Name = "mikuni"
-	mikuni.Cat = []string{vari, eat}
+	mikuni.Cat = []string{cats["vari"], cats["eat"]}
 	mikuni.Variant = []string{"mikuni japaneser re"}
 
 	var eatout = []Targets{}
