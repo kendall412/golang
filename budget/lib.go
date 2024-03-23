@@ -126,21 +126,28 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 // 	*total_sum = sum
 // }
 
-func retrieveTargetSlice(target *Targets, total_sum *float64, header map[string]int, records *[][]string) {
+func retrieveTargetSlice(target *Targets, total_sum *float64, header map[string]int, records *[][]string, debug *bool) {
 	var tmp = map[string]float64{}
 
 	sum := 0.0
 	for _, tar_variant := range target.Variant {
-		// fmt.Println(tar_variant)
+		if *debug {
+			fmt.Printf("tar_variant: %s\n", tar_variant)
+		}
+		cnt := 0
 		for _, record := range *records {
 			if strings.Contains(strings.ToLower(record[header["DESC"]]), strings.ToLower(tar_variant)) {
 				// converts string to float64
 				amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
+				if *debug {
+					fmt.Println(amnt)
+				}
 
 				if amnt < 0.0 {
 					sum += math.Abs(amnt)
 					fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
-					tmp[record[header["DATE"]]] = math.Abs(amnt)
+					tmp[record[header["DATE"]]+"__"+strconv.Itoa(cnt)] = math.Abs(amnt)
+					cnt += 1
 				}
 			}
 		}

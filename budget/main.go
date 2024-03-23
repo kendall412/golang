@@ -50,7 +50,7 @@ func main() {
 	if *target != "" {
 		for _, tar := range targets_slice {
 			if strings.Contains(tar.Name, *target) {
-				retrieveTargetSlice(&tar, &total_sum, header, &records)
+				retrieveTargetSlice(&tar, &total_sum, header, &records, debug)
 			}
 		}
 		// printSum(total_sum)
