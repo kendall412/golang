@@ -46,12 +46,17 @@ func main() {
 	}
 
 	total_sum := 0.0
+	var variantTar = [][]string{}
 
 	if *target != "" {
 		for _, tar := range targets_slice {
 			if strings.Contains(tar.Name, *target) {
-				retrieveTargetSlice(&tar, &total_sum, header, &records, debug)
+				variantTar = retrieveVariantTargets(&tar, header, &records)
 			}
+		}
+
+		for _, v := range variantTar {
+			fmt.Println(v)
 		}
 		// printSum(total_sum)
 	}

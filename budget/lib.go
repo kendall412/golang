@@ -98,77 +98,23 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 	return sum
 }
 
-// func retrieveTargetSlice(target *Targets, total_sum *float64, header map[string]int, records *[][]string) {
-// 	sum := 0.0
-// 	for _, tar_variant := range target.Variant {
-// 		// fmt.Println(tar_variant)
-// 		for _, record := range *records {
-// 			if strings.Contains(strings.ToLower(record[header["DESC"]]), strings.ToLower(tar_variant)) {
-// 				// converts string to float64
-// 				amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
-
-// 				if amnt < 0.0 {
-// 					sum += math.Abs(amnt)
-// 					fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
-// 				}
-// 			}
-// 		}
-// 		/*
-// 			only print out to terminal if the cateory/individual target was spent. otherwise will return sum of 0 but will not print out.
-// 		*/
-// 		if sum > 0.0 {
-// 			blue.Printf("%s:", strings.ToUpper(tar_variant))
-// 			green.Printf(" $%.2f\n", sum)
-// 			fmt.Println()
-// 		}
-// 	}
-// 	// fmt.Printf("%s $%.2f\n", minirecord[header["DATE"]],math.Abs(amnt))
-// 	*total_sum = sum
-// }
-
-func retrieveTargetSlice(target *Targets, total_sum *float64, header map[string]int, records *[][]string, debug *bool) {
-	var tmp = map[string]float64{}
-
-	sum := 0.0
+/*
+this function returns another [][]string rec which has all the variants record. This should then be sent to retrieveTargets()
+*/
+func retrieveVariantTargets(target *Targets, header map[string]int, records *[][]string) [][]string {
+	var rec = [][]string{}
 	for _, tar_variant := range target.Variant {
-		if *debug {
-			fmt.Printf("tar_variant: %s\n", tar_variant)
-		}
-		cnt := 0
+		fmt.Println(tar_variant)
 		for _, record := range *records {
 			if strings.Contains(strings.ToLower(record[header["DESC"]]), strings.ToLower(tar_variant)) {
-				// converts string to float64
-				amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
-				if *debug {
-					fmt.Println(amnt)
-				}
-
-				if amnt < 0.0 {
-					sum += math.Abs(amnt)
-					fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
-					tmp[record[header["DATE"]]+"__"+strconv.Itoa(cnt)] = math.Abs(amnt)
-					cnt += 1
-				}
+				rec = append(rec, record)
 			}
 		}
-		/*
-			only print out to terminal if the cateory/individual target was spent. otherwise will return sum of 0 but will not print out.
-		*/
-		if sum > 0.0 {
-			blue.Printf("%s:", strings.ToUpper(tar_variant))
-			green.Printf(" $%.2f\n", sum)
-			fmt.Println()
-		}
 	}
-	// fmt.Printf("%s $%.2f\n", minirecord[header["DATE"]],math.Abs(amnt))
-	*total_sum = sum
-	fmt.Println(tmp)
-	tcost := 0.0
-	for item, cost := range tmp {
-		fmt.Println(item, cost)
-		tcost += cost
-	}
-	fmt.Printf("TOTAL COST: %.2f\n", tcost)
+	// for _, r := range rec {
+	// 	fmt.Println(r)
+	// }
+	return rec
 }
 
 /*
