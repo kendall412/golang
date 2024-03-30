@@ -46,7 +46,7 @@ func main() {
 	}
 
 	total_sum := 0.0
-	var variantTar = [][]string{}
+	variantTar := [][]string{}
 
 	if *target != "" {
 		for _, tar := range targets_slice {
@@ -55,9 +55,14 @@ func main() {
 			}
 		}
 
-		for _, v := range variantTar {
-			fmt.Println(v)
+		if *debug {
+			for _, v := range variantTar {
+				fmt.Println(v)
+			}
 		}
+
+		retrieve(target, variantTar, header, debug)
+
 		// printSum(total_sum)
 	}
 
