@@ -29,7 +29,7 @@ func printDisplayAll(name string, data interface{}) {
 	fmt.Println()
 }
 
-func openCsv(file string, debug *bool, display_all *bool, month *int, header map[string]int) [][]string {
+func openCsv(file string, display_all *bool, month *int, header map[string]int) [][]string {
 	csv_file, err := os.Open(file)
 	if err != nil {
 		red.Println("Error openinging csv file", err)
@@ -98,7 +98,7 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 	return sum
 }
 
-func retrieveSum(target *string, records [][]string, header map[string]int, total_sum *float64, title string, debug *bool) {
+func retrieveSum(records [][]string, header map[string]int, total_sum *float64, title string) {
 	sum := 0.0
 	for _, record := range records {
 		amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)

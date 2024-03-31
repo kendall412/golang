@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-var VER string = "0.1j"
+var VER string = "0.1h"
 var EXIT_CODE_SUCCESS = 0
 var EXIT_CODE_ERROR = 1
 
@@ -32,8 +32,8 @@ func main() {
 		fmt.Println()
 	}
 
-	// if mnonth value is none zero it will return month corresponding with the integer
-	records := openCsv(*csvfile, debug, display_all, month, header)
+	// if month value is none zero it will return month corresponding with the integer
+	records := openCsv(*csvfile, display_all, month, header)
 
 	//========== Target Struct
 	//========================================================================
@@ -57,20 +57,10 @@ func main() {
 		if *debug {
 			iterate2DSlice(variantTargets)
 		}
-		retrieveSum(target, variantTargets, header, &total_sum, *target, debug)
+		retrieveSum(variantTargets, header, &total_sum, *target)
 		printSum(total_sum)
 		variantTargets = nil
 	}
-
-	// if *target != "" {
-	// 	// total_sum := 0.0
-	// 	for _, tar := range targets_slice {
-	// 		if strings.Contains(tar.Name, *target) {
-	// 			returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
-	// 		}
-	// 	}
-	// 	printSum(total_sum)
-	// }
 
 	if *cattarget != "" {
 		for _, tar := range targets_slice {
@@ -82,19 +72,10 @@ func main() {
 		if *debug {
 			iterate2DSlice(variantTargets)
 		}
-		retrieveSum(target, variantTargets, header, &total_sum, *cattarget, debug)
+		retrieveSum(variantTargets, header, &total_sum, *cattarget)
 		printSum(total_sum)
 		variantTargets = nil
 	}
-
-	// if *cattarget != "" {
-	// 	for _, tar := range targets_slice {
-	// 		if slices.Contains(tar.Cat, *cattarget) {
-	// 			returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
-	// 		}
-	// 	}
-	// 	printSum(total_sum)
-	// }
 
 	if *alltarget {
 		for _, tar := range targets_slice {
