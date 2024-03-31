@@ -98,7 +98,7 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 	return sum
 }
 
-func retrieveSum(target *string, records [][]string, header map[string]int, total_sum *float64, debug *bool) {
+func retrieveSum(target *string, records [][]string, header map[string]int, total_sum *float64, title string, debug *bool) {
 	sum := 0.0
 	for _, record := range records {
 		amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
@@ -112,7 +112,8 @@ func retrieveSum(target *string, records [][]string, header map[string]int, tota
 	*/
 	if sum > 0.0 {
 		// blue.Printf("%s:", strings.ToUpper(target))
-		blue.Printf("%s: %.2f\n", strings.ToUpper(*target), sum)
+
+		blue.Printf("%s: %.2f\n", strings.ToUpper(title), sum)
 		fmt.Println()
 	}
 	*total_sum = sum
@@ -131,17 +132,16 @@ RETURN:
 
 	[][]string
 */
-func retrieveVariantTargets(target *Targets, header map[string]int, records *[][]string) [][]string {
-	var rec = [][]string{}
+func retrieveVariantTargets(target *Targets, header map[string]int, records *[][]string, variantTargets *[][]string) {
+	// var rec = [][]string{}
 	for _, tar_variant := range target.Variant {
 		fmt.Println(tar_variant)
 		for _, record := range *records {
 			if strings.Contains(strings.ToLower(record[header["DESC"]]), strings.ToLower(tar_variant)) {
-				rec = append(rec, record)
+				*variantTargets = append(*variantTargets, record)
 			}
 		}
 	}
-	return rec
 }
 
 /*
@@ -167,5 +167,14 @@ func returnSpending(variants *[]string, total_sum *float64, header *map[string]i
 	for _, variant := range *variants {
 		sum := retrieveTargets(variant, *records, *header, debug)
 		*total_sum += sum
+	}
+}
+
+/*
+DESC: iterates 2D slices for debug purposes
+*/
+func iterate2DSlice(sl [][]string) {
+	for _, v := range sl {
+		fmt.Println(v)
 	}
 }

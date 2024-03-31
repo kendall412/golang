@@ -51,16 +51,15 @@ func main() {
 	if *target != "" {
 		for _, tar := range targets_slice {
 			if strings.Contains(tar.Name, *target) {
-				variantTargets = retrieveVariantTargets(&tar, header, &records)
+				retrieveVariantTargets(&tar, header, &records, &variantTargets)
 			}
 		}
 		if *debug {
-			for _, v := range variantTargets {
-				fmt.Println(v)
-			}
+			iterate2DSlice(variantTargets)
 		}
-		retrieveSum(target, variantTargets, header, &total_sum, debug)
+		retrieveSum(target, variantTargets, header, &total_sum, *target, debug)
 		printSum(total_sum)
+		variantTargets = nil
 	}
 
 	// if *target != "" {
@@ -76,19 +75,16 @@ func main() {
 	if *cattarget != "" {
 		for _, tar := range targets_slice {
 			if slices.Contains(tar.Cat, *cattarget) {
-				fmt.Println(tar)
-
-				variantTargets = retrieveVariantTargets(&tar, header, &records)
-
+				// fmt.Println(tar)
+				retrieveVariantTargets(&tar, header, &records, &variantTargets)
 			}
 		}
 		if *debug {
-			for _, v := range variantTargets {
-				fmt.Println(v)
-			}
+			iterate2DSlice(variantTargets)
 		}
-		// retrieveSum(target, variantTargets, header, &total_sum, debug)
-		// printSum(total_sum)
+		retrieveSum(target, variantTargets, header, &total_sum, *cattarget, debug)
+		printSum(total_sum)
+		variantTargets = nil
 	}
 
 	// if *cattarget != "" {
