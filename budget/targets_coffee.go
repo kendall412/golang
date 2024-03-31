@@ -12,7 +12,7 @@ func coffeeTargets() []Targets {
 	temple.Variant = []string{"temple coffee"}
 
 	var peets Targets
-	peets.Name = "peet's"
+	peets.Name = "peets"
 	peets.Cat = []string{cats["coff"], cats["vari"]}
 	peets.Variant = []string{"peet's"}
 

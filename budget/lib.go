@@ -98,31 +98,38 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 	return sum
 }
 
-func retrieve(target *string, records [][]string, header map[string]int, debug *bool) float64 {
-	var sum float64
-	sum = 0.0
+func retrieveSum(target *string, records [][]string, header map[string]int, total_sum *float64, debug *bool) {
+	sum := 0.0
 	for _, record := range records {
 		amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
-
 		if amnt < 0.0 {
 			sum += math.Abs(amnt)
 			fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
 		}
 	}
-
 	/*
 	   only print out to terminal if the cateory/individual target was spent. otherwise will return sum of 0 but will not print out.
 	*/
 	if sum > 0.0 {
 		// blue.Printf("%s:", strings.ToUpper(target))
-		green.Printf("%s $%.2f\n", *target, sum)
+		blue.Printf("%s: %.2f\n", strings.ToUpper(*target), sum)
 		fmt.Println()
 	}
-	return sum
+	*total_sum = sum
 }
 
 /*
-this function returns another [][]string rec which has all the variants record. This should then be sent to retrieveTargets()
+DESC: this function returns another [][]string rec which has all the variants record (i.e. ["in n out","in-n-out"]). This should then be sent to retrieveSum()
+
+PARAM:
+
+	target *Targets
+	header map[string]int
+	records *[][]stirng
+
+RETURN:
+
+	[][]string
 */
 func retrieveVariantTargets(target *Targets, header map[string]int, records *[][]string) [][]string {
 	var rec = [][]string{}
