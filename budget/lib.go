@@ -16,6 +16,7 @@ func generateHeader(display_all *bool, header map[string]int) {
 	header["CHK_NO"] = 3
 	header["DESC"] = 4
 	header["MISC"] = 2
+	header["TITLE"] = 5
 
 	if *display_all {
 		printDisplayAll("Header", header)
@@ -104,7 +105,7 @@ func retrieveSum(records [][]string, header map[string]int, total_sum *float64, 
 		amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
 		if amnt < 0.0 {
 			sum += math.Abs(amnt)
-			fmt.Printf("%s $%.2f\n", record[header["DATE"]], math.Abs(amnt))
+			fmt.Printf("%s $%.2f %s\n", record[header["DATE"]], math.Abs(amnt), strings.ToUpper(record[header["TITLE"]]))
 		}
 	}
 	/*
@@ -133,11 +134,10 @@ RETURN:
 	[][]string
 */
 func retrieveVariantTargets(target *Targets, header map[string]int, records *[][]string, variantTargets *[][]string) {
-	// var rec = [][]string{}
 	for _, tar_variant := range target.Variant {
-		fmt.Println(tar_variant)
 		for _, record := range *records {
 			if strings.Contains(strings.ToLower(record[header["DESC"]]), strings.ToLower(tar_variant)) {
+				record = append(record, tar_variant)
 				*variantTargets = append(*variantTargets, record)
 			}
 		}

@@ -39,6 +39,7 @@ func main() {
 	//========================================================================
 	var targets_slice []Targets
 	generateTargetStruct(&targets_slice)
+
 	if *display_all {
 		fmt.Println(targets_slice)
 		fmt.Printf("%T\n", targets_slice)
