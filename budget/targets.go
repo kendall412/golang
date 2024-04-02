@@ -30,6 +30,7 @@ var cats = map[string]string{
 	"min":   "ministry",
 	"ext":   "extracurricular",
 	"enter": "entertainment",
+	"rec":   "recreation",
 }
 
 func generateTargetStruct(targets_slice *[]Targets) {

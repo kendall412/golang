@@ -86,14 +86,13 @@ func main() {
 		variantTargets = nil
 	}
 
-	// check unknown spending
+	// lists spending not accounted in existing targets
 	if *view_remaining_spending {
 		for _, tar := range targets_slice {
 			for _, record := range records {
 				// strings.Contains(str, input)
 				for _, variant := range tar.Variant {
 					if strings.Contains(strings.ToLower(record[header["DESC"]]), variant) {
-						// fmt.Println(i, tar, record)
 						record[header["DATE"]] = " "
 						record[header["DESC"]] = " "
 						record[header["AMNT"]] = " "

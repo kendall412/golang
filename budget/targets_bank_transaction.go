@@ -12,11 +12,16 @@ func bankTATargets() []Targets {
 	withdrawal.Variant = []string{"ATM WITHDRAWAL", "cash ewidthdrawal"}
 
 	var transfer Targets
-	transfer.Name = "online transfer"
+	transfer.Name = "transfer to"
 	transfer.Cat = []string{cats["ba"]}
-	transfer.Variant = []string{"online transfer to"}
+	transfer.Variant = []string{"online transfer to"} // "online transfer from",
+
+	var recurring Targets
+	recurring.Name = "recurring"
+	recurring.Cat = []string{cats["ba"]}
+	recurring.Variant = []string{"recurring transfer to"}
 
 	var bankTA = []Targets{}
-	bankTA = append(bankTA, checks, transfer)
+	bankTA = append(bankTA, checks, transfer, recurring)
 	return bankTA
 }

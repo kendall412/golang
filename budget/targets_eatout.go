@@ -81,8 +81,13 @@ func eatOutTargets() []Targets {
 	mikuni.Cat = []string{cats["vari"], cats["eat"]}
 	mikuni.Variant = []string{"mikuni japaneser re"}
 
+	var gangnam Targets
+	gangnam.Name = "gangnam"
+	gangnam.Cat = []string{cats["eat"], cats["vari"]}
+	gangnam.Variant = []string{"gangnam ave"}
+
 	var eatout = []Targets{}
-	eatout = append(eatout, innout, mcdonalds, ramen, subway, brookfields, pho, chipotle, seoulzip, tasty_pot, vons_chicken, paris_baguett, pushkin, osakaya, asianpearl, leatherbys, mikuni)
+	eatout = append(eatout, innout, mcdonalds, ramen, subway, brookfields, pho, chipotle, seoulzip, tasty_pot, vons_chicken, paris_baguett, pushkin, osakaya, asianpearl, leatherbys, mikuni, gangnam)
 
 	return eatout
 }

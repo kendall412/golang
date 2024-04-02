@@ -56,7 +56,12 @@ func miscTargets() []Targets {
 	humble_bundle.Cat = []string{cats["mis"], cats["nes"]}
 	humble_bundle.Variant = []string{"humblebundle.com"}
 
+	var temu Targets
+	temu.Name = "temu"
+	temu.Cat = []string{cats["misc"], cats["nes"]}
+	temu.Variant = []string{"temu.com"}
+
 	var misc = []Targets{}
-	misc = append(misc, rc_country, halfpricebooks, hobby_lobby, dollartree, cvs, jetpens, tactileturn, daiso, udemy, countess_alteration, humble_bundle)
+	misc = append(misc, rc_country, halfpricebooks, hobby_lobby, dollartree, cvs, jetpens, tactileturn, daiso, udemy, countess_alteration, humble_bundle, temu)
 	return misc
 }
