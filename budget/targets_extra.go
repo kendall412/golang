@@ -13,7 +13,7 @@ func extracurricularTargets() []Targets {
 
 	var twentyfour_fitness Targets
 	twentyfour_fitness.Name = "24 hr fitness"
-	twentyfour_fitness.Cat = []string{cats["con"]}
+	twentyfour_fitness.Cat = []string{cats["con"], cats["heal"]}
 	twentyfour_fitness.Variant = []string{"24 hour fitness"}
 
 	var extra = []Targets{}
