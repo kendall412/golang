@@ -108,7 +108,7 @@ func retrieveSum(records [][]string, header map[string]int, total_sum *float64, 
 			// fmt.Printf("%s $%.2f %s\n", record[header["DATE"]], math.Abs(amnt), strings.ToUpper(record[header["TITLE"]]))
 			fmt.Printf("%s ", record[header["DATE"]])
 			yellow.Printf("%.2f ", math.Abs(amnt))
-			red.Printf("%s\n", strings.ToUpper(record[header["TITLE"]]))
+			red.Printf("\t%s\n", strings.ToUpper(record[header["TITLE"]]))
 		}
 	}
 	/*
@@ -140,7 +140,7 @@ func retrieveVariantTargets(target *Targets, header map[string]int, records *[][
 	for _, tar_variant := range target.Variant {
 		for _, record := range *records {
 			if strings.Contains(strings.ToLower(record[header["DESC"]]), strings.ToLower(tar_variant)) {
-				record = append(record, tar_variant)
+				record = append(record, target.Name)
 				*variantTargets = append(*variantTargets, record)
 			}
 		}
