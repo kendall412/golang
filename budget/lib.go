@@ -182,11 +182,14 @@ func iterate2DSlice(sl [][]string) {
 	}
 }
 
-func listCat() {
-	var targets_slice []Targets
-	generateTargetStruct(&targets_slice)
+func listCat(targets_slice []Targets) {
+	// var targets_slice []Targets
+	// generateTargetStruct(&targets_slice)
 	// fmt.Println(targets_slice)
 	for i := 0; i < len(targets_slice); i++ {
-		fmt.Println(targets_slice[i].Name, targets_slice[i].Variant)
+		yellow.Printf(targets_slice[i].Name)
+		fmt.Println(targets_slice[i].Variant)
+		red.Println(targets_slice[i].Cat)
+		fmt.Println()
 	}
 }

@@ -42,7 +42,7 @@ func miscTargets() []Targets {
 	daiso.Variant = []string{"daiso"}
 
 	var udemy Targets
-	udemy.Name = "dudemy"
+	udemy.Name = "udemy"
 	udemy.Cat = []string{cats["mis"], cats["nes"]}
 	udemy.Variant = []string{"udemy"}
 

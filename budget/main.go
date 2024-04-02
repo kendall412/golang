@@ -110,6 +110,6 @@ func main() {
 	}
 
 	if *list_cat {
-		listCat()
+		listCat(targets_slice)
 	}
 }
