@@ -58,7 +58,7 @@ func main() {
 		if *debug {
 			iterate2DSlice(variantTargets)
 		}
-		retrieveSum(variantTargets, header, &total_sum, *target)
+		retrieveSum(variantTargets, header, &total_sum, *target, debug)
 		printSum(total_sum)
 		variantTargets = nil
 	}
@@ -72,7 +72,7 @@ func main() {
 		if *debug {
 			iterate2DSlice(variantTargets)
 		}
-		retrieveSum(variantTargets, header, &total_sum, *cattarget)
+		retrieveSum(variantTargets, header, &total_sum, *cattarget, debug)
 		printSum(total_sum)
 		variantTargets = nil
 	}
@@ -81,7 +81,7 @@ func main() {
 		for _, tar := range targets_slice {
 			retrieveVariantTargets(&tar, header, &records, &variantTargets)
 		}
-		retrieveSum(variantTargets, header, &total_sum, "ALL")
+		retrieveSum(variantTargets, header, &total_sum, "ALL", debug)
 		printSum(total_sum)
 		variantTargets = nil
 	}

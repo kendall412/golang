@@ -99,7 +99,7 @@ func retrieveTargets(target string, records [][]string, header map[string]int, d
 	return sum
 }
 
-func retrieveSum(records [][]string, header map[string]int, total_sum *float64, title string) {
+func retrieveSum(records [][]string, header map[string]int, total_sum *float64, title string, debug *bool) {
 	sum := 0.0
 	for _, record := range records {
 		amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
@@ -108,7 +108,10 @@ func retrieveSum(records [][]string, header map[string]int, total_sum *float64, 
 			// fmt.Printf("%s $%.2f %s\n", record[header["DATE"]], math.Abs(amnt), strings.ToUpper(record[header["TITLE"]]))
 			fmt.Printf("%s ", record[header["DATE"]])
 			yellow.Printf("%.2f ", math.Abs(amnt))
-			red.Printf("\t%s\n", strings.ToUpper(record[header["TITLE"]]))
+			red.Printf("%s\n", strings.ToUpper(record[header["TITLE"]]))
+			if *debug {
+				red.Printf("%s\n\n", record[header["DESC"]])
+			}
 		}
 	}
 	/*

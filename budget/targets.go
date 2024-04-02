@@ -8,6 +8,7 @@ type Targets struct {
 }
 
 var cats = map[string]string{
+	"ba":    "bank",
 	"inc":   "income",
 	"fu":    "fuel",
 	"ins":   "insurance",
@@ -48,4 +49,5 @@ func generateTargetStruct(targets_slice *[]Targets) {
 	*targets_slice = append(*targets_slice, fuelTargets()...)
 	*targets_slice = append(*targets_slice, healthTargets()...)
 	*targets_slice = append(*targets_slice, incomeTargets()...)
+	*targets_slice = append(*targets_slice, bankTATargets()...)
 }
