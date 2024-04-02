@@ -15,7 +15,7 @@ func main() {
 	italic.Printf("BUDGET VER: %s\n\n", VER)
 
 	// flags (pointers)
-	target, csvfile, cattarget, month, debug, alltarget, display_all, view_remaining_spending, print_cat := generateFlags()
+	target, csvfile, cattarget, month, debug, alltarget, display_all, view_remaining_spending, print_cat, list_cat := generateFlags()
 
 	header := make(map[string]int)
 	generateHeader(display_all, header)
@@ -107,5 +107,9 @@ func main() {
 		for _, record := range records {
 			fmt.Println(record)
 		}
+	}
+
+	if *list_cat {
+		listCat()
 	}
 }

@@ -156,7 +156,7 @@ PARAM:
 	type Targets struct {
 		Name    string
 		Cat     []string // eating_out, grocery, etc
-		Variant []string // {"in-n-out","in n out"}
+		Variant []string // {"in-nfucnt-out","in n out"}
 		}
 
 	total_sum *float64	this is set to 0.0
@@ -179,5 +179,14 @@ DESC: iterates 2D slices for debug purposes
 func iterate2DSlice(sl [][]string) {
 	for _, v := range sl {
 		fmt.Println(v)
+	}
+}
+
+func listCat() {
+	var targets_slice []Targets
+	generateTargetStruct(&targets_slice)
+	// fmt.Println(targets_slice)
+	for i := 0; i < len(targets_slice); i++ {
+		fmt.Println(targets_slice[i].Name, targets_slice[i].Variant)
 	}
 }
