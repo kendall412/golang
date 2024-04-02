@@ -105,7 +105,10 @@ func retrieveSum(records [][]string, header map[string]int, total_sum *float64, 
 		amnt, _ := strconv.ParseFloat(record[header["AMNT"]], 64)
 		if amnt < 0.0 {
 			sum += math.Abs(amnt)
-			fmt.Printf("%s $%.2f %s\n", record[header["DATE"]], math.Abs(amnt), strings.ToUpper(record[header["TITLE"]]))
+			// fmt.Printf("%s $%.2f %s\n", record[header["DATE"]], math.Abs(amnt), strings.ToUpper(record[header["TITLE"]]))
+			fmt.Printf("%s ", record[header["DATE"]])
+			yellow.Printf("%.2f ", math.Abs(amnt))
+			red.Printf("%s\n", strings.ToUpper(record[header["TITLE"]]))
 		}
 	}
 	/*
