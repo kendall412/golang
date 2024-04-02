@@ -66,7 +66,6 @@ func main() {
 	if *cattarget != "" {
 		for _, tar := range targets_slice {
 			if slices.Contains(tar.Cat, *cattarget) {
-				// fmt.Println(tar)
 				retrieveVariantTargets(&tar, header, &records, &variantTargets)
 			}
 		}
@@ -80,9 +79,11 @@ func main() {
 
 	if *alltarget {
 		for _, tar := range targets_slice {
-			returnSpending(&tar.Variant, &total_sum, &header, debug, &records)
+			retrieveVariantTargets(&tar, header, &records, &variantTargets)
 		}
+		retrieveSum(variantTargets, header, &total_sum, "ALL")
 		printSum(total_sum)
+		variantTargets = nil
 	}
 
 	// check unknown spending
