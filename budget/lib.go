@@ -119,7 +119,6 @@ func retrieveSum(records [][]string, header map[string]int, total_sum *float64, 
 	*/
 	if sum > 0.0 {
 		// blue.Printf("%s:", strings.ToUpper(target))
-
 		blue.Printf("%s: %.2f\n", strings.ToUpper(title), sum)
 		fmt.Println()
 	}
@@ -183,6 +182,7 @@ func iterate2DSlice(sl [][]string) {
 	for _, v := range sl {
 		fmt.Println(v)
 	}
+	fmt.Println()
 }
 
 func listCat(targets_slice []Targets) {
