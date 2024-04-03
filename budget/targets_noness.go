@@ -7,12 +7,12 @@ func nonessTargets() []Targets {
 	cyclegear.Variant = []string{"cycle gear"}
 
 	var a_and_s Targets
-	a_and_s.Name = "a_and_s"
+	a_and_s.Name = "a&s"
 	a_and_s.Cat = []string{cats["moto"], cats["nes"]}
 	a_and_s.Variant = []string{"a&s"}
 
 	var blackrock Targets
-	blackrock.Name = "blac rock auto"
+	blackrock.Name = "black rock auto"
 	blackrock.Cat = []string{cats["auto"], cats["nes"]}
 	blackrock.Variant = []string{"black rock auto"}
 

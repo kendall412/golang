@@ -7,16 +7,16 @@ func loansTarget() []Targets {
 	nelnet.Variant = []string{"dept education student ln"}
 
 	var palisade Targets
-	palisade.Name = "auto loan"
+	palisade.Name = "palisade"
 	palisade.Cat = []string{cats["lo"], cats["con"], cats["auto"]}
 	palisade.Variant = []string{"palisade"}
 
 	var freedomroad Targets
-	freedomroad.Name = "freedom road financial"
+	freedomroad.Name = "t120"
 	freedomroad.Cat = []string{cats["lo"], cats["con"], cats["moto"]}
 	freedomroad.Variant = []string{"freedomroad"}
 
-	var loan = []Targets{}
-	loan = append(loan, nelnet, palisade, freedomroad)
-	return loan
+	var loans = []Targets{}
+	loans = append(loans, nelnet, palisade, freedomroad)
+	return loans
 }
