@@ -3,17 +3,17 @@ package main
 func nonessTargets() []Targets {
 	var cyclegear Targets
 	cyclegear.Name = "cycle gear"
-	cyclegear.Cat = []string{cats["moto"], cats["nes"]}
+	cyclegear.Cat = []string{cats["moto"]}
 	cyclegear.Variant = []string{"cycle gear"}
 
 	var a_and_s Targets
 	a_and_s.Name = "a&s"
-	a_and_s.Cat = []string{cats["moto"], cats["nes"]}
+	a_and_s.Cat = []string{cats["moto"]}
 	a_and_s.Variant = []string{"a&s"}
 
 	var blackrock Targets
 	blackrock.Name = "black rock auto"
-	blackrock.Cat = []string{cats["auto"], cats["nes"]}
+	blackrock.Cat = []string{cats["auto"]}
 	blackrock.Variant = []string{"black rock auto"}
 
 	var pipes_n_cigars Targets
@@ -43,7 +43,7 @@ func nonessTargets() []Targets {
 
 	var autozone Targets
 	autozone.Name = "autozone"
-	autozone.Cat = []string{cats["nes"], cats["vari"]}
+	autozone.Cat = []string{cats["nes"]}
 	autozone.Variant = []string{"autozone"}
 
 	var noness = []Targets{}

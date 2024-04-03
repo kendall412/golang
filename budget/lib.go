@@ -10,6 +10,39 @@ import (
 	"strings"
 )
 
+func printMonth(month *int) {
+	var month_str string
+	if *month == 1 {
+		month_str = "January"
+	} else if *month == 2 {
+		month_str = "February"
+	} else if *month == 3 {
+		month_str = "March"
+	} else if *month == 4 {
+		month_str = "April"
+	} else if *month == 5 {
+		month_str = "May"
+	} else if *month == 6 {
+		month_str = "June"
+	} else if *month == 7 {
+		month_str = "July"
+	} else if *month == 8 {
+		month_str = "August"
+	} else if *month == 9 {
+		month_str = "September"
+	} else if *month == 10 {
+		month_str = "October"
+	} else if *month == 11 {
+		month_str = "November"
+	} else if *month == 12 {
+		month_str = "December"
+	} else if *month == 0 {
+		month_str = "Annual"
+	}
+
+	green.Println(month_str)
+}
+
 func generateHeader(display_all *bool, header map[string]int) {
 	header["DATE"] = 0
 	header["AMNT"] = 1
@@ -30,7 +63,7 @@ func printDisplayAll(name string, data interface{}) {
 	fmt.Println()
 }
 
-func openCsv(file string, display_all *bool, month *int, header map[string]int) [][]string {
+func openCsv(file string, debug *bool, month *int, header map[string]int) [][]string {
 	csv_file, err := os.Open(file)
 	if err != nil {
 		red.Println("Error openinging csv file", err)
@@ -47,7 +80,7 @@ func openCsv(file string, display_all *bool, month *int, header map[string]int) 
 
 	// *month is default to zero if no month is given by user
 	if *month == 0 {
-		if *display_all {
+		if *debug {
 			printDisplayAll("Records", rec)
 		}
 		return rec
@@ -64,7 +97,7 @@ func openCsv(file string, display_all *bool, month *int, header map[string]int) 
 			}
 		}
 
-		if *display_all {
+		if *debug {
 			printDisplayAll("Records", records)
 		}
 		return records

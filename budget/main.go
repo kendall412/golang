@@ -33,7 +33,8 @@ func main() {
 	}
 
 	// if month value is none zero it will return month corresponding with the integer
-	records := openCsv(*csvfile, display_all, month, header)
+	printMonth(month)
+	records := openCsv(*csvfile, debug, month, header)
 
 	//========== Target Struct
 	//========================================================================
