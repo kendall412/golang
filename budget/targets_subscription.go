@@ -3,17 +3,17 @@ package main
 func subscriptionTarget() []Targets {
 	var netflix Targets
 	netflix.Name = "netflix"
-	netflix.Cat = []string{cats["con"], cats["enter"], cats["sub"]}
+	netflix.Cat = []string{cats["con"], cats["ent"], cats["sub"]}
 	netflix.Variant = []string{"netflix"}
 
 	var audible Targets
 	audible.Name = "audible"
-	audible.Cat = []string{cats["con"], cats["enter"], cats["sub"]}
+	audible.Cat = []string{cats["con"], cats["ent"], cats["sub"]}
 	audible.Variant = []string{"audible"}
 
 	var apple Targets
 	apple.Name = "apple tv"
-	apple.Cat = []string{cats["con"], cats["enter"], cats["sub"]}
+	apple.Cat = []string{cats["con"], cats["ent"], cats["sub"]}
 	apple.Variant = []string{"apple"}
 
 	var github Targets
