@@ -49,7 +49,7 @@ func miscTargets() []Targets {
 	var countess_alteration Targets
 	countess_alteration.Name = "countess alteration"
 	countess_alteration.Cat = []string{cats["mis"], cats["nes"]}
-	countess_alteration.Variant = []string{"COUNTESS ALTERATIO ROSEVILLE"}
+	countess_alteration.Variant = []string{"countess alteratio roseville"}
 
 	var humble_bundle Targets
 	humble_bundle.Name = "humble bundle"

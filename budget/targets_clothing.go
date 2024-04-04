@@ -36,7 +36,12 @@ func clothesTarget() []Targets {
 	nordstrom.Cat = []string{cats["clo"], cats["vari"]}
 	nordstrom.Variant = []string{"nordstrom"}
 
+	var onceuponachild Targets
+	onceuponachild.Name = "once upon a child"
+	onceuponachild.Cat = []string{cats["nes"]}
+	onceuponachild.Variant = []string{"once upon a child"}
+
 	var clothes = []Targets{}
-	clothes = append(clothes, shein, marshall, ross, macys, abercrombie, arden, nordstrom)
+	clothes = append(clothes, shein, marshall, ross, macys, abercrombie, arden, nordstrom, onceuponachild)
 	return clothes
 }

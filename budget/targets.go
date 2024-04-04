@@ -33,6 +33,8 @@ var cats = map[string]string{
 	"ext":   "extracurricular",
 	"enter": "entertainment",
 	"rec":   "recreation",
+	"tax":   "tax",
+	"fee":   "fees",
 }
 
 func generateTargetStruct(targets_slice *[]Targets) {
@@ -53,4 +55,7 @@ func generateTargetStruct(targets_slice *[]Targets) {
 	*targets_slice = append(*targets_slice, healthTargets()...)
 	*targets_slice = append(*targets_slice, incomeTargets()...)
 	*targets_slice = append(*targets_slice, bankTATargets()...)
+	*targets_slice = append(*targets_slice, entertainmentTargets()...)
+	*targets_slice = append(*targets_slice, taxTargets()...)
+	*targets_slice = append(*targets_slice, feesTargets()...)
 }

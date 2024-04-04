@@ -71,8 +71,18 @@ func groceryTargets() []Targets {
 	target.Cat = []string{cats["vari"], cats["nes"]}
 	target.Variant = []string{"target"}
 
+	var belair Targets
+	belair.Name = "bel air"
+	belair.Cat = []string{cats["vari"], cats["nes"]}
+	belair.Variant = []string{"bel air"}
+
+	var outback Targets
+	outback.Name = "outback"
+	outback.Cat = []string{cats["vari"], cats["nes"]}
+	outback.Variant = []string{"outback"}
+
 	var grocery = []Targets{}
-	grocery = append(grocery, butcherbox, smile, safeway, sprouts, costco, kp_intl, walmart, raley, grocery_outlet, lucky, hankook, walgreens, bathnbody, target)
+	grocery = append(grocery, butcherbox, smile, safeway, sprouts, costco, kp_intl, walmart, raley, grocery_outlet, lucky, hankook, walgreens, bathnbody, target, belair, outback)
 
 	return grocery
 }

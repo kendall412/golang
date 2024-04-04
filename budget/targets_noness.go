@@ -46,7 +46,12 @@ func nonessTargets() []Targets {
 	autozone.Cat = []string{cats["nes"]}
 	autozone.Variant = []string{"autozone"}
 
+	var groupon Targets
+	groupon.Name = "groupon"
+	groupon.Cat = []string{cats["nes"]}
+	groupon.Variant = []string{"groupon"}
+
 	var noness = []Targets{}
-	noness = append(noness, cyclegear, a_and_s, blackrock, pipes_n_cigars, mission_pipe_shop, amazon, ebay, quickquack, autozone)
+	noness = append(noness, cyclegear, a_and_s, blackrock, pipes_n_cigars, mission_pipe_shop, amazon, ebay, quickquack, autozone, groupon)
 	return noness
 }

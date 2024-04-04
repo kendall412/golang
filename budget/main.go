@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-var VER string = "0.1j"
+var VER string = "0.1"
 var EXIT_CODE_SUCCESS = 0
 var EXIT_CODE_ERROR = 1
 

@@ -71,6 +71,11 @@ func eatOutTargets() []Targets {
 	asianpearl.Cat = []string{cats["vari"], cats["eat"]}
 	asianpearl.Variant = []string{"new asian pearl"}
 
+	var quicklys Targets
+	quicklys.Name = "quicklys"
+	quicklys.Cat = []string{cats["vari"], cats["eat"]}
+	quicklys.Variant = []string{"quickly"}
+
 	var leatherbys Targets
 	leatherbys.Name = "leatherby's"
 	leatherbys.Cat = []string{cats["vari"], cats["eat"]}
@@ -86,8 +91,33 @@ func eatOutTargets() []Targets {
 	gangnam.Cat = []string{cats["eat"], cats["vari"]}
 	gangnam.Variant = []string{"gangnam ave"}
 
+	var heatshabu Targets
+	heatshabu.Name = "heat shabu"
+	heatshabu.Cat = []string{cats["eat"], cats["vari"]}
+	heatshabu.Variant = []string{"heat shabu"}
+
+	var rubios Targets
+	rubios.Name = "rubios"
+	rubios.Cat = []string{cats["eat"], cats["vari"]}
+	rubios.Variant = []string{"rubios", "rubio's"}
+
+	var teddyboba Targets
+	teddyboba.Name = "teddy boba"
+	teddyboba.Cat = []string{cats["eat"], cats["vari"]}
+	teddyboba.Variant = []string{"teddy boba"}
+
+	var bennetts Targets
+	bennetts.Name = "bennetts"
+	bennetts.Cat = []string{cats["eat"], cats["vari"]}
+	bennetts.Variant = []string{"bennett's american"}
+
+	var somisomi Targets
+	somisomi.Name = "somisomi"
+	somisomi.Cat = []string{cats["eat"], cats["vari"]}
+	somisomi.Variant = []string{"somisomi"}
+
 	var eatout = []Targets{}
-	eatout = append(eatout, innout, mcdonalds, ramen, subway, brookfields, pho, chipotle, seoulzip, tasty_pot, vons_chicken, paris_baguett, pushkin, osakaya, asianpearl, leatherbys, mikuni, gangnam)
+	eatout = append(eatout, innout, mcdonalds, ramen, subway, brookfields, pho, chipotle, seoulzip, tasty_pot, vons_chicken, paris_baguett, pushkin, osakaya, asianpearl, leatherbys, mikuni, gangnam, heatshabu, quicklys, rubios, teddyboba, bennetts, somisomi)
 
 	return eatout
 }

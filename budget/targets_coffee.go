@@ -14,7 +14,7 @@ func coffeeTargets() []Targets {
 	var peets Targets
 	peets.Name = "peets"
 	peets.Cat = []string{cats["coff"], cats["vari"]}
-	peets.Variant = []string{"peet's"}
+	peets.Variant = []string{"peet's", "peets"}
 
 	var coffee = []Targets{}
 	coffee = append(coffee, starbucks, temple, peets)
