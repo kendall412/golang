@@ -6,10 +6,11 @@ import (
 )
 
 type Targets struct {
-	Name    string
-	Cat     []string // eating_out, grocery, etc
-	Variant []string // {"in-n-out","in n out"}
-	Desc    string
+	Name     string
+	Cat      []string // eatout, grocery, etc.
+	Variant  []string // variation in names e.g. {"in-n-out","in n out"}
+	Spending bool     // if Spending is true (default false) it is a deposit
+	Desc     string
 }
 
 var cats = map[string]string{
@@ -43,14 +44,18 @@ var cats = map[string]string{
 }
 
 /*
-DESC: lists the available categories of spending
+DESC: lists the available categories with its abbreviation of spending.
+PARAM: None
+RETURN: None
 */
 func listCats() {
 	i := 1
 	blue.Println("CATEGORIES:")
 	for abb, cat := range cats {
 		// convert integer to string
-		printInfo(strconv.Itoa(i) + ". " + "[" + abb + "]" + " " + cat)
+		yellow.Printf(strconv.Itoa(i) + ". ")
+		green.Printf("[" + abb + "]" + " ")
+		yellow.Println(cat)
 		i++
 	}
 	fmt.Println()

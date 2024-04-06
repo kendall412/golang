@@ -19,6 +19,11 @@ func main() {
 
 	header := make(map[string]int)
 	generateHeader(display_all, header)
+	if *debug {
+		green.Printf("Header: ")
+		green.Println(header)
+		fmt.Println()
+	}
 
 	// prints categories
 	if *print_cat {
