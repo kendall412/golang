@@ -9,7 +9,7 @@ type Targets struct {
 	Name     string
 	Cat      []string // eatout, grocery, etc.
 	Variant  []string // variation in names e.g. {"in-n-out","in n out"}
-	Spending bool     // if Spending is true (default false) it is a deposit
+	Spending bool     // Spending=true spending, Spending=false deposit. Default is false.
 	Desc     string
 }
 
