@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"slices"
-	"strconv"
 	"strings"
 )
 
@@ -15,21 +15,15 @@ func main() {
 	italic.Printf("BUDGET VER: %s\n\n", VER)
 
 	// flags (pointers)
-	target, csvfile, cattarget, month, debug, alltarget, display_all, view_remaining_spending, print_cat, list_cat := generateFlags()
+	target, csvfile, cattarget, month, debug, alltarget, display_all, view_remaining_spending, print_cat := generateFlags()
 
 	header := make(map[string]int)
 	generateHeader(display_all, header)
 
 	// prints categories
 	if *print_cat {
-		i := 1
-		printInfo("CATEGORIES:")
-		for _, cat := range cats {
-			// convert integer to string
-			printInfo(strconv.Itoa(i) + ". " + cat)
-			i++
-		}
-		fmt.Println()
+		listCats()
+		os.Exit(1)
 	}
 
 	// if month value is none zero it will return month corresponding with the integer
@@ -109,7 +103,7 @@ func main() {
 		}
 	}
 
-	if *list_cat {
-		listCat(targets_slice)
-	}
+	// if *list_cat {
+	// 	listCat(targets_slice)
+	// }
 }

@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"strconv"
+)
+
 type Targets struct {
 	Name    string
 	Cat     []string // eating_out, grocery, etc
@@ -35,6 +40,20 @@ var cats = map[string]string{
 	"rec":  "recreation",
 	"tax":  "tax",
 	"fee":  "fees",
+}
+
+/*
+DESC: lists the available categories of spending
+*/
+func listCats() {
+	i := 1
+	blue.Println("CATEGORIES:")
+	for abb, cat := range cats {
+		// convert integer to string
+		printInfo(strconv.Itoa(i) + ". " + "[" + abb + "]" + " " + cat)
+		i++
+	}
+	fmt.Println()
 }
 
 func generateTargetStruct(targets_slice *[]Targets) {

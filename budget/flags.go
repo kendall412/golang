@@ -2,7 +2,7 @@ package main
 
 import "flag"
 
-func generateFlags() (target *string, csvfile *string, cattarget *string, month *int, debug *bool, alltarget *bool, display_all *bool, view_remaining_spending *bool, print_cat *bool, list_cat *bool) {
+func generateFlags() (target *string, csvfile *string, cattarget *string, month *int, debug *bool, alltarget *bool, display_all *bool, view_remaining_spending *bool, print_cat *bool) {
 	// string flags
 	target = flag.String("t", "", "target <str>: extract individual spending target (e.g. 'in-n-out')")
 
@@ -24,7 +24,7 @@ func generateFlags() (target *string, csvfile *string, cattarget *string, month 
 
 	print_cat = flag.Bool("pct", false, "print_cat <bool>: default False, if True will print out categories available to choose")
 
-	list_cat = flag.Bool("lct", false, "print_cat <bool>: default False, if True it will list Targets struct item.")
+	// list_cat = flag.Bool("lct", false, "print_cat <bool>: default False, if True it will list Targets struct item.")
 
 	flag.Parse()
 	return
