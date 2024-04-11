@@ -30,6 +30,7 @@ func main() {
 	var per2 = Person{
 		Age:    9,
 		People: naami}
+
 	fmt.Println(per1)
 	fmt.Println(per2)
 
