@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+/*
+using pointer of struct in slice
+*/
 type Persons struct {
 	persons       []*Hur
 	family_status string

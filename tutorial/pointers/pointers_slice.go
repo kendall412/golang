@@ -1,5 +1,5 @@
 /*
-How to modify slice with pointer.
+Modify slice by passing slice pointer.
 */
 package main
 
@@ -10,15 +10,18 @@ type Cart struct {
 	Paid bool
 }
 
-var cart = Cart{Id: "2322", Paid: true}
-
-func change(cartptr *Cart) {
+func changeByPointer(cartptr *Cart) {
 	*cartptr = Cart{Id: "9999", Paid: false}
+
+	fmt.Println("change() cartptr: ", cartptr)
+	fmt.Println("change() *cartptr: ", *cartptr)
+	fmt.Println()
 }
 
 func main() {
-	fmt.Println(cart)
-	change(&cart)
-	fmt.Println(cart)
-
+	cart := Cart{Id: "2322", Paid: true}
+	fmt.Println("cart: ", cart)
+	fmt.Println()
+	changeByPointer(&cart)
+	fmt.Println("cart (after change(&cart))", cart)
 }

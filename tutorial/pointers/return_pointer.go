@@ -1,65 +1,38 @@
 package main
 
-import (
-	f "fmt"
-	"strconv"
-)
+import "fmt"
 
-type Person struct {
-	Fname string
-	Age   int
+type person struct {
+	name string
+	age  int
 }
 
-type Hur struct {
-	person   Person
-	Lname    string
-	Position string
+func initPerson() *person {
+	m := person{name: "noname", age: 50}
+	return &m
 }
 
-func (h Hur) create() *string {
-	// converts int to string
-	age := strconv.Itoa(h.person.Age)
-	msg := "Hello " + h.person.Fname + ". You are " + age + " and your last name is " + h.Lname + " and you are " + h.Position + " to Danny."
-	return &msg
+func changeName(name *string) {
+	*name = "March"
 }
 
-func (h *Hur) changeVal(nfname string, nlname string, nposition string, nage int) {
-	h.Lname = nlname
-	h.Position = nposition
-	h.person.Fname = nfname
-	h.person.Age = nage
+func changeName2(name string) *string {
+	name = "March"
+	fmt.Println("memory location of : ", &name)
+	return &name
 }
 
 func main() {
-	hur := &Hur{
-		person: Person{
-			Fname: "Shinoo",
-			Age:   10,
-		},
-		Lname:    "Hur",
-		Position: "son",
-	}
+	// passing pointer
+	x := "Danny"
+	fmt.Println(x)
+	changeName(&x)
+	fmt.Println(x)
 
-	f.Println(*hur)
-
-	// // use the return value directly from method invocation
-	// f.Println("Directly calling method *hur.create()")
-	// f.Println(*hur.create())
-
-	// // use short hand variable declaration
-	// f.Println("Short hand var declaration msg := hur.create()")
-	// msg := hur.create()
-	// f.Println(msg)
-
-	// use long hand variable declaration
-	f.Println("::: Long hand var declaration var msg1 *string :::")
-	var msg1 *string
-	msg1 = hur.create()
-	f.Println(*msg1)
-
-	hur.changeVal("Naami", "Hur", "daughter", 8)
-	msg1 = hur.create()
-	f.Println(*msg1)
-
-	f.Println(*hur)
+	// returning pointer
+	y := "Danny"
+	fmt.Println("memory location of y: ", &y)
+	changeName2(y)
+	fmt.Println(y)
+	fmt.Println("memory location of y: ", &y)
 }
