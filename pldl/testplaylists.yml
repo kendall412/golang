@@ -1,0 +1,14 @@
+---
+kids:
+
+- name: testplaylist1
+  location: test1
+  playlist: watch?v=Kl9qQpGIZVw
+
+- name: testplaylist2
+  location: test2
+  playlist: watch?v=lXqNiVJJ2s8
+
+- name: testplaylist3
+  location: test3
+  playlist: watch?v=Vs64cZbeY88
