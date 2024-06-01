@@ -11,10 +11,16 @@ import (
 var wg sync.WaitGroup
 var VER string = "1.0.4e"
 
+// type Kid struct {
+// 	Name     string `json:"name"`
+// 	Location string `json:"location"`
+// 	Playlist string `json:"playlist"`
+// }
+
 type Kid struct {
-	Name     string `json:"name"`
-	Location string `json:"location"`
-	Playlist string `json:"playlist"`
+	Name     string `yaml:"name"`
+	Location string `yaml:"location"`
+	Playlist string `yaml:"playlist"`
 }
 
 type Kids struct {
@@ -23,9 +29,9 @@ type Kids struct {
 
 func genPlaylistPath(debug bool) string {
 	if debug {
-		return "./testplaylists.json"
+		return "./testplaylists.yml"
 	} else {
-		return "./playlists.json"
+		return "./playlists.yml"
 	}
 }
 
@@ -42,11 +48,14 @@ func main() {
 
 	flag.Parse()
 
-	jsonConfigFile := genPlaylistPath(*debug)
-	fmt.Println("jsonConfigFile: " + jsonConfigFile)
+	// jsonConfigFile := genPlaylistPath(*debug)
+	yamlConfigFile := genPlaylistPath(*debug)
+	// fmt.Println("jsonConfigFile: " + jsonConfigFile)
+	fmt.Println("yamlConfigFile: " + yamlConfigFile)
 
 	var kids_ Kids
-	kids := kids_.openJsonStruct(jsonConfigFile)
+	// kids := kids_.openJsonStruct(jsonConfigFile)
+	kids := kids_.openYamlStruct(yamlConfigFile)
 
 	if *display {
 		fmt.Println("length of JSON: ", len(kids.Kids))
