@@ -1,6 +1,7 @@
 package main
 
 import (
+	// abbreviating import module names
 	f "fmt"
 )
 
@@ -15,6 +16,7 @@ type Hur struct {
 	Position string
 }
 
+// pointer struct
 func (p *Person) changePerson(fname string, age int) {
 	p.Fname = fname
 	p.Age = age
