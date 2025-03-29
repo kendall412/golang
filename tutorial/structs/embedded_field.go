@@ -11,6 +11,7 @@ https://kevin-yang.medium.com/golang-embedded-structs-b9d20aadea84
 package main
 
 import (
+	// alias
 	f "fmt"
 )
 
