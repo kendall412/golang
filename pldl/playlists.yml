@@ -9,6 +9,10 @@ kids:
   location: SHINOO
   playlist: playlist?list=PLhGL5JwvKzCWavfwrvdEYOm-28YEUhNPA&si=knBxoCfgisb-PE9d
 
+- name: slep
+  location: SLEP
+  playlist: playlist?list=PLhGL5JwvKzCW3pbK8Aw5twKtYQtFgqxpn
+
 - name: wonoo
   location: WONOO
   playlist: playlist?list=PLhGL5JwvKzCX7kzYOhAgVgyTJMrga224h&si=aUw4EyGbsY_2BUbf
