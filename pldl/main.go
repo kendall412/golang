@@ -9,7 +9,7 @@ import (
 )
 
 var wg sync.WaitGroup
-var VER string = "1.0.4e"
+var VER string = "1.0.4f"
 
 // type Kid struct {
 // 	Name     string `json:"name"`
@@ -107,6 +107,10 @@ func initiateDL(location, playlist string, display bool, erase bool) {
 func dl(dest string, url string, display bool) {
 	cmd := "yt-dlp"
 	opt := []string{
+		"--cookies-from-browser",
+		"chrome",
+		"--cookies",
+		"cookies.txt",
 		"-x",
 		"--audio-format",
 		"mp3",
@@ -116,9 +120,14 @@ func dl(dest string, url string, display bool) {
 	if display {
 		fmt.Println(cmd, opt)
 	}
-	_, err := exec.Command(cmd, opt...).Output()
+	/*
+		exec.Command() take strings
+		e.g. cmd := exec.Command("tr", "a-z", "A-Z")
+		you can also use Variadic function (...)
+	*/
+	_, err := exec.Command(cmd, opt...).CombinedOutput()
 
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println(err, ": Something went wrong with exec.Command() arguments.")
 	}
 }
